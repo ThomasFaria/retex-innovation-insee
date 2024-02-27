@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.27)  27 FEB 2024 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.2.27)  27 FEB 2024 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -516,12 +516,13 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
 \l__pdf_internal_box=\box100
 )
-No file authorsample.aux.
+(./public/authorsample.aux)
 \openout1 = `authorsample.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 38.
 LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line
  38.
+
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
@@ -661,59 +662,66 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 4.67502pt on input line 53.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 59.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 59.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-59.
+(Font)              scaled to size 10.0pt on input line 57.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 59.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.0pt on input line 59.
 
-(/usr/share/texlive/texmf-dist/tex/latex/newtx/t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
+(./sections/1-context.tex
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 11.0pt on input line 1.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 11.0pt on input line 1.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
+e 3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 59.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 3.
+ [1
 
-Overfull \hbox (6.62218pt too wide) in paragraph at lines 59--59
-\T1/ntxtlf/m/n/10 that sum-ma-rizes the con-tent. The ab-stract will ap-pear \T
-1/ntxtlf/m/it/10 on-line \T1/ntxtlf/m/n/10 at www.SpringerLink.com
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/2-implementat
+ion.tex [2]
+Overfull \hbox (14.88008pt too wide) in paragraph at lines 39--40
+[]\T1/ntxtlf/m/n/10 Déploiement API avec fastAPI $\LMS/ntxsy/m/n/10 !$ \T1/ntxt
+lf/m/n/10 con-teneuri-sa-tion (lib-erté vis à vis de l'informatique) 
  []
 
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 61.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 61.
-(./references.tex [1
+) (./sections/3-discussion.tex [3]
+Overfull \hbox (31.78217pt too wide) in paragraph at lines 13--14
+[]\T1/ntxtlf/m/n/10 Cout d'entrée im-por-tant pour l'organisation : stock-age o
+b-jet, clus-ter kube/conteneurisation 
+ []
 
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+) (./references.tex [4]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.5pt on input line 31.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 43.
-)
-[2] (./public/authorsample.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) [5] (./public/authorsample.aux) ) 
 Here is how much of TeX's memory you used:
- 8649 strings out of 480247
- 123107 string characters out of 5896151
- 416331 words of memory out of 5000000
- 26446 multiletter control sequences out of 15000+600000
- 524295 words of font info for 89 fonts, out of 8000000 for 9000
+ 8672 strings out of 480247
+ 123713 string characters out of 5896151
+ 419397 words of memory out of 5000000
+ 26455 multiletter control sequences out of 15000+600000
+ 527736 words of font info for 92 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,76p,438b,307s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/sha
-re/texlive/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/newtx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (2 pages, 108979 bytes).
+ 69i,6n,76p,415b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvi
+ps/newtx/ntx-ec-tlf.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</
+usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/newtx/ztmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/new
+tx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ./public/authorsample.pdf (5 pages, 126171 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 47 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
