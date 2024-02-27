@@ -1,0 +1,47 @@
+\subsection{Onyxia}
+
+Axe : mise à dispo des technos cloud $\rightarrow$ favoriser l'autonomie.
+\begin{itemize}
+    \item Convergence des choix d'archi. Mais suffisant pour garantir l'autonomie : non $\rightarrow$ les outils de l'éco-système s'adressent plutôt à des informaticiens (ex : difficulté de configurer Spark sur du stockage objet en mode kube)
+    \item Eco système découplé, mais exigeant $\rightarrow$ compétences diverses.
+    \item Enjeu : faciliter l'acces aux ressources cloud pour les statisticiens (qui doit déjà s'acculturer à la reproductibilité $\rightarrow$ convergence avec les outils des développeurs) $\rightarrow$ double décalage qui demande une assistance
+    \item IHM Onyxia comme liant technique
+\end{itemize}
+
+Axe : principes
+\begin{itemize}
+    \item production-ready : outils d'automatisation (-> autonomie)
+    \item no vendor-lockin (enfermement de la structure $\rightarrow$ coût (licences) et des pratiques $\rightarrow$ fige les compétences)
+    \item cloud-native : onyxia n'est pas le choix fondamental, le parti pris est sur le choix sous-jacent : conteneurisation + stockage objet
+\end{itemize}
+
+\subsection{SSP Cloud}
+
+\begin{itemize}
+    \item Orientation plateforme : instance vivante d'Onyxia, ouverte, collaborative, sandbox (cf. ref papier SSP Cloud sur l'aspect plateforme)
+    \item Innovation ouverte $\rightarrow$ littérature
+    \item Open-data
+    \item Instance de partage : formations reproductibles + utilisation dans les écoles de stats + hackathons (organisation annuelle du funathon cf. one-stop-shop)
+    \item A catalog of services which covers the entire lifecycle of a data science project
+    \item Acculturation aux bonnes pratiques par l'usage
+\end{itemize}
+
+\subsection{Application : MLOps APE}
+
+\begin{itemize}
+    \item Illustration de la diversité des taches nécessaires dans un projet de ML et modularité indispensable de l'infra utilisée (reprendre infra BD trop spécifique et onyxia cool)
+    \item Possible car équipe au pied du mur $\rightarrow$ Innovation possible mais pas voulu
+    \item Notebook avec méthode de data science classique
+    \item Avantages données ouvertes $\rightarrow$ utilisation ssp cloud possible
+    \item Parler des problèmes liés à ce type de développement $\rightarrow$ MLOps pour les résoudre (model versionning, logging parameters)
+    \item Logiciel qui permet de suivre cette approche = MLflow et c'est dispo sur ssp cloud
+    \item Distribution des entrainements : scaling horizontal (argo workflow)
+    \item Déploiement API avec fastAPI $\rightarrow$ conteneurisation (liberté vis à vis de l'informatique)
+    \item Automatisation des processus avec argoCD pour déploiement API et dashboard de monitoring
+    \item Environnement dev et production très proche $\rightarrow$ passage en prod facilité
+    \begin{itemize}
+        \item Transmission d'une image
+        \item Transmission d'une API
+    \end{itemize}
+    \item Monitoring indispensable
+\end{itemize}
