@@ -2,7 +2,7 @@ name: Publish PDF
 
 on:
   push:
-    branches: [test]
+    branches: [main]
 
 jobs:
   deploy:
@@ -18,8 +18,9 @@ jobs:
         sudo apt-get install -y texlive 
         sudo apt-get install -y texlive-fonts-extra 
 
-    - name: Compile LaTeX file
+    - name: Compile LaTeX file (twice)
       run: |  
+        pdflatex -output-directory=./public ./authorsample.tex
         pdflatex -output-directory=./public ./authorsample.tex
 
     - name: Publish PDF to GitHub Pages
