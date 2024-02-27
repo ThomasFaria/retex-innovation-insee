@@ -1,0 +1,35 @@
+\subsection{Objectif}
+\begin{itemize}
+    \item Traitement de la donnée au sens large : innovation en statistique publique $\rightarrow$ ML, big data, confidentialité~...
+    \item ESS Net Big Data I et II
+\end{itemize}
+
+\subsection{Freins à l'innovation}
+\begin{itemize}
+    \item Thème général : donner de l'autonomie
+    \item Limites du poste de travail : littérature sur scaling horizontal / vertical
+    \item Observation commune aux différents INS :
+    \begin{itemize}
+        \item Insee / SSM : homogénéité des parcours, pourtant grande diversité d'infra, de moyens DSI $\rightarrow$ difficulté à partager des environnements, des formations $\rightarrow$ idée de fournir une ``sandbox'', un commun technologique (2020) [NB : dans la continuité, sandbox à l'échelle européenne via le one-stop-shop (2024)]
+        \item Visions/incitations différentes DSI/statisticien $\rightarrow$ sécurité avant le fonctionnel
+    \end{itemize}
+    \item Inspirations : DevOps, DataOps
+\end{itemize}
+
+\subsection{Innovation technologique}
+Observation : convergence d'éco-sytèmes.
+
+Axe : big data is dead $\rightarrow$ architecture découplage.
+\begin{itemize}
+    \item Transition éco big data $\rightarrow$ éco découplage : co-localisation plus très justifiée
+    \item Stockage objet
+    \item Infra BD tradi très spécialisées (calcul distribué). Aujourd'hui avec ML etc cas d'usages bcp plus diversifiés $\rightarrow$ outils d'automatisation, MLOPS, GPUs
+    \item Insee : déjà culture fichier SAS + volumétries limitées $\rightarrow$ sauté l'étape BDD (cf. big data is dead)
+\end{itemize}
+
+Axe : conteneurisation comme moyen d'autonomisation.
+\begin{itemize}
+    \item Conteneurisation = light virtualization vs. VM
+    \item Tendance DevOps $\rightarrow$ DataOps, MLOps
+    \item Reproductibilité des traitements
+\end{itemize}

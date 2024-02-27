@@ -1,0 +1,35 @@
+\subsection{Future}
+
+\begin{itemize}
+    \item Onyxia, un bien commun opensource largement réutilisé (Insee, SSB) $\rightarrow$ faciliter les contributions pour la postérité du projet open-source, qui dépasse l'Insee
+    \item One-stop-shop : SSP Cloud comme plateforme de référence pour les projets de ML $\rightarrow$ croissance de l'offre de formation (+ traduction)
+    \item Accompagner les réinstanciations (datafid, POCs dans le secteur privé)
+    \item Multiplication des projets qui passent en prod (applications de dataviz, modèles de ML avec MLOps, webscraping : Jocas/WINs)
+\end{itemize}
+
+\subsection{Discussion}
+
+\begin{itemize}
+    \item Cout d'entrée important pour l'organisation : stockage objet, cluster kube/conteneurisation
+    \begin{itemize}
+        \item Choix fondamental d'archi $\rightarrow$ limite à la diffusion d'onyxia
+        \item Assumer le choix : compétences, organisation~...
+        \item Mais globalement : tendance favorable car beaucoup d'orga et INS font ce choix
+    \end{itemize}
+    \item Cout d'entrée important pour le statisticien :
+    \begin{itemize}
+        \item Non-persistence de l'environnement $\rightarrow$ git + stockage objet
+        \item Travail dans un conteneur $\rightarrow$ perte de repères sur l'environnement
+        \item Mais formation : bonnes pratiques + écoles de formation Insee + accompagnements
+    \end{itemize}
+    \item SSP Cloud :
+    \begin{itemize}
+        \item Instance ouverte $\rightarrow$ absence de données sensibles $\rightarrow$ grosse limitation des cas d'usage réalisables + frustrations $\rightarrow$ en résumé, difficile de maximiser à la fois innovation et sécurité (pb sur-contraint)
+        \item $\rightarrow$ résolution via le choix de l'innovation max car sujet des échanges inter-administration de données complexe + le SSP Cloud a pavé la voie à des instances internes, plus fermées $\rightarrow$ stratégie assumée "platform-as-a-package" : projet open-source packagé $\rightarrow$ facilité ++ de réinstanciation
+        \item Pas une plateforme de diffusion de données $\rightarrow$ pas de stratégie globale de gouvernance $\rightarrow$ le sujet de la méta-donnée n'est pas abordé.
+    \end{itemize}
+    \item Gouvernance :
+    \begin{itemize}
+        \item Quelle organisation ? Equipe DS centralisée qui vient en appui ou data scientists dans les orgas métiers ? Collaboration avec les équipes infos ? (cf. graphique orga/compétences de Romain)
+    \end{itemize}
+\end{itemize}

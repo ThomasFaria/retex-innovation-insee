@@ -1,0 +1,30 @@
+name: Publish PDF
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install TexLive
+      run: |
+        sudo apt update 
+        sudo apt-get install -y texlive 
+        sudo apt-get install -y texlive-fonts-extra 
+
+    - name: Compile LaTeX file (twice)
+      run: |  
+        pdflatex -output-directory=./public ./authorsample.tex
+        pdflatex -output-directory=./public ./authorsample.tex
+
+    - name: Publish PDF to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
