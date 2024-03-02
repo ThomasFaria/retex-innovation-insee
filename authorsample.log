@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.2)  2 MAR 2024 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.2)  2 MAR 2024 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -668,7 +668,15 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 12.0pt on input line 59.
 
-(./sections/1-introduction.tex) (./sections/2-context.tex
+(./sections/1-introduction.tex
+
+LaTeX Warning: Citation `scheveningen2013' on page 1 undefined on input line 5.
+
+
+
+LaTeX Warning: Citation `bucharest2018' on page 1 undefined on input line 7.
+
+) (./sections/2-context.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 11.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -699,34 +707,27 @@ Overfull \hbox (31.78217pt too wide) in paragraph at lines 13--14
 b-jet, clus-ter kube/conteneurisation 
  []
 
-[4]) (./references.tex
-Underfull \hbox (badness 10000) in paragraph at lines 15--17
-\T1/ntxtlf/m/n/8.5 https://ec.europa.eu/eurostat/documents/13019146/13237859/Sc
-heveningen-memorandum-
- []
+[4])
+No file authorsample.bbl.
+[5] (./public/authorsample.aux)
 
+LaTeX Warning: There were undefined references.
 
-Overfull \hbox (182.16167pt too wide) in paragraph at lines 18--20
-\T1/ntxtlf/m/n/8.5 https://ec.europa.eu/eurostat/documents/13019146/13237859/Th
-e+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.pdf/7a8f6a8f-
- []
-
-) [5] (./public/authorsample.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 8670 strings out of 480247
- 123832 string characters out of 5896152
- 420367 words of memory out of 5000000
- 26448 multiletter control sequences out of 15000+600000
+ 8665 strings out of 480247
+ 123745 string characters out of 5896152
+ 420361 words of memory out of 5000000
+ 26445 multiletter control sequences out of 15000+600000
  522142 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,76p,415b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q
--ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</
-usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/newtx/ztmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/new
-tx/ztmr.pfb>
-Output written on ./public/authorsample.pdf (5 pages, 97677 bytes).
+ 69i,6n,76p,466b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/share/texmf/fonts/type1/publi
+c/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txs
+ys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
+Output written on ./public/authorsample.pdf (5 pages, 97119 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
