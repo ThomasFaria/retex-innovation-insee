@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.2)  2 MAR 2024 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.3)  3 MAR 2024 12:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -670,11 +670,28 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 
 (./sections/1-introduction.tex
 
-LaTeX Warning: Citation `scheveningen2013' on page 1 undefined on input line 5.
+LaTeX Warning: Citation `ricciato2019trusted' on page 1 undefined on input line
+ 1.
+
+
+LaTeX Warning: Citation `gjaltema2022high' on page 1 undefined on input line 1.
 
 
 
-LaTeX Warning: Citation `bucharest2018' on page 1 undefined on input line 7.
+LaTeX Warning: Citation `bucharest2018' on page 1 undefined on input line 1.
+
+[1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `liu2013computing' on page 2 undefined on input line 5.
+
+
+
+LaTeX Warning: Citation `saiyeda2017cloud' on page 2 undefined on input line 5.
+
 
 ) (./sections/2-context.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -689,25 +706,20 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 3.
- [1
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]) (./sections/3-implementat
-ion.tex [2])
-(./sections/4-case-study.tex
+ [2])
+(./sections/3-implementation.tex [3]) (./sections/4-case-study.tex
 Overfull \hbox (14.88008pt too wide) in paragraph at lines 9--10
 []\T1/ntxtlf/m/n/10 Déploiement API avec fastAPI $\LMS/ntxsy/m/n/10 !$ \T1/ntxt
 lf/m/n/10 con-teneuri-sa-tion (lib-erté vis à vis de l'informatique) 
  []
 
-[3]) (./sections/5-discussion.tex
+) (./sections/5-discussion.tex [4]
 Overfull \hbox (31.78217pt too wide) in paragraph at lines 13--14
 []\T1/ntxtlf/m/n/10 Cout d'entrée im-por-tant pour l'organisation : stock-age o
 b-jet, clus-ter kube/conteneurisation 
  []
 
-[4])
+)
 No file authorsample.bbl.
 [5] (./public/authorsample.aux)
 
@@ -717,17 +729,17 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  8665 strings out of 480247
  123745 string characters out of 5896152
- 420361 words of memory out of 5000000
+ 419361 words of memory out of 5000000
  26445 multiletter control sequences out of 15000+600000
  522142 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,76p,466b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,7n,76p,1413b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texm
 f-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/share/texmf/fonts/type1/publi
 c/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txs
 ys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
-Output written on ./public/authorsample.pdf (5 pages, 97119 bytes).
+Output written on ./public/authorsample.pdf (5 pages, 99269 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
