@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+
+\bibitem{ashofteh2021data}
+Afshin Ashofteh and Jorge~M Bravo.
+\newblock Data science training for official statistics: A new scientific
+  paradigm of information and knowledge development in national statistical
+  systems.
+\newblock {\em Statistical Journal of the IAOS}, 37(3):771--789, 2021.
+
+\bibitem{davenport2012data}
+Thomas~H Davenport and DJ~Patil.
+\newblock Data scientist.
+\newblock {\em Harvard business review}, 90(5):70--76, 2012.
+
+\bibitem{descy2019towards}
+Pascaline Descy, Vladimir Kvetan, Albrecht Wirthmann, and Fernando Reis.
+\newblock Towards a shared infrastructure for online job advertisement data.
+\newblock {\em Statistical Journal of the IAOS}, 35(4):669--675, 2019.
+
+\bibitem{bucharest2018}
+{DGINS}.
+\newblock Bucharest memorandum on official statistics in a datafied society.
+\newblock
+  \url{https://ec.europa.eu/eurostat/documents/13019146/13237859/\\The+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.pdf/7a8f6a8f-9805-e77c-a409-eb55a2b36bce?t=1634144384767},
+  2018.
+
+\bibitem{essnetbigdata2}
+{EUROSTAT}.
+\newblock Essnet big data 2 - final technical report.
+\newblock
+  \url{https://wayback.archive-it.org/12090/20221110013641/https://ec.europa.eu/eurostat/cros/system/files/\\wpa\_deliverable\_a5\_final\_technical\_report\_2021\_06\_29.pdf},
+  2021.
+
+\bibitem{gjaltema2022high}
+Taeke Gjaltema.
+\newblock High-level group for the modernisation of official statistics
+  (hlg-mos) of the united nations economic commission for europe.
+\newblock {\em Statistical Journal of the IAOS}, 38(3):917--922, 2022.
+
+\bibitem{kowarik2022quality}
+Alexander Kowarik and Magdalena Six.
+\newblock Quality guidelines for the acquisition and usage of big data with
+  additional insights on web data.
+\newblock In {\em 4th International Conference on Advanced Research Methods and
+  Analytics (CARMA 2022)}, pages 269--269. Editorial Universitat
+  Polit{\`e}cnica de Val{\`e}ncia, 2022.
+
+\bibitem{liu2013computing}
+Ling Liu.
+\newblock Computing infrastructure for big data processing.
+\newblock {\em Frontiers of Computer Science}, 7:165--170, 2013.
+
+\bibitem{ricciato2018processing}
+Fabio Ricciato, Freddy De~Meersman, Albrecht Wirthmann, Gerdy Seynaeve, and
+  Michail Skaliotis.
+\newblock Processing of mobile network operator data for official statistics:
+  the case for public-private partnerships.
+\newblock In {\em 104th DGINS conference}, 2018.
+
+\bibitem{ricciato2019trusted}
+Fabio Ricciato, Albrecht Wirthmann, Konstantinos Giannakouris, Michail
+  Skaliotis, et~al.
+\newblock Trusted smart statistics: Motivations and principles.
+\newblock {\em Statistical Journal of the IAOS}, 35(4):589--603, 2019.
+
+\bibitem{saiyeda2017cloud}
+Anam Saiyeda and Mansoor~Ahmad Mir.
+\newblock Cloud computing for deep learning analytics: A survey of current
+  trends and challenges.
+\newblock {\em International Journal of Advanced Research in Computer Science},
+  8(2), 2017.
+
+\bibitem{salgado2020mobile}
+David Salgado, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and milena
+  suarez castillo.
+\newblock A proposed production framework with mobile network data.
+\newblock 11 2020.
+
+\end{thebibliography}
