@@ -18,8 +18,9 @@ jobs:
         sudo apt-get install -y texlive 
         sudo apt-get install -y texlive-fonts-extra 
 
-    - name: Compile LaTeX file (twice)
+    - name: Compile LaTeX file (three times)
       run: |  
+        pdflatex -output-directory=./public ./authorsample.tex
         pdflatex -output-directory=./public ./authorsample.tex
         pdflatex -output-directory=./public ./authorsample.tex
 
