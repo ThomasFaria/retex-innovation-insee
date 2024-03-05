@@ -12,6 +12,11 @@ Thomas~H Davenport and DJ~Patil.
 \newblock Data scientist.
 \newblock {\em Harvard business review}, 90(5):70--76, 2012.
 
+\bibitem{dean2008mapreduce}
+Jeffrey Dean and Sanjay Ghemawat.
+\newblock Mapreduce: simplified data processing on large clusters.
+\newblock {\em Communications of the ACM}, 51(1):107--113, 2008.
+
 \bibitem{descy2019towards}
 Pascaline Descy, Vladimir Kvetan, Albrecht Wirthmann, and Fernando Reis.
 \newblock Towards a shared infrastructure for online job advertisement data.
@@ -24,12 +29,24 @@ Pascaline Descy, Vladimir Kvetan, Albrecht Wirthmann, and Fernando Reis.
   \url{https://ec.europa.eu/eurostat/documents/13019146/13237859/\\The+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.pdf/7a8f6a8f-9805-e77c-a409-eb55a2b36bce?t=1634144384767},
   2018.
 
+\bibitem{dhyani2014big}
+Bijesh Dhyani and Anurag Barthwal.
+\newblock Big data analytics using hadoop.
+\newblock {\em International Journal of Computer Applications},
+  108(12):0975--8887, 2014.
+
 \bibitem{essnetbigdata2}
 {EUROSTAT}.
 \newblock Essnet big data 2 - final technical report.
 \newblock
   \url{https://wayback.archive-it.org/12090/20221110013641/https://ec.europa.eu/eurostat/cros/system/files/\\wpa\_deliverable\_a5\_final\_technical\_report\_2021\_06\_29.pdf},
   2021.
+
+\bibitem{ghemawat2003google}
+Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung.
+\newblock The google file system.
+\newblock In {\em Proceedings of the nineteenth ACM symposium on Operating
+  systems principles}, pages 29--43, 2003.
 
 \bibitem{gjaltema2022high}
 Taeke Gjaltema.
@@ -44,6 +61,12 @@ Alexander Kowarik and Magdalena Six.
 \newblock In {\em 4th International Conference on Advanced Research Methods and
   Analytics (CARMA 2022)}, pages 269--269. Editorial Universitat
   Polit{\`e}cnica de Val{\`e}ncia, 2022.
+
+\bibitem{leclair2019utiliser}
+Marie Leclair et~al.
+\newblock Utiliser les donn{\'e}es de caisses pour le calcul de l’indice des
+  prix {\`a} la consommation.
+\newblock {\em Courrier des statistiques}, 3:61--75, 2019.
 
 \bibitem{liu2013computing}
 Ling Liu.
