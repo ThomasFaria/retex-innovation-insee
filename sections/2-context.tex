@@ -11,6 +11,22 @@
 \end{itemize}
 
 \subsection{Innovation technologique}
+
+Bearing in mind these limitations, our objective was to develop a data platform empowering statisticians with greater freedom for innovation. To achieve this, we delved into the evolving data ecosystem, identifying two significant trends with the potential to overcome the aforementioned limitations. The first trend signals a move away from big data architectures towards more modular, decoupled structures. The second trend highlights containerization technology as a means to enhance the autonomy of statisticians.
+
+Over the last decade, the landscape of big data has dramatically transformed. Following the publication of Google's seminal papers that introduced the MapReduce paradigm \cite{ghemawat2003google, dean2008mapreduce}, Hadoop-based systems rapidly became the reference architecture of the big data ecosystem, celebrated for their capability to manage extensive datasets through the use of distributed computing. The inception of Hadoop marked a revolutionary step, enabling organizations to process and analyze data at an unprecedented scale. Basically, Hadoop provided companies with all-rounded capabilities for big data analytics : tools for ingestion, data storage (HDFS), and computing capacities (Spark) \cite{dhyani2014big}, thus explaining its rapid adoption across industries. At Insee, for example, this technology was used in actual production setting to improve the computation of the Consumer Price Index using scanner data \cite{leclair2019utiliser}.
+
+In the late 2010's, Hadoop-based architectures have experienced a clear decline in popularity as the industry shifted toward more flexible, decoupled architectures \footnote{A trend that was recently summarized by Jordan Tigani, former founding engineer on Google BigQuery, in a popular article with the provocative name "Big Data is Dead" (https://motherduck.com/blog/big-data-is-dead/)}. In traditional Hadoop environments, where storage and compute were co-localized by design, scaling often meant a linear increase in both compute and storage, regardless of the actual demand. This insight aligns with our experiences at Insee, where the technology, despite its initial promise, was found to be costly, hard to maintain and globally not well adapted to the data volume and the applications commonly found in official statistics, leading to a preference for more agile architectures in subsequent projects.
+
+The advent of cloud technologies has been instrumental in facilitating this shift. Containerization, in particular, encapsulates applications in self-contained environments, ensuring consistency across development, testing, and production. This technology, coupled with orchestrators like Kubernetes, allows for dynamic resource allocation and scaling, reflecting the real-time demands of data processing tasks. Object storage further complements this architecture, offering highly scalable, durable, and cost-effective solutions for data storage that traditional file systems struggle to match. 
+
+The rise of containerization also highlights a broader trend toward greater autonomy and agility in software development and deployment, as advocated by the DevOps approach. By abstracting the application from the underlying infrastructure, developers gain the freedom to innovate and iterate rapidly, without being bogged down by environment inconsistencies or deployment complexities. 
+
+
+
+
+
+
 Observation : convergence d'éco-sytèmes.
 
 Axe : big data is dead $\rightarrow$ architecture découplage.
