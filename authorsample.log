@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.4)  4 MAR 2024 15:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.5)  5 MAR 2024 15:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -686,22 +686,17 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 3.
  [2])
-(./sections/3-implementation.tex [3]) (./sections/4-case-study.tex
-Overfull \hbox (14.88008pt too wide) in paragraph at lines 9--10
-[]\T1/ntxtlf/m/n/10 Déploiement API avec fastAPI $\LMS/ntxsy/m/n/10 !$ \T1/ntxt
-lf/m/n/10 con-teneuri-sa-tion (lib-erté vis à vis de l'informatique) 
- []
-
-[4]) (./sections/5-discussion.tex
+(./sections/3-implementation.tex [3]) (./sections/4-case-study.tex [4] [5])
+(./sections/5-discussion.tex [6]
 Overfull \hbox (31.78217pt too wide) in paragraph at lines 13--14
 []\T1/ntxtlf/m/n/10 Cout d'entrée im-por-tant pour l'organisation : stock-age o
 b-jet, clus-ter kube/conteneurisation 
  []
 
-[5]) (./public/authorsample.bbl
+) (./public/authorsample.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
-
+ [7]
 Underfull \hbox (badness 4454) in paragraph at lines 21--26
 []\T1/ntxtlf/m/n/8.5 DGINS.  Bucharest mem-o-ran-dum on of-fi-cial statis-tics 
 in a datafied so-ci-ety.
@@ -719,25 +714,25 @@ Underfull \hbox (badness 1057) in paragraph at lines 28--33
 .  https://wayback.archive-
  []
 
-) [6] (./public/authorsample.aux) ) 
+) [8] (./public/authorsample.aux) ) 
 Here is how much of TeX's memory you used:
  8681 strings out of 480247
  124054 string characters out of 5896152
- 420400 words of memory out of 5000000
+ 419400 words of memory out of 5000000
  26458 multiletter control sequences out of 15000+600000
  524934 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,6n,76p,1407b,315s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,7n,76p,1407b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvi
 ps/newtx/ntx-ec-tlf.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</
 usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/newtx/ztmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/new
 tx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (6 pages, 132088 bytes).
+Output written on ./public/authorsample.pdf (8 pages, 137925 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
