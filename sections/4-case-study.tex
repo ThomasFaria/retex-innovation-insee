@@ -1,17 +1,87 @@
+
+Faire un petit paragraphe pour présenter ce que le chapitre va évoquer. Premiere mise en prod défi et challenges et techniques utilisées. Objectif est d'être le plus concret possible 
+
+\subsection{Introduction et contexte à l'insee au niveau métier}
+
+
+Un petit topo sur le contexte à l'Insee codification faite avec sicore et manuellement très couteuse et pas stimulante
+Possible car équipe au pied du mur $\rightarrow$ Innovation possible mais pas voulue très contrainte en terme de timing
+
+Faire un rappel méthodo de ce qu'on cherche à faire
+
+\subsection{Démarrage du projet comme les projets expérimental et prise en compte des contraintes}
+
+On a un passé avec beaucoup d'expérimentation mais pas vraiment de mise en prod. Un des rares projets où des le début l'enjeu de la mise en production a été prise en compte. concilier problématiques
+informatiques et métiers.
+
+ici on explique quel modèle on a utilisé et pourquoi fasttexte => java etccc
+
+1er question, ou on peut travailler ? 
 \begin{itemize}
-    \item Illustration de la diversité des taches nécessaires dans un projet de ML et modularité indispensable de l'infra utilisée (reprendre infra BD trop spécifique et onyxia cool)
-    \item Possible car équipe au pied du mur $\rightarrow$ Innovation possible mais pas voulu
-    \item Notebook avec méthode de data science classique
-    \item Avantages données ouvertes $\rightarrow$ utilisation ssp cloud possible
-    \item Parler des problèmes liés à ce type de développement $\rightarrow$ MLOps pour les résoudre (model versionning, logging parameters)
-    \item Logiciel qui permet de suivre cette approche = MLflow et c'est dispo sur ssp cloud
-    \item Distribution des entrainements : scaling horizontal (argo workflow)
-    \item Déploiement API avec fastAPI $\rightarrow$ conteneurisation (liberté vis à vis de l'informatique)
-    \item Automatisation des processus avec argoCD pour déploiement API et dashboard de monitoring
-    \item Environnement dev et production très proche $\rightarrow$ passage en prod facilité
-    \begin{itemize}
-        \item Transmission d'une image
-        \item Transmission d'une API
-    \end{itemize}
-    \item Monitoring indispensable
+
+    \item projet ML plusieurs tâches : modularité de l'infra + collaboration (git indispensable, stockage partagé)
+    \item Illustration de la diversité des taches nécessaires dans un projet de ML et modularité indispensable de l'infra utilisée (reprendre infra Big Data trop spécifique et onyxia cool)
+    \item dans notre cas données ouverte donc possibilité d'utiliser le ssp cloud
+    \item Rappeler les contraintes/prérequis que cela impose : utilisation de Git n'est pas aisée et nécessite des formations (mise en place d'un cursus de formateurs pour former à l'Insee), sauvegarde des données sur MinIO et pas en  local car environnement éphémère
 \end{itemize}
+
+2eme question, comment travailler ?
+\begin{itemize}
+    \item Choix de langage de développement : python. Dire débat R et python, Insee est passé à du tout R mais ecosystème ML plutot python. Ne pas opposer les deux, ils sont complémentaire gnagna
+    \item On travaille sur des notebook en local on obtient des bon résultats mais on arrive rarement à les mettre à l'echelle. 
+    \item Rappeler tous les défauts des notebook pour la mise en prod. 
+\end{itemize}
+
+
+rappeler les nouveaux enjeux pour les projets de ML (model versionning, logging parameters) 
+L'utilisation du ssp cloud permet d'accéder à plusieurs logiciels tous interconnectés pour favoriser le developpement de projet de machine learning favorisant une approche MLOps
+Objectif d'appliquer cette approche durant ce projet.
+
+\subsection{MLflow as the cornerstone of the project}
+
+Logiciel qui permet de suivre cette approche = MLflow et c'est dispo sur ssp cloud
+
+\begin{itemize}
+    \item Why Mlflow ?
+    \item Projects
+    \item Models
+    \item Tracking server
+    \item Model registry
+\end{itemize}
+
+\subsection{Embracing the power of Onyxia from training to deployment}
+
+\begin{itemize}
+    \item Distributing trainings with Argo workflows
+    \item Deployment on the kubernetes cluster (freed from DSI) with fastAPI  $\rightarrow$ conteneurisation Docker
+    \item Automatiser les déploiements avec argoCD
+\end{itemize}
+
+Environnement dev et production très proche $\rightarrow$ passage en prod facilité
+\begin{itemize}
+    \item Transmission d'une image
+    \item Transmission d'une API
+\end{itemize}
+
+\subsection{Monitoring of the model}
+
+\begin{itemize}
+    \item Enjeu du monitoring => indispensable
+    \item data drift/ concept drift
+    \item Pour APE : Création d'un dashboard (faire un super graphs qui récap tout)
+    \item encore on utilise les trucs du datalab (argocd pour le déploiement, argoworkflow pour les cronjob quotidien)
+\end{itemize}
+
+\subsection{Annotation en continue}
+
+\begin{itemize}
+    \item Evaluer la performance en créant un fichier test golden standard -> intégré au dashboard
+    \item Amélioration du jeu d'entrainement en corrigeant les erreurs
+    \item passage en NAF2025 très bientôt gros enjeu
+    \item tout ca réalisé sur le datalab avec LabelStudio
+    \item Rappeler les problèmes rencontrés (faire comprendre aux équipes métiers que c'est ultra important pour améliorer la performance, nécessite ressources humaines importantes..)
+\end{itemize}
+
+
+\subsection{Gouvernance d'un projet de ML/ challenges}
+
