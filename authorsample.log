@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.5)  5 MAR 2024 23:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.6)  6 MAR 2024 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,56 +696,59 @@ LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
 (Font)              scaled to size 10.0pt on input line 19.
 LaTeX Font Info:    Font shape `T1/ntxsups/m/n' will be
 (Font)              scaled to size 8.5pt on input line 19.
- [3])
-(./sections/3-implementation.tex [4]) (./sections/4-case-study.tex [5] [6])
-(./sections/5-discussion.tex [7]
+ [3] [4])
+(./sections/3-implementation.tex [5]) (./sections/4-case-study.tex [6] [7])
+(./sections/5-discussion.tex
 Overfull \hbox (31.78217pt too wide) in paragraph at lines 13--14
 []\T1/ntxtlf/m/n/10 Cout d'entrée im-por-tant pour l'organisation : stock-age o
 b-jet, clus-ter kube/conteneurisation 
  []
 
-) (./public/authorsample.bbl
+[8]) (./public/authorsample.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
- [8]
-Underfull \hbox (badness 4454) in paragraph at lines 26--31
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/it' will be
+(Font)              scaled to size 8.5pt on input line 8.
+
+Underfull \hbox (badness 4454) in paragraph at lines 40--45
 []\T1/ntxtlf/m/n/8.5 DGINS.  Bucharest mem-o-ran-dum on of-fi-cial statis-tics 
 in a datafied so-ci-ety.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 40--45
 \T1/ntxtlf/m/n/8.5 The+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.p
 df/7a8f6a8f-9805-
  []
 
-
-Underfull \hbox (badness 1057) in paragraph at lines 39--44
+[9]
+Underfull \hbox (badness 1057) in paragraph at lines 53--58
 []\T1/ntxtlf/m/n/8.5 EUROSTAT.  Ess-net big data 2 - fi-nal tech-ni-cal re-port
 .  https://wayback.archive-
  []
 
-) [9] (./public/authorsample.aux) ) 
+) [10] (./public/authorsample.aux) ) 
 Here is how much of TeX's memory you used:
- 8721 strings out of 480247
- 124829 string characters out of 5896152
- 421416 words of memory out of 5000000
- 26494 multiletter control sequences out of 15000+600000
- 526888 words of font info for 93 fonts, out of 8000000 for 9000
+ 8730 strings out of 480247
+ 124984 string characters out of 5896152
+ 421442 words of memory out of 5000000
+ 26502 multiletter control sequences out of 15000+600000
+ 527300 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 69i,7n,76p,1405b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvi
-ps/newtx/ntx-ec-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/nt
-xsups_t1.enc}{/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}</usr/share/t
-exlive/texmf-dist/fonts/type1/public/newtx/ntxsups-Regular.pfb></usr/share/texm
-f/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/newtx/txsys.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/new
-tx/ztmb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (9 pages, 146189 bytes).
+ 69i,7n,76p,2323b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/tex-gyre/
+q-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{
+/usr/share/texlive/texmf-dist/fonts/enc/dvips/newtx/ntxsups_t1.enc}</usr/share/
+texlive/texmf-dist/fonts/type1/public/newtx/ntxsups-Regular.pfb></usr/share/tex
+mf/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf/fonts/type1/public/te
+x-gyre/qtmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ./public/authorsample.pdf (10 pages, 162959 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

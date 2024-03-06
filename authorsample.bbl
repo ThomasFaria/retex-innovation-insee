@@ -1,5 +1,19 @@
 \begin{thebibliography}{10}
 
+\bibitem{abadi2013design}
+Daniel Abadi, Peter Boncz, Stavros Harizopoulos, Stratos Idreos, Samuel Madden,
+  et~al.
+\newblock The design and implementation of modern column-oriented database
+  systems.
+\newblock {\em Foundations and Trends{\textregistered} in Databases},
+  5(3):197--280, 2013.
+
+\bibitem{abdelaziz2023optimizing}
+Abdullah~I Abdelaziz, Kent~A Hanson, Charles~E Gaber, and Todd~A Lee.
+\newblock Optimizing large real-world data analysis with parquet files in r: A
+  step-by-step tutorial.
+\newblock {\em Pharmacoepidemiology and Drug Safety}, 2023.
+
 \bibitem{ashofteh2021data}
 Afshin Ashofteh and Jorge~M Bravo.
 \newblock Data science training for official statistics: A new scientific
@@ -42,6 +56,16 @@ Bijesh Dhyani and Anurag Barthwal.
   \url{https://wayback.archive-it.org/12090/20221110013641/https://ec.europa.eu/eurostat/cros/system/files/\\wpa\_deliverable\_a5\_final\_technical\_report\_2021\_06\_29.pdf},
   2021.
 
+\bibitem{parquet2013}
+Apache~Software Foundation.
+\newblock Apache parquet.
+\newblock \url{https://parquet.apache.org/}, 2013.
+
+\bibitem{arrow2016}
+Apache~Software Foundation.
+\newblock Apache arrow.
+\newblock \url{https://arrow.apache.org/}, 2016.
+
 \bibitem{ghemawat2003google}
 Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung.
 \newblock The google file system.
@@ -73,6 +97,12 @@ Ling Liu.
 \newblock Computing infrastructure for big data processing.
 \newblock {\em Frontiers of Computer Science}, 7:165--170, 2013.
 
+\bibitem{raasveldt2019duckdb}
+Mark Raasveldt and Hannes M{\"u}hleisen.
+\newblock Duckdb: an embeddable analytical database.
+\newblock In {\em Proceedings of the 2019 International Conference on
+  Management of Data}, pages 1981--1984, 2019.
+
 \bibitem{ricciato2018processing}
 Fabio Ricciato, Freddy De~Meersman, Albrecht Wirthmann, Gerdy Seynaeve, and
   Michail Skaliotis.
@@ -98,5 +128,11 @@ David Salgado, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and milena
   suarez castillo.
 \newblock A proposed production framework with mobile network data.
 \newblock 11 2020.
+
+\bibitem{vale2015international}
+Steven Vale.
+\newblock International collaboration to understand the relevance of big data
+  for official statistics.
+\newblock {\em Statistical Journal of the IAOS}, 31(2):159--163, 2015.
 
 \end{thebibliography}
