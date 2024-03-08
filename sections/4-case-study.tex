@@ -28,34 +28,44 @@ The project we aim to implement is a standard natural language classification pr
     \caption{NACE Nomenclature}
     \label{tab:nace-nomenclature}
     \end{table}
-    
-
-Faire un rappel méthodo de ce qu'on cherche à faire
-taches de classification : usuel en ML. NLP parlé vite fait de la NACE
-
-expérience de l'équipe d'innovation sur le sujet Fasttext
-
-ici on explique quel modèle on a utilisé et pourquoi fasttext => java etccc
-
-On a un passé avec beaucoup d'expérimentation mais pas vraiment de mise en prod. Un des rares projets où des le début l'enjeu de la mise en production a été prise en compte. concilier problématiques
-informatiques et métiers.
 
 
-1er question, ou on peut travailler ? 
+With the establishment of the one-stop shop, business owners can now freely draft their activity descriptions. As a result, the labels received by INSEE are very different from the harmonized labels that were previously received. Therefore, it was decided to work with machine learning models that have proven their effectiveness in the literature.
+
+% Avant de commencer on s'est posé plusieurs questions qu'on se posait pas forcément avant car objectif de mise en prod
+% On a un passé avec beaucoup d'expérimentation mais pas vraiment de mise en prod. Un des rares projets où des le début l'enjeu de la mise en production a été prise en compte. concilier problématiques
+% informatiques et métiers.
+
+
+\subsubsection{1er question, ou on peut travailler ?}
 \begin{itemize}
 
     \item projet ML plusieurs tâches : modularité de l'infra + collaboration (git indispensable, stockage partagé)
     \item Illustration de la diversité des taches nécessaires dans un projet de ML et modularité indispensable de l'infra utilisée (reprendre infra Big Data trop spécifique et onyxia cool)
     \item dans notre cas données ouverte donc possibilité d'utiliser le ssp cloud
     \item Rappeler les contraintes/prérequis que cela impose : utilisation de Git n'est pas aisée et nécessite des formations (mise en place d'un cursus de formateurs pour former à l'Insee), sauvegarde des données sur MinIO et pas en  local car environnement éphémère
+    rust bonnes pratiques etc
 \end{itemize}
 
-2eme question, comment travailler ?
+\subsubsection{2eme question, comment travailler ?}
 \begin{itemize}
     \item Choix de langage de développement : python. Dire débat R et python, Insee est passé à du tout R mais ecosystème ML plutot python. Ne pas opposer les deux, ils sont complémentaire gnagna
     \item On travaille sur des notebook en local on obtient des bon résultats mais on arrive rarement à les mettre à l'echelle. 
     \item Rappeler tous les défauts des notebook pour la mise en prod. 
 \end{itemize}
+
+
+\subsubsection{3eme question, quel modèle utilisé ?}
+
+The model chosen after various trials is the fastText model \cite{joulin2016bag}, for several reasons:
+
+\begin{enumerate}
+    \item The innovation team had gained experience in using this model through several previous experiments.
+    \item The performance obtained was very good.
+    \item The model is very simple methodologically and quick to train.
+    \item There is a Java wrapper available that allows reading fastText models. (share github ?)
+    \item Once trained, the model is lightweight enough to be deployed on our production servers.
+\end{enumerate}
 
 
 rappeler les nouveaux enjeux pour les projets de ML (model versionning, logging parameters) 
