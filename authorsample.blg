@@ -4,45 +4,45 @@ The top-level auxiliary file: public/authorsample.aux
 The style file: plain.bst
 Database file #1: refs.bib
 Warning--empty journal in salgado2020mobile
-You've used 22 entries,
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            625 strings with 8119 characters,
-and the built_in function-call counts, 7305 in all, are:
-= -- 728
-> -- 334
+            629 strings with 8284 characters,
+and the built_in function-call counts, 7607 in all, are:
+= -- 755
+> -- 357
 < -- 3
-+ -- 135
-- -- 110
-* -- 496
-:= -- 1210
-add.period$ -- 67
-call.type$ -- 22
-change.case$ -- 118
++ -- 144
+- -- 118
+* -- 517
+:= -- 1267
+add.period$ -- 70
+call.type$ -- 23
+change.case$ -- 125
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 262
-empty$ -- 585
-format.name$ -- 110
-if$ -- 1523
+cite$ -- 24
+duplicate$ -- 272
+empty$ -- 602
+format.name$ -- 118
+if$ -- 1581
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 18
-newline$ -- 113
-num.names$ -- 44
-pop$ -- 125
+int.to.str$ -- 23
+missing$ -- 19
+newline$ -- 118
+num.names$ -- 46
+pop$ -- 132
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 102
 quote$ -- 0
-skip$ -- 202
+skip$ -- 209
 stack$ -- 0
-substring$ -- 478
-swap$ -- 52
+substring$ -- 483
+swap$ -- 53
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 92
 warning$ -- 1
-while$ -- 75
-width$ -- 24
-write$ -- 237
+while$ -- 77
+width$ -- 25
+write$ -- 247
 (There was 1 warning)
