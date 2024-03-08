@@ -12,6 +12,24 @@ Three stakeholders were involved in this project: the business team responsible 
 
 \subsection{Démarrage du projet comme les projets expérimental et prise en compte des contraintes}
 
+
+The project we aim to implement is a standard natural language classification problem. Indeed, starting from a textual description, we want to predict the class associated with it in the NACE Rev. 2 nomenclature. This nomenclature has the particularity of being hierarchical and containing 5 different levels\footnote{Actually, there are 5 different levels in France but only 4 at the European level.}: section, division, group, class, and subclass. In total, 732 subclasses exist, which is the level at which we aim to perform our classification. Table \ref{tab:nace-nomenclature} summarizes this hierarchical structure with an example.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{llll}
+    \textbf{Level} & \textbf{NACE} & \textbf{Title} & \textbf{Size} \\ \hline
+    Section & H & Transportation and storage & 21 \\ \hline
+    Division & 52 & Warehousing and support activities for transportation & 88 \\ \hline
+    Group & 522 & Support activities for transportation & 272 \\ \hline
+    Class & 5224 & Cargo handling & 615 \\ \hline
+    \textbf{Subclass} & \textbf{\textcolor{red}{5224A}} & \textbf{Harbour handling} & \textbf{\textcolor{red}{732}} \\ 
+    \end{tabular}
+    \caption{NACE Nomenclature}
+    \label{tab:nace-nomenclature}
+    \end{table}
+    
+
 Faire un rappel méthodo de ce qu'on cherche à faire
 taches de classification : usuel en ML. NLP parlé vite fait de la NACE
 
