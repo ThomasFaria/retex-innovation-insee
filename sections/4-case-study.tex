@@ -6,20 +6,22 @@ Coding tasks are common operations for all national statistical institutes and c
 
 The initial testing exercises revealed that Sicore was no longer the suitable tool for performing NACE classification, as only 30\% of tasks were being automatically coded. The teams working on the Sirene registry were already overwhelmed with numerous changes, making it unrealistic to further increase their workload with manual reclassification, which is both time-consuming and unstimulating. Therefore, in May 2022, the decision was made to experiment with new methods for performing this classification task, with the aim of using this method in production by January 1, 2023, the launch date of the new Sirene registry, if successful.
 
+This choice of innovation was not initially a voluntary decision but rather a necessity, given that the current state of the process could not remain unchanged. Therefore, all decisions made during this project were taken considering these temporal and organizational constraints. The aim is to present these various strategic choices that we made at INSEE while bearing in mind that they may not be applicable or advisable in all organizations.
 
-
-
-Un petit topo sur le contexte à l'Insee codification faite avec sicore et manuellement très couteuse et pas stimulante
-Possible car équipe au pied du mur $\rightarrow$ Innovation possible mais pas voulue très contrainte en terme de timing
-
-Faire un rappel méthodo de ce qu'on cherche à faire
+Three stakeholders were involved in this project: the business team responsible for managing the Sirene registry, the IT team developing software related to the registry's operation, and the \textit{"innovation"} team tasked with implementing the new coding tool. The latter team is the INSEE Lab, which was created in 2017 with the objective of providing support to other teams on innovation topics to streamline their various projects.
 
 \subsection{Démarrage du projet comme les projets expérimental et prise en compte des contraintes}
+
+Faire un rappel méthodo de ce qu'on cherche à faire
+taches de classification : usuel en ML. NLP parlé vite fait de la NACE
+
+expérience de l'équipe d'innovation sur le sujet Fasttext
+
+ici on explique quel modèle on a utilisé et pourquoi fasttext => java etccc
 
 On a un passé avec beaucoup d'expérimentation mais pas vraiment de mise en prod. Un des rares projets où des le début l'enjeu de la mise en production a été prise en compte. concilier problématiques
 informatiques et métiers.
 
-ici on explique quel modèle on a utilisé et pourquoi fasttexte => java etccc
 
 1er question, ou on peut travailler ? 
 \begin{itemize}
