@@ -1,7 +1,9 @@
-
-Faire un petit paragraphe pour présenter ce que le chapitre va évoquer. Premiere mise en prod défi et challenges et techniques utilisées. Objectif est d'être le plus concret possible 
+This chapter aims, through a concrete example, to illustrate how INSEE managed to deploy its first machine learning model into production. It will delve into the MLOps approach that this project strived to adhere to as much as possible, focusing on the various technologies and infrastructures that were employed. This initial production deployment, while successful, faced various challenges, whether technical or organizational, and we will endeavor to discuss them and propose solutions wherever possible. The idea is to illustrate the development of this project as transparently as possible, without claiming it to be the definitive approach. The entire project is available in open source at https://github.com/orgs/InseeFrLab/teams/codification-ape/repositories and remains under active development.
 
 \subsection{Introduction et contexte à l'insee au niveau métier}
+
+Coding tasks are common operations for all national statistical institutes and can sometimes be challenging due to the size of certain nomenclature. At INSEE, a highly sophisticated coding tool called Sicore was developed in the 1990s to perform various classifications. Sicore uses a reference file that can be considered as a training file, which serves as examples of codings. The label to be coded is compared to the labels contained in the training file, and when the label is recognized, the associated code is assigned. When the label is not recognized, it must be manually classified by an INSEE agent. Two main reasons drove the experimentation of new coding methods. Firstly, there was an internal change with the redesign of the Sirene registry, which lists all companies in France and assigns them a unique identifier, the Siren number, for use by public institutions, notably to improve the daily management of the registry for INSEE agents and to reduce waiting times for companies. Additionally, at the national level, there was the establishment of a one-stop shop for business formalities, allowing more flexibility for business owners in describing their main activities.
+
 
 
 Un petit topo sur le contexte à l'Insee codification faite avec sicore et manuellement très couteuse et pas stimulante
