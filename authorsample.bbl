@@ -21,6 +21,18 @@ Afshin Ashofteh and Jorge~M Bravo.
   systems.
 \newblock {\em Statistical Journal of the IAOS}, 37(3):771--789, 2021.
 
+\bibitem{barua2021data}
+Hrishav~Bakul Barua.
+\newblock Data science and machine learning in the clouds: A perspective for
+  the future.
+\newblock {\em arXiv preprint arXiv:2109.01661}, 2021.
+
+\bibitem{bentaleb2022containerization}
+Ouafa Bentaleb, Adam~SZ Belloum, Abderrazak Sebaa, and Aouaouche El-Maouhab.
+\newblock Containerization technologies: Taxonomies, applications and
+  challenges.
+\newblock {\em The Journal of Supercomputing}, 78(1):1144--1181, 2022.
+
 \bibitem{davenport2012data}
 Thomas~H Davenport and DJ~Patil.
 \newblock Data scientist.
@@ -102,6 +114,23 @@ Ling Liu.
 \newblock Computing infrastructure for big data processing.
 \newblock {\em Frontiers of Computer Science}, 7:165--170, 2013.
 
+\bibitem{ntts2019reproducibility}
+Sybille Luhmann, Jacopo Grazzini, Fabio Ricciato, Mátyás Mészáros,
+  Jean-Marc Museux, and Martina Hahn.
+\newblock Promoting reproducibility-by-design in statistical offices.
+\newblock In {\em 2019 New Techniques and Technologies for Statistics (NTTS)
+  conference}, 03 2019.
+
+\bibitem{mesnier2003object}
+Mike Mesnier, Gregory~R Ganger, and Erik Riedel.
+\newblock Object-based storage.
+\newblock {\em IEEE Communications Magazine}, 41(8):84--90, 2003.
+
+\bibitem{moreau2023containers}
+David Moreau, Kristina Wiebels, and Carl Boettiger.
+\newblock Containers for computational reproducibility.
+\newblock {\em Nature Reviews Methods Primers}, 3(1):50, 2023.
+
 \bibitem{raasveldt2019duckdb}
 Mark Raasveldt and Hannes M{\"u}hleisen.
 \newblock Duckdb: an embeddable analytical database.
@@ -133,6 +162,12 @@ David Salgado, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and milena
   suarez castillo.
 \newblock A proposed production framework with mobile network data.
 \newblock 11 2020.
+
+\bibitem{samundiswary2017object}
+S~Samundiswary and Nilma~M Dongre.
+\newblock Object storage architecture in cloud for unstructured data.
+\newblock In {\em 2017 International Conference on Inventive Systems and
+  Control (ICISC)}, pages 1--6. IEEE, 2017.
 
 \bibitem{vale2015international}
 Steven Vale.
