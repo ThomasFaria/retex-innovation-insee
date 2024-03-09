@@ -21,12 +21,6 @@ Afshin Ashofteh and Jorge~M Bravo.
   systems.
 \newblock {\em Statistical Journal of the IAOS}, 37(3):771--789, 2021.
 
-\bibitem{barua2021data}
-Hrishav~Bakul Barua.
-\newblock Data science and machine learning in the clouds: A perspective for
-  the future.
-\newblock {\em arXiv preprint arXiv:2109.01661}, 2021.
-
 \bibitem{bentaleb2022containerization}
 Ouafa Bentaleb, Adam~SZ Belloum, Abderrazak Sebaa, and Aouaouche El-Maouhab.
 \newblock Containerization technologies: Taxonomies, applications and
@@ -109,6 +103,17 @@ Marie Leclair et~al.
   prix {\`a} la consommation.
 \newblock {\em Courrier des statistiques}, 3:61--75, 2019.
 
+\bibitem{leite2019survey}
+Leonardo Leite, Carla Rocha, Fabio Kon, Dejan Milojicic, and Paulo Meirelles.
+\newblock A survey of devops concepts and challenges.
+\newblock {\em ACM Computing Surveys (CSUR)}, 52(6):1--35, 2019.
+
+\bibitem{li2020big}
+Yun Li, Manzhu Yu, Mengchao Xu, Jingchao Yang, Dexuan Sha, Qian Liu, and
+  Chaowei Yang.
+\newblock Big data and cloud computing.
+\newblock {\em Manual of digital earth}, pages 325--355, 2020.
+
 \bibitem{liu2013computing}
 Ling Liu.
 \newblock Computing infrastructure for big data processing.
@@ -123,7 +128,8 @@ Sybille Luhmann, Jacopo Grazzini, Fabio Ricciato, Mátyás Mészáros,
 
 \bibitem{mcnutt2014reproducibility}
 Marcia McNutt.
-\newblock Reproducibility, 2014.
+\newblock Reproducibility.
+\newblock {\em Science}, 343(6168):229--229, 2014.
 
 \bibitem{mesnier2003object}
 Mike Mesnier, Gregory~R Ganger, and Erik Riedel.
@@ -162,10 +168,11 @@ Anam Saiyeda and Mansoor~Ahmad Mir.
   8(2), 2017.
 
 \bibitem{salgado2020mobile}
-David Salgado, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and milena
-  suarez castillo.
+David Salgado, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and Milena
+  Suarez-Castillo.
 \newblock A proposed production framework with mobile network data.
-\newblock 11 2020.
+\newblock In {\em ESSnet Big Data II - Workpackage I - Mobile Network Data},
+  2020.
 
 \bibitem{samundiswary2017object}
 S~Samundiswary and Nilma~M Dongre.
@@ -178,5 +185,12 @@ Steven Vale.
 \newblock International collaboration to understand the relevance of big data
   for official statistics.
 \newblock {\em Statistical Journal of the IAOS}, 31(2):159--163, 2015.
+
+\bibitem{zhang2018comparative}
+Qi~Zhang, Ling Liu, Calton Pu, Qiwei Dou, Liren Wu, and Wei Zhou.
+\newblock A comparative study of containers and virtual machines in big data
+  environment.
+\newblock In {\em 2018 IEEE 11th International Conference on Cloud Computing
+  (CLOUD)}, pages 178--185. IEEE, 2018.
 
 \end{thebibliography}
