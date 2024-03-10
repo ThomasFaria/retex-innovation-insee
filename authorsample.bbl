@@ -186,6 +186,13 @@ Steven Vale.
   for official statistics.
 \newblock {\em Statistical Journal of the IAOS}, 31(2):159--163, 2015.
 
+\bibitem{vano2023cloud}
+Rafael Va{\~n}o, Ignacio Lacalle, Piotr Sowi{\'n}ski, Ra{\'u}l S-Juli{\'a}n,
+  and Carlos~E Palau.
+\newblock Cloud-native workload orchestration at the edge: A deployment review
+  and future directions.
+\newblock {\em Sensors}, 23(4):2215, 2023.
+
 \bibitem{zhang2018comparative}
 Qi~Zhang, Ling Liu, Calton Pu, Qiwei Dou, Liren Wu, and Wei Zhou.
 \newblock A comparative study of containers and virtual machines in big data
