@@ -84,6 +84,14 @@ Taeke Gjaltema.
   (hlg-mos) of the united nations economic commission for europe.
 \newblock {\em Statistical Journal of the IAOS}, 38(3):917--922, 2022.
 
+\bibitem{gokhale2021creating}
+Shivani Gokhale, Reetika Poosarla, Sanjeevani Tikar, Swapnali Gunjawate, Aparna
+  Hajare, Shilpa Deshpande, Sourabh Gupta, and Kanchan Karve.
+\newblock Creating helm charts to ease deployment of enterprise application and
+  its related services in kubernetes.
+\newblock In {\em 2021 international conference on computing, communication and
+  green engineering (CCGE)}, pages 1--5. IEEE, 2021.
+
 \bibitem{joulin2016bag}
 Armand Joulin, Edouard Grave, Piotr Bojanowski, and Tomas Mikolov.
 \newblock Bag of tricks for efficient text classification.
