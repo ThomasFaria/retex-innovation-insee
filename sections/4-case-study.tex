@@ -34,6 +34,11 @@ The project we aim to implement is a standard natural language classification pr
 
 With the establishment of the one-stop shop, business owners can now freely draft their activity descriptions. As a result, the labels received by INSEE are very different from the harmonized labels that were previously received. Therefore, it was decided to work with machine learning models that have proven their effectiveness in the literature. This represents a significant paradigm shift from INSEE's perspective, as no machine learning model has ever been deployed into production. In fact, the initial years of the INSEE Lab were characterized by a multitude of experiments on various subjects without ever transitioning to production. Nevertheless, all these experiments were valuable and accelerated the project through the gained experience. This project thus marked the first instance where the challenges of production deployment were considered from the outset, guiding numerous methodological and technical choices. As such, several points had to be agreed upon to facilitate coordination among the various stakeholders, and several strategic choices had to be made from the outset, including the working infrastructure, work methods, and the type of model to be used for such a project. The goal was to accommodate the constraints of each team and reconcile their needs.
 
+\subsubsection{Infrastructure de travail}
+
+In a machine learning project, the choice of development infrastructure is central. Working on a modular infrastructure is crucial in machine learning projects due to the diversity of tasks to be performed, such as data collection, preprocessing, modeling, evaluation, inference, monitoring, among others. This allows for easy replacement or updating of components without disrupting the entire workflow pipeline. As elucidated in the preceding chapter, traditional Big Data infrastructures often prove too rigid and specialized, failing to adequately cater to the diverse demands of various projects. Therefore, we decided to use a more modular infrastructure that better addresses the needs of machine learning projects by leveraging the most appropriate technologies for each stage of our pipeline. This primarily allows us to take advantage of the latest technological advancements without being limited by a predefined architecture, as innovations in machine learning progress rapidly. We exclusively utilized open-source cloud technologies available in the SSP Cloud catalog, an instance of the Onyxia software developed by INSEE. This platform, based on Kubernetes, offers flexible and scalable container management, enabling easy scaling of services as needed. As we will see in the following sections of this chapter, we used various tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio, Vscode, etc. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at INSEE. This initiative is poised to streamline the connection between production and development environments in the long run.
+
+
 \begin{itemize}
 
     \item projet ML plusieurs tâches : modularité de l'infra + collaboration (git indispensable, stockage partagé)
@@ -43,7 +48,7 @@ With the establishment of the one-stop shop, business owners can now freely draf
     rust bonnes pratiques etc
 \end{itemize}
 
-\subsubsection{2eme question, comment travailler ?}
+\subsubsection{Méthodes de travail}
 \begin{itemize}
     \item Choix de langage de développement : python. Dire débat R et python, Insee est passé à du tout R mais ecosystème ML plutot python. Ne pas opposer les deux, ils sont complémentaire gnagna
     \item On travaille sur des notebook en local on obtient des bon résultats mais on arrive rarement à les mettre à l'echelle. 
@@ -51,7 +56,7 @@ With the establishment of the one-stop shop, business owners can now freely draf
 \end{itemize}
 
 
-\subsubsection{3eme question, quel modèle utilisé ?}
+\subsubsection{Méthodologie retenue}
 
 The model chosen after various trials is the fastText model \cite{joulin2016bag}, for several reasons:
 
