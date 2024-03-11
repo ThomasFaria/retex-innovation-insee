@@ -38,22 +38,26 @@ With the establishment of the one-stop shop, business owners can now freely draf
 
 In a machine learning project, the choice of development infrastructure is central. Working on a modular infrastructure is crucial in machine learning projects due to the diversity of tasks to be performed, such as data collection, preprocessing, modeling, evaluation, inference, monitoring, among others. This allows for easy replacement or updating of components without disrupting the entire workflow pipeline. As elucidated in the preceding chapter, traditional Big Data infrastructures often prove too rigid and specialized, failing to adequately cater to the diverse demands of various projects. Therefore, we decided to use a more modular infrastructure that better addresses the needs of machine learning projects by leveraging the most appropriate technologies for each stage of our pipeline. This primarily allows us to take advantage of the latest technological advancements without being limited by a predefined architecture, as innovations in machine learning progress rapidly. We exclusively utilized open-source cloud technologies available in the SSP Cloud catalog, an instance of the Onyxia software developed by INSEE. This platform, based on Kubernetes, offers flexible and scalable container management, enabling easy scaling of services as needed. As we will see in the following sections of this chapter, we used various tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio, Vscode, etc. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at INSEE. This initiative is poised to streamline the connection between production and development environments in the long run.
 
+While the utilization of SSP Cloud has proven to be the right solution for us, it does come with its set of considerations. Working on SSP Cloud implies operating in ephemeral environments, thus ensuring the proper backup of code and data is imperative. Thankfully, SSP Cloud provides a file storage solution through the use of MinIO, which addresses this requirement. Although Onyxia simplifies initial setup and usage, it may require a bit of a learning curve for new users. However, given the widespread adoption of Amazon's S3 storage system in cloud computing, investing time in understanding it proves beneficial for any data scientist. Furthermore, comprehensive documentation is available at the following address: \url{https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/storage.html}.  Similarly, regular versioning of code is essential. We've opted for Git and Github for source code management, enabling seamless collaboration among our teams. While Git may require some initial learning, it's a crucial tool for anyone working on data science projects. To facilitate its adoption within INSEE, the innovation teams developed an internal training session on Git usage. For specific documentation related to SSP Cloud, it can be found \href{https://inseefrlab.github.io/docs.sspcloud.fr/docs/en/version-control.html}{here}. 
 
-\begin{itemize}
-
-    \item projet ML plusieurs tâches : modularité de l'infra + collaboration (git indispensable, stockage partagé)
-    \item Illustration de la diversité des taches nécessaires dans un projet de ML et modularité indispensable de l'infra utilisée (reprendre infra Big Data trop spécifique et onyxia cool)
-    \item dans notre cas données ouverte donc possibilité d'utiliser le ssp cloud
-    \item Rappeler les contraintes/prérequis que cela impose : utilisation de Git n'est pas aisée et nécessite des formations (mise en place d'un cursus de formateurs pour former à l'Insee), sauvegarde des données sur MinIO et pas en  local car environnement éphémère
-    rust bonnes pratiques etc
-\end{itemize}
+As for data privacy, while SSP Cloud is secure, it doesn't guarantee complete confidentiality. However, since we solely deal with open data, this hasn't posed any issues for us. At the time, the internal Onyxia instance at INSEE was not available yet.
 
 \subsubsection{Méthodes de travail}
-\begin{itemize}
-    \item Choix de langage de développement : python. Dire débat R et python, Insee est passé à du tout R mais ecosystème ML plutot python. Ne pas opposer les deux, ils sont complémentaire gnagna
-    \item On travaille sur des notebook en local on obtient des bon résultats mais on arrive rarement à les mettre à l'echelle. 
-    \item Rappeler tous les défauts des notebook pour la mise en prod. 
-\end{itemize}
+
+As mentioned earlier, our working infrastructure essentially required us to use Git to version our code. However, regardless of your setup, knowledge and usage of Git are essential prerequisites for any machine learning project. Another significant choice was made at the project's outset: the programming language to use. Currently, INSEE is undertaking a large-scale project to migrate all SAS code to the open-source R language. While we could have followed suit to align our projects with other INSEE initiatives, we opted for Python. Without getting into the futile debate over the superiority between R and Python, it's generally accepted that the majority of the machine learning ecosystem leans towards Python. That's why we chose this language. However, this decision wasn't made lightly, as it means our three stakeholders primarily work with three different programming languages: Java for IT teams, R for business teams, and Python for innovation teams. This diversity can pose a significant challenge to collaboration among the three teams, and we'll explain how we've attempted to overcome this hurdle.
+
+In this project, we deliberately favored the use of scripts over notebooks, even though we're accustomed to using the latter in other projects. With a focus on production deployment, where our main goal was to ensure code scalability and efficient maintenance, notebooks present several significant limitations, including:
+
+\begin{enumerate}
+    \item Defining and making all objects (functions, classes, and data) available in the same file, thereby complicating long-term code maintenance.
+    \item Limited potential for automating ML pipelines.
+    \item Notebooks' tendency to encourage code duplication and marginal modifications rather than using functions, making the code less modular and harder to maintain.
+    \item Lack of extensions to implement best practices, such as linters, making it challenging to apply code quality standards.
+    \item The costly transition to production with notebooks, whereas well-structured scripts are easier to deploy.
+    \item Major versioning challenges with Git, as notebooks are essentially large JSON files, making it difficult to identify code changes and thus collaborate among team members.
+\end{enumerate}
+
+Moreover, by open-sourcing all our code, we've committed to following community standards by documenting our code and using formatters such as Ruff (\url{https://github.com/astral-sh/ruff}).
 
 
 \subsubsection{Méthodologie retenue}
