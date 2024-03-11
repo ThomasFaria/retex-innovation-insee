@@ -32,14 +32,8 @@ The project we aim to implement is a standard natural language classification pr
     \end{table}
 
 
-With the establishment of the one-stop shop, business owners can now freely draft their activity descriptions. As a result, the labels received by INSEE are very different from the harmonized labels that were previously received. Therefore, it was decided to work with machine learning models that have proven their effectiveness in the literature.
+With the establishment of the one-stop shop, business owners can now freely draft their activity descriptions. As a result, the labels received by INSEE are very different from the harmonized labels that were previously received. Therefore, it was decided to work with machine learning models that have proven their effectiveness in the literature. This represents a significant paradigm shift from INSEE's perspective, as no machine learning model has ever been deployed into production. In fact, the initial years of the INSEE Lab were characterized by a multitude of experiments on various subjects without ever transitioning to production. Nevertheless, all these experiments were valuable and accelerated the project through the gained experience. This project thus marked the first instance where the challenges of production deployment were considered from the outset, guiding numerous methodological and technical choices. As such, several points had to be agreed upon to facilitate coordination among the various stakeholders, and several strategic choices had to be made from the outset, including the working infrastructure, work methods, and the type of model to be used for such a project. The goal was to accommodate the constraints of each team and reconcile their needs.
 
-% Avant de commencer on s'est posé plusieurs questions qu'on se posait pas forcément avant car objectif de mise en prod
-% On a un passé avec beaucoup d'expérimentation mais pas vraiment de mise en prod. Un des rares projets où des le début l'enjeu de la mise en production a été prise en compte. concilier problématiques
-% informatiques et métiers.
-
-
-\subsubsection{1er question, ou on peut travailler ?}
 \begin{itemize}
 
     \item projet ML plusieurs tâches : modularité de l'infra + collaboration (git indispensable, stockage partagé)
