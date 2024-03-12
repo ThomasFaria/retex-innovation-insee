@@ -14,7 +14,6 @@ Three stakeholders were involved in this project: the business team responsible 
 
 \subsection{Démarrage du projet comme les projets expérimental et prise en compte des contraintes}
 
-
 The project we aim to implement is a standard natural language classification problem. Indeed, starting from a textual description, we want to predict the class associated with it in the NACE Rev. 2 nomenclature. This nomenclature has the particularity of being hierarchical and containing 5 different levels\footnote{Actually, there are 5 different levels in France but only 4 at the European level.}: section, division, group, class, and subclass. In total, 732 subclasses exist, which is the level at which we aim to perform our classification. Table \ref{tab:nace-nomenclature} summarizes this hierarchical structure with an example.
 
 \begin{table}[htbp]
@@ -62,7 +61,7 @@ Moreover, by open-sourcing all our code, we've committed to following community 
 
 \subsubsection{Méthodologie retenue}
 
-When it came to selecting the methodology to adopt, we had to navigate through various constraints, with the most significant being the need for deployment on our production servers. Our model had to be lightweight enough to run efficiently on these servers, while also minimizing the computational resource overhead to ensure swift inference. Additionally, the model had to be compatible with a different language than the one it was trained in—specifically, Java, utilized on our production servers. This proved particularly challenging throughout our project, as it influenced our data preprocessing choices, necessitating simplicity wherever possible. We had to meticulously replicate the data processing performed in Python during training, thereby limiting the use of certain packages. Ultimately, each decision made had to ensure the model's compatibility and efficiency within a production environment while minimizing compromises on inference quality.
+When it came to selecting the methodology to adopt, we had to navigate through various constraints, with the most significant being the need for deployment on our production servers. Our model had to be lightweight enough to run efficiently on these servers, while also minimizing the computational resource overhead to ensure swift inference. Additionally, the model had to be compatible with a different language than the one it was trained, namely Java, utilized on our production servers. This proved particularly challenging throughout our project, as it influenced our data preprocessing choices, necessitating simplicity wherever possible. We had to meticulously replicate the data processing performed in Python during training, thereby limiting the use of certain packages. Ultimately, each decision made had to ensure the model's compatibility and efficiency within a production environment while minimizing compromises on inference quality.
 
 These constraints led us away from the most powerful language models at the start of the project, such as Transformer models, and instead directed us towards simpler natural language models, specifically, we opted for the fastText model \cite{joulin2016bag}. This choice was driven by its ability to address all previously mentioned constraints. The fastText model is incredibly fast to train, even from scratch, and inference doesn't require a GPU to be extremely rapid. Moreover, there exists a wrapper that enables reading fastText models in Java, which could be utilized by the IT teams on their machines, greatly facilitating the deployment of our models. Unfortunately, this wrapper, available on \href{https://github.com/vinhkhuc/JFastText}{GitHub}, is no longer maintained, posing serious security concerns, and thus became a temporary default choice for us. In addition to these technical arguments, the decision to use the fastText model was justified from a methodological standpoint. Firstly, the INSEE Lab teams had already completed several projects using the fastText model, leveraging the acquired knowledge to achieve initial results very quickly. While it may not have been a state-of-the-art language model, for our use case, the model yielded excellent performance results which, considering the time and human resource constraints, were more than sufficient to enhance the existing process. Finally, the model is inherently simple methodologically speaking, greatly simplifying communication and adoption within the various INSEE teams. 
 
@@ -70,20 +69,56 @@ The supervised classification model fastText relies on both a bag-of-words model
 
 % TODO: diagram fasttext
 
-The model chosen after various trials is the fastText model \cite{joulin2016bag}, for several reasons:
+\subsection{What is MLOps?}
+
+
+\subsubsection{Specificities of ML projects}
+
+In the landscape of machine learning projects, there are new considerations and challenges compared to traditional statistical projects. These new challenges stem from the complex nature of ML models, their iterative development process, and the need for automation and scalability. Among others, here are some key aspects in ML projects:
 
 \begin{enumerate}
-    \item The innovation team had gained experience in using this model through several previous experiments.
-    \item The performance obtained was very good.
-    \item The model is very simple methodologically and quick to train.
-    \item There is a Java wrapper available that allows reading fastText models. (share github ?)
-    \item Once trained, the model is lightweight enough to be deployed on our production servers.
+    \item \textbf{Logging Parameters}: ML models often have numerous hyperparameters and configurations that significantly impact their performance. It's crucial to log these parameters along with model training and evaluation metrics to ensure reproducibility and traceability. This logging allows for better understanding of model behavior and facilitates debugging and optimization efforts.
+    
+    \item \textbf{Optimizing Hyperparameters}: Tuning hyperparameters is a critical step in optimizing the performance of ML models. Unlike traditional statistical models where parameters are often predefined, ML models typically have a larger number of hyperparameters that need to be optimized. This process requires sophisticated techniques such as grid search, random search, or Bayesian optimization, which can be computationally intensive and time-consuming.
+    
+    \item \textbf{Model Versioning}: ML models are highly iterative. Therefore, effective version control mechanisms are essential to track changes, compare performance across different model versions, and roll back to previous versions if necessary. While model versioning may also be relevant for traditional statistical models, it is infrequently practiced. In ML projects, however, it is considered mandatory due to the iterative nature of model development and the dynamic nature of data and algorithms.
+    
+    \item \textbf{Model Deployment}: Deploying ML models into production environments presents unique challenges due to their complexity and resource requirements. Ensuring seamless deployment involves considerations such as containerization, scalability, latency, and integration with existing systems.
+    
+    \item \textbf{Model Monitoring}: Once deployed, ML models need to be continuously monitored to detect performance degradation, concept drift, or other anomalies. Unlike traditional statistical models, ML models can exhibit unexpected behavior over time due to changes in data distribution or underlying patterns. Implementing robust monitoring solutions involves tracking model performance metrics and data quality to ensure ongoing reliability, effectiveness and to trigger model retraining.
+
+    \item \textbf{Model Retraining}: Regular retraining of ML models is essential to maintain their effectiveness over time. Changes in data distribution, data quality, or business objectives may necessitate updates to the model. Retraining ensures that the model remains accurate and relevant in evolving environments.
+
+    \item \textbf{Data annotation}: 
+
+    \item \textbf{Explainability}: The interpretability of ML models is important for building trust and understanding their predictions.
 \end{enumerate}
 
 
-rappeler les nouveaux enjeux pour les projets de ML (model versionning, logging parameters) 
-L'utilisation du ssp cloud permet d'accéder à plusieurs logiciels tous interconnectés pour favoriser le developpement de projet de machine learning favorisant une approche MLOps
-Objectif d'appliquer cette approche durant ce projet.
+\subsubsection{From DevOps to MLOps}
+
+The MLOps approach is built upon the foundations of the DevOps approach. In this sense, it can be considered simply as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of machine learning models. MLOps incorporates the principles of collaboration and automation inherent in DevOps but also considers all aspects related to data and machine learning models.
+
+% TODO : image infinity mlops
+
+MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the machine learning model.
+
+\subsubsection{MLOps Principles}
+
+The pillars of MLOps\cite{kreuzberger2023machine} are generally defined as :
+
+\begin{itemize}
+    \item \textbf{Reproducibility}: The results of every experiment, successful or unsuccessful, should be reproducible at no cost. This implies first and foremost a certain rigor in managing packages, environments, system libraries, code version control, etc. Additionally, the various variables influencing model training (training data, hyperparameters, etc.) must be versioned with the model.
+    
+    \item \textbf{Automation}: To foster feedback loops of continuous improvement, the model lifecycle (testing, building, validation, deployment) must be automated to the fullest extent possible. Tools derived from the DevOps approach, especially continuous integration and continuous deployment (CI/CD), should be leveraged.
+    
+    \item \textbf{Collaboration}: MLOps values a culture of collaborative work around ML projects, where communication within teams should reduce siloed work. On a technical level, MLOps tools used should facilitate collaborative work on data, model, and code used by the project.
+    
+    \item \textbf{Continuous Improvement}: Once deployed, it is essential to ensure that the model performs as expected by evaluating its performance on real data using continuous monitoring tools. In case of performance degradation over time, periodic retraining or continuous training of the model should be considered.
+\end{itemize}
+
+
+Tackling these challenges and effectively managing the lifecycle of a ML project necessitates specialized tools, many of which are accessible as open-source solutions. Throughout our project, we aimed to embrace the MLOps approach by utilizing software applications grounded in cloud technologies and available in the SSP Cloud catalog. This enables data scientists to be autonomous from model training to deployment.
 
 \subsection{MLflow as the cornerstone of the project}
 
