@@ -105,6 +105,12 @@ Alexander Kowarik and Magdalena Six.
   Analytics (CARMA 2022)}, pages 269--269. Editorial Universitat
   Polit{\`e}cnica de Val{\`e}ncia, 2022.
 
+\bibitem{kreuzberger2023machine}
+Dominik Kreuzberger, Niklas K{\"u}hl, and Sebastian Hirschl.
+\newblock Machine learning operations (mlops): Overview, definition, and
+  architecture.
+\newblock {\em IEEE Access}, 2023.
+
 \bibitem{leclair2019utiliser}
 Marie Leclair et~al.
 \newblock Utiliser les donn{\'e}es de caisses pour le calcul de l’indice des
