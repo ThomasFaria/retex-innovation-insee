@@ -149,6 +149,18 @@ David Moreau, Kristina Wiebels, and Carl Boettiger.
 \newblock Containers for computational reproducibility.
 \newblock {\em Nature Reviews Methods Primers}, 3(1):50, 2023.
 
+\bibitem{opara2017holistic}
+Justice Opara-Martins, M~Sahandi, and Feng Tian.
+\newblock A holistic decision framework to avoid vendor lock-in for cloud saas
+  migration.
+\newblock {\em Computer and Information Science}, 10(3), 2017.
+
+\bibitem{opara2016critical}
+Justice Opara-Martins, Reza Sahandi, and Feng Tian.
+\newblock Critical analysis of vendor lock-in and its impact on cloud computing
+  migration: a business perspective.
+\newblock {\em Journal of Cloud Computing}, 5:1--18, 2016.
+
 \bibitem{raasveldt2019duckdb}
 Mark Raasveldt and Hannes M{\"u}hleisen.
 \newblock Duckdb: an embeddable analytical database.
