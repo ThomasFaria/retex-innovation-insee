@@ -56,7 +56,7 @@ In this project, we deliberately favored the use of scripts over notebooks, even
     \item Major versioning challenges with Git, as notebooks are essentially large JSON files, making it difficult to identify code changes and thus collaborate among team members.
 \end{enumerate}
 
-Moreover, by open-sourcing all our code, we've committed to following community standards by documenting our code and using formatters such as Ruff (\url{https://github.com/astral-sh/ruff}).
+Moreover, by open-sourcing all our code, we've committed to following community standards by documenting our code and using formatters such as \href{https://github.com/astral-sh/ruff}{Ruff}.
 
 
 \subsubsection{Méthodologie retenue}
@@ -118,23 +118,80 @@ The pillars of MLOps\cite{kreuzberger2023machine} are generally defined as :
 \end{itemize}
 
 
-Tackling these challenges and effectively managing the lifecycle of a ML project necessitates specialized tools, many of which are accessible as open-source solutions. Throughout our project, we aimed to embrace the MLOps approach by utilizing software applications grounded in cloud technologies and available in the SSP Cloud catalog. This enables data scientists to be autonomous from model training to deployment.
+Tackling these challenges and effectively managing the lifecycle of a ML project necessitates specialized tools, many of which are accessible as open-source solutions. Throughout our project, we aimed to embrace the MLOps approach by utilizing software applications grounded in cloud-native technologies and available in the SSP Cloud catalog. This enables data scientists to be autonomous from model training to deployment.
 
 \subsection{MLflow as the cornerstone of the project}
 
-Logiciel qui permet de suivre cette approche = MLflow et c'est dispo sur ssp cloud
+During this project, we heavily relied on \href{https://github.com/MLflow/MLflow}{MLflow}, a platform designed to streamline the lifecycle of machine learning models. It allows for detailed tracking of various experiments, packaging of code to ensure reproducibility, and serving models to end-users. MLflow also features an API that is compatible with most machine learning libraries such as PyTorch, Scikit-learn, XGBoost, and supports multiple programming languages including Python, R, and Java. It incorporates various functionalities that facilitate the adoption of the MLOps approach.
+
+There are numerous tools available for orchestrating tasks and data pipelines. Among the most popular (based on their GitHub stars) are \href{https://github.com/apache/airflow}{Airflow}, \href{https://github.com/spotify/luigi}{Luigi}, \href{https://github.com/argoproj/argo-workflows}{Argo Workflow}, \href{https://github.com/PrefectHQ/prefect}{Prefect}, \href{https://github.com/kubeflow/kubeflow}{Kubeflow} and \href{https://github.com/bentoml/BentoML}{BentoML}. It's difficult to assert whether one is better to another; in reality, your choice largely depends on your IT infrastructure and project requirements. In our case, we opted to use MLflow for its ease of use and suitability for machine learning projects. Additionally, it is available in the SSP Cloud catalog, simplifying its installation process.
+
+\subsubsection{MLflow Projects}
+
+MLflow offers a format for packaging data science projects to promote code reuse and reproducibility. This format is simply called \href{https://MLflow.org/docs/latest/projects.html}{MLflow Project}. Essentially, an MLflow project is nothing more than a directory containing the code and necessary resources (data, configuration files, etc.) for executing your project. It is summarized by an `MLproject` file listing the various commands to execute a pipeline as well as the necessary dependencies. In general, an MLflow project has the following structure:
+
+\dirtree{%
+.1 Project\_ML/.
+.2 artifacts/.
+.3 model.bin.
+.3 train\_text.txt.
+.2 code/.
+.3 main.py.
+.3 preprocessing.py.
+.2 MLmodel.
+.2 conda.yaml.
+.2 python\_env.yaml.
+.2 python\_model.pkl.
+.2 requirements.txt.
+}
+
+
+\subsubsection{MLflow Models}
+
+In addition to packaging a project, MLflow also allows you to package your model, regardless of the underlying machine learning library used\footnote{You also have the capability to package our own custom model. This is precisely what we do to integrate our fastText model into MLflow.}  (among those \href{https://MLflow.org/docs/latest/models.html#built-in-model-flavors}{compatible with MLflow}, i.e., all the libraries you use!). Thus, two models trained with different libraries, say PyTorch and Keras, can be deployed and queried in the same way thanks to this layer added by MLflow. This harmonization becomes particularly valuable as you begin to accumulate various types of models, as it eliminates the need to modify your inference pipeline every time you introduce a new model type.
+
+% TODO : schema de MLflow Models
+
+\subsubsection{Tracking Server}
+
+MLflow provides a tracking server that includes both an ergonomic graphical interface and an API for logging various parameters, metrics, files, etc. during the training of your machine learning model. The tracking server is very useful for comparing the different experiments you have performed, storing them, and also being able to reproduce them. Indeed, each run stores the source of the utilized data along with the corresponding commit. When combined with MLflow Project, this capability enables the reproduction of every conducted run.
+
+% TODO : schema de Tracking Server
+
+\subsubsection{Model Registry}
+
+Once different experiments have been conducted and models that satisfy us have been selected, it is time to move on to the next step in the model lifecycle. Indeed, the chosen model must then be able to move into a production or pre-production environment. However, knowing the state of a model in its lifecycle requires very rigorous organization and is not so straightforward. MLflow has developed a feature that simplifies this version management of models through its \href{https://MLflow.org/docs/latest/model-registry.html}{Model Registry}. This repository allows you to add tags and aliases to your models to define their position in their lifecycle and thus be able to retrieve them efficiently.
+
+In general, a machine learning model goes through 4 stages that need to be known at all times:
+
+\begin{enumerate}
+    \item \textbf{Experimental}
+    \item \textbf{Staging}
+    \item \textbf{Production}
+    \item \textbf{Archived}
+\end{enumerate}
+
+% TODO : schema de model registry
+
+\subsubsection{MLflow in short}
+
+MLflow is an open-source project that provides a platform for tracking the lifecycle of a machine learning model from start to finish. It is not the only available tool, and it may not be the most suitable for some of your specific projects. However, we believe it offers several advantages, primarily its ease of use and its ability to meet the needs of the MLOps approach. It is important to keep in mind that this environment is still very new, and new open-source projects emerge every day, so it is necessary to stay up to date on the latest developments. In summary, MLflow allows you to:
 
 \begin{itemize}
-    \item Why Mlflow ?
-    \item Projects
-    \item Models
-    \item Tracking server
-    \item Model registry
+    \item Simplify tracking the training of machine learning models through its API and tracking server.
+    \item Integrate the main machine learning frameworks easily.
+    \item Integrate your own framework if needed.
+    \item Standardize your training script, enabling industrialization, for example, fine-tuning hyperparameters.
+    \item Package your models for easy and harmonized querying across different frameworks.
+    \item Store your models efficiently by assigning tags and facilitating lifecycle tracking.
 \end{itemize}
 
-schema de mlflow
+
+% TODO : schema de MLflow
 
 \subsection{Embracing the power of Onyxia from training to deployment}
+
+
 
 \begin{itemize}
     \item Distributing trainings with Argo workflows
