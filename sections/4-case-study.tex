@@ -62,6 +62,14 @@ Moreover, by open-sourcing all our code, we've committed to following community 
 
 \subsubsection{Méthodologie retenue}
 
+When it came to selecting the methodology to adopt, we had to navigate through various constraints, with the most significant being the need for deployment on our production servers. Our model had to be lightweight enough to run efficiently on these servers, while also minimizing the computational resource overhead to ensure swift inference. Additionally, the model had to be compatible with a different language than the one it was trained in—specifically, Java, utilized on our production servers. This proved particularly challenging throughout our project, as it influenced our data preprocessing choices, necessitating simplicity wherever possible. We had to meticulously replicate the data processing performed in Python during training, thereby limiting the use of certain packages. Ultimately, each decision made had to ensure the model's compatibility and efficiency within a production environment while minimizing compromises on inference quality.
+
+These constraints led us away from the most powerful language models at the start of the project, such as Transformer models, and instead directed us towards simpler natural language models, specifically, we opted for the fastText model \cite{joulin2016bag}. This choice was driven by its ability to address all previously mentioned constraints. The fastText model is incredibly fast to train, even from scratch, and inference doesn't require a GPU to be extremely rapid. Moreover, there exists a wrapper that enables reading fastText models in Java, which could be utilized by the IT teams on their machines, greatly facilitating the deployment of our models. Unfortunately, this wrapper, available on \href{https://github.com/vinhkhuc/JFastText}{GitHub}, is no longer maintained, posing serious security concerns, and thus became a temporary default choice for us. In addition to these technical arguments, the decision to use the fastText model was justified from a methodological standpoint. Firstly, the INSEE Lab teams had already completed several projects using the fastText model, leveraging the acquired knowledge to achieve initial results very quickly. While it may not have been a state-of-the-art language model, for our use case, the model yielded excellent performance results which, considering the time and human resource constraints, were more than sufficient to enhance the existing process. Finally, the model is inherently simple methodologically speaking, greatly simplifying communication and adoption within the various INSEE teams. 
+
+The supervised classification model fastText relies on both a bag-of-words model to obtain embeddings and a classifier based on logistic regression. The bag-of-words approach involves representing a text as the set of vector representations of each of its constituent words. Thus, the embedding of a sentence depends on the embeddings of its words, for example, their sum or their average. In the case of supervised text classification, the embedding matrix and the classifier's coefficient matrix are learned simultaneously during training by gradient descent, minimizing an usual cross-entropy loss function. The specificity of the fastText model lies in embeddings being performed not only on words but also on word n-grams and character n-grams, providing more context and reducing biases due to spelling mistakes. The fastText model can be summarized by the following diagram:
+
+% TODO: diagram fasttext
+
 The model chosen after various trials is the fastText model \cite{joulin2016bag}, for several reasons:
 
 \begin{enumerate}
@@ -89,6 +97,8 @@ Logiciel qui permet de suivre cette approche = MLflow et c'est dispo sur ssp clo
     \item Model registry
 \end{itemize}
 
+schema de mlflow
+
 \subsection{Embracing the power of Onyxia from training to deployment}
 
 \begin{itemize}
@@ -103,10 +113,13 @@ Environnement dev et production très proche $\rightarrow$ passage en prod facil
     \item Transmission d'une API
 \end{itemize}
 
+schema api deployment
+
 \subsection{Monitoring of the model}
 
 \begin{itemize}
     \item Enjeu du monitoring => indispensable
+    \item monitorer l'IC dire que c'est notre variable d'ajustement
     \item data drift/ concept drift
     \item Pour APE : Création d'un dashboard (faire un super graphs qui récap tout)
     \item encore on utilise les trucs du datalab (argocd pour le déploiement, argoworkflow pour les cronjob quotidien)
@@ -125,5 +138,7 @@ Environnement dev et production très proche $\rightarrow$ passage en prod facil
 
 \subsection{Gouvernance d'un projet de ML/ challenges}
 
+ici dire tous les problèmes qu'on a eu (double preprocessing...)
+parler de limportance de la communication avec les gestionnaire pour la confiance
 dire que pour contrecarrer probleme de langage on a recruté un data scientist + les informaticien doivent se mettre à python
 
