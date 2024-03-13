@@ -9,9 +9,14 @@ Our technology watch and literature review highlighted cloud-native technologies
 
 This very insight is really the base of the Onyxia project : choosing technologies that foster autonomy won't actually foster autonomy if their complexity acts as a deterrent from widespread adoption in the structure. In recent years, statisticians at Insee already need to adapt to a changing environment in termes of their everyday tools : transitioning from proprietary software (SAS) to open-source ones (R, Python), acculturating to technologies that improve reproducibility (version control with Git), consuming and developing APIs, etc. These changes, that make their activity more and more akin to the one of software developers, already imply significant training and changes in the modalities of work everyday. In this regard, adoption of cloud-technologies was utterly dependent on making them readily accessible.
 
-% TODO: figure Onyxia components
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{sections/img/onyxia-components.png}
+    \caption{Onyxia is the technical binder between cloud-native modular components}
+    \label{fig:onyxia-components}
+\end{figure}
 
-To bridge this gap, we developed Onyxia, an application that essentially acts as interface between the modular components that compose the architecture. The main entrypoint of the user is a user-friendly web application\footnote{\url{https://github.com/InseeFrLab/onyxia-ui}} that enables users to launch services from a data science catalog (see section \ref{ssec:catalog}) as running containers on the underlying Kubernetes cluster. The interface between the UI and Kubernetes is done by a lightweight custom API\footnote{\url{https://github.com/InseeFrLab/onyxia-api}}, that essentially transforms the application request of the user into a set of manifests to deploy Kubernetes resources. For a given application, these resources are packaged under the form of Helm charts, a popular way of packaging potentially complex applications on Kubernetes \cite{gokhale2021creating}. Although users can configure a service to tailor it to their needs, they will most of the time just launch a service out-of-the-box and be able to start developing. This point really illustrates the added value of Onyxia in facilitating the adoption of cloud technologies. By injecting authentication information and configuration into the containers at the initialization, we ensure that users can launch and manage data science services in which they can interact seamlessly with the data from their bucket on MinIO, their sensitive information (tokens, passwords) stored in Vault, etc. This automatic injection, coupled with the pre-configuration of data science environments in Onyxia's catalogs of images\footnote{\url{https://github.com/InseeFrLab/images-datascience}} and associated helm-charts\footnote{\url{https://github.com/InseeFrLab/helm-charts-interactive-services}}, make it possible for users to execute potentially complex workloads - such as running distributed computations with Spark on Kubernetes using data stored in S3, or training deep-learning models using a GPU - without getting bogged down by the technicalities of configuration.
+To bridge this gap, we developed Onyxia, an application that essentially acts as interface between the modular components that compose the architecture (see fig~\ref{fig:onyxia-components}). The main entrypoint of the user is a user-friendly web application\footnote{\url{https://github.com/InseeFrLab/onyxia-ui}} that enables users to launch services from a data science catalog (see section \ref{ssec:catalog}) as running containers on the underlying Kubernetes cluster. The interface between the UI and Kubernetes is done by a lightweight custom API\footnote{\url{https://github.com/InseeFrLab/onyxia-api}}, that essentially transforms the application request of the user into a set of manifests to deploy Kubernetes resources. For a given application, these resources are packaged under the form of Helm charts, a popular way of packaging potentially complex applications on Kubernetes \cite{gokhale2021creating}. Although users can configure a service to tailor it to their needs, they will most of the time just launch a service out-of-the-box and be able to start developing. This point really illustrates the added value of Onyxia in facilitating the adoption of cloud technologies. By injecting authentication information and configuration into the containers at the initialization, we ensure that users can launch and manage data science services in which they can interact seamlessly with the data from their bucket on MinIO, their sensitive information (tokens, passwords) stored in Vault, etc. This automatic injection, coupled with the pre-configuration of data science environments in Onyxia's catalogs of images\footnote{\url{https://github.com/InseeFrLab/images-datascience}} and associated helm-charts\footnote{\url{https://github.com/InseeFrLab/helm-charts-interactive-services}}, make it possible for users to execute potentially complex workloads - such as running distributed computations with Spark on Kubernetes using data stored in S3, or training deep-learning models using a GPU - without getting bogged down by the technicalities of configuration.
 
 % TODO: figure : from launching a service to its deployment on Kube + S3, Vault ?
 
@@ -32,11 +37,20 @@ Besides autonomy and scalability, the architectural choices of Onyxia also foste
 \label{ssec:catalog}
 \subsection{An extensive catalogue of services to cover the entire lifecycle of data science projects}
 
-Axe : principes
-- A catalog of services which covers the entire lifecycle of a data science project
-- production-ready : outils d'automatisation (-> autonomie)
+In developing the Onyxia platform, our intention was to provide statisticians with a comprehensive environment designed to support the prototyping of their data science projects from start to finish. As depicted in Figure~\ref{fig:onyxia-catalog}, the platform offers a vast array of services that span the complete lifecycle of a data science project.
 
-% TODO: figure catalogue onyxia
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{sections/img/onyxia-catalog.png}}
+    \caption{Onyxia's default catalog aims at covering the entire lifecycle of data science projects}
+    \label{fig:onyxia-catalog}
+\end{figure}
+
+The primary usage of the platform is the deployment of interactive development environments (IDE), such as RStudio, Jupyter, or VSCode. These IDEs come equipped with the latest kernels of major open-source programming languages commonly employed by public statisticians, mainly R, Python and Julia. 
+
+Our strategy involves curating our own stack of data science images to ensure environments are not only operational upon deployment but also enriched with a broad selection of packages frequently utilized in data science.
+
+
 
 \subsection{Building commons : an open-source project and an open-innovation platform}
 
