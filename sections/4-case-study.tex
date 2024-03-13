@@ -213,20 +213,45 @@ To develop our API, we used the popular Python library FastAPI, which is relativ
 
 % TODO :  https://ensae-reproductibilite.github.io/slides/#/servir-le-mod%C3%A8le-avec-mlflow pour la partie déploiement avec mlflow et fastapi
 
-At this stage, we are already adhering to several MLOps principles in terms of reproducibility through containers and model versioning with MLflow. However, when it comes to automation, there is room for further improvement. Imagine you have deployed an API, and in the meantime, you have developed a new feature for it. For this new feature to be effectively integrated into your API, it is necessary to redeploy the new version of your API and remove the currently deployed one. The idea is to automate the creation of a new Docker image as soon as your API code is updated, and a container based on this latest image automatically deploys the new version of your API. To achieve this on the SSP Cloud, there is the ArgoCD service - CD for Continuous Deployment. ArgoCD continuously scans your Github repository, and as soon as it detects a change in the API code or in the version of the model to be used, it automatically deploys your API by communicating with the Kubernetes cluster. In reality, this process is a bit more nuanced. ArgoCD does not scan your entire codebase but only a few configuration files that indicate the versions of the Docker image to use and the model to deploy. To create a new version of the Docker image as soon as the API code is modified, we use the GitHub Actions feature of Github\footnote{An equivalent feature also exists under Gitlab, called Gitlab CI.}. This deployment automation pipeline is depicted in Figure \ref{todo}.
+At this stage, we are already adhering to several MLOps principles in terms of reproducibility through containers and model versioning with MLflow. However, when it comes to automation, there is room for further improvement. Imagine you have deployed an API, and in the meantime, you have developed a new feature for it. For this new feature to be effectively integrated into your API, it is necessary to redeploy the new version of your API and remove the currently deployed one. The idea is to automate the creation of a new Docker image as soon as your API code is updated, and a container based on this latest image automatically deploys the new version of your API. To achieve this on the SSP Cloud, there is the ArgoCD service - CD for Continuous Deployment. ArgoCD continuously scans your Github repository, and as soon as it detects a change in the API code or in the version of the model to be used, it automatically deploys your API by communicating with the Kubernetes cluster. In reality, this process is a bit more nuanced. ArgoCD does not scan your entire codebase but only a few configuration files that indicate the versions of the Docker image to use and the model to deploy. To create a new version of the Docker image as soon as the API code is modified, we use the GitHub Actions feature of Github\footnote{An equivalent feature also exists under Gitlab, called Gitlab CI.}. This deployment automation pipeline is depicted in Figure ??.
 % TODO : mettre ce schéma https://ensae-reproductibilite.github.io/slides/#/cicd-impl%C3%A9mentation-sur-kubernetes pour la partie CI/CD
 
 The autonomy of the data scientist up to the deployment of the model is particularly effective in terms of organization. Indeed, thanks to the deployment of an API or the transmission of a Docker image, transitioning the model to production is facilitated. On the IT side, querying an API is a common task, and no knowledge of machine learning is required to perform it.
 
 \subsection{Monitoring of the model}
 
+\subsubsection{The importance monitoring}
+
+Once the modeling phase has been completed, along with training, optimization, and deployment of the model on a server to be accessible to users, it would be inaccurate to consider the work finished from the perspective of the data scientist. Traditionally, the responsibility of the data scientist is often limited to selecting the model to deploy, with the deployment task then delegated to data engineers. However, once in production, the model has not yet reached the end of its lifecycle, and it must be continuously monitored to prevent undesirable performance degradation.
+
+The various components of MLOps, namely data (DataOps), models (ModelOps), and code (DevOps), add complexity to the lifecycle of a machine learning model by involving multiple stakeholders. Generally, three main actors are involved:
+
 \begin{itemize}
-    \item Enjeu du monitoring => indispensable
-    \item monitorer l'IC dire que c'est notre variable d'ajustement
-    \item data drift/ concept drift
-    \item Pour APE : Création d'un dashboard (faire un super graphs qui récap tout)
-    \item encore on utilise les trucs du datalab (argocd pour le déploiement, argoworkflow pour les cronjob quotidien)
+    \item Data scientists/data engineers
+    \item IT teams
+    \item Business teams
 \end{itemize}
+
+Sometimes, data scientists are integrated into business teams and data engineers into IT teams to foster better collaboration. This approach aims to streamline skills, unify terminologies, and align project objectives. In any cases, effective communication remains essential to ensure proper management of the lifecycle of a machine learning model, particularly concerning monitoring its behavior in a production environment. Continuous monitoring of the deployed model is extremely important to ensure the conformity of results to expectations, anticipate changes in data, and iteratively improve the model. The monitoring is a crucial element of the MLOps approach.
+
+The concept of monitoring can take on different meanings depending on the context of the involved team. For IT teams, it primarily involves verifying the technical validity of the application, including aspects such as latency, memory consumption, or disk usage. Conversely, for data scientists or business teams, the focus is more on methodological monitoring of the model. However, real-time tracking of the performance of a machine learning model is often a complex task, given that ground truth is usually not known at the time of prediction. Therefore, it is common to use proxies to detect any signs of performance degradation. Two main types of degradation of a machine learning model are generally distinguished: data drift and concept drift.
+
+\begin{itemize}
+    \item \textbf{Data drift}: Data drift occurs when the data used during inference in production exhibits significant differences compared to the data used during training, that is,  $P_{train}(X) \neq P_{inference}(X)$.
+    \item \textbf{Concept drift}: Concept drift is evoked when a change in the statistical relationship between the features ($X$) and the target variable ($Y$) is observed over time, that is, $P_{train}(Y|X) \neq P_{inference}(Y|X)$ and $P_{train}(X) = P_{inference}(X)$.
+\end{itemize}
+
+
+\subsubsection{What do we monitor ?}
+
+In our use case, our objective is to achieve the highest number of correctly classified textual description while minimizing the number of textual description requiring manual intervention. Thus, our goal is to distinguish correct predictions from incorrect ones without prior access to ground truth. To accomplish this, we have developed a confidence index, which represents the difference between the two highest scores. Therefore, for a given textual description, if the confidence index exceeds a determined threshold, the textual description is automatically coded. Otherwise, the textual description is manually coded by an Insee's agent who has access to the five most probable codes according to the model to optimize manual intervention. The threshold beyond which a textual description is automatically coded constitutes a crucial parameter during production deployment, as it allows for arbitration between a high rate of automatic coding and lower model performance, and vice versa.
+
+To monitor the behavior of our model in production, we have developed an interactive dashboard that enables visualization of several metrics of interest for the business teams. Among these metrics are the number of requests per day and the rate of automatic coding per day based on a given confidence index threshold. This visualization allows business teams to understand the rate of automatic coding they would have obtained if they had chosen different thresholds. It is also possible to visualize the distribution of obtained confidence indices and to compare two temporal windows to determine if there are changes in the distributions of predictions returned by the model\footnote{To compare distributions, you need to calculate the distances between them using, for example the \href{https://en.wikipedia.org/wiki/Bhattacharyya_distance}{Bhattacharyya distance}, the \href{https://en.wikipedia.org/wiki/Kullback\%E2\%80\%93Leibler_divergence}{Kullback-Leibler divergence}, the \href{https://en.wikipedia.org/wiki/Hellinger_distance}{Hellinger distance} or to perform statistical tests such as the \href{https://en.wikipedia.org/wiki/Kolmogorov\%E2\%80\%93Smirnov_test}{Kolmogorov–Smirnov test}, or the \href{https://en.wikipedia.org/wiki/Chi-squared_test}{χ² test}.}. 
+
+Confidence indices can be analyzed at finer levels of granularity based on the aggregation level of the nomenclature, to determine which classes are most difficult to predict and which have more or less occurrences. Another part of the dashboard focuses more on the input data of the model and details, for example, the average number of words per textual description, the average number of sentences per textual description, as well as the most frequent words, etc.
+
+\subsubsection{How to implement a monoting system in the SSP Cloud?}
+
 
 \subsection{Annotation en continue}
 
