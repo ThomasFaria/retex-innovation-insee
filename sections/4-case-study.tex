@@ -99,7 +99,7 @@ In the landscape of machine learning projects, there are new considerations and 
 
 The MLOps approach is built upon the foundations of the DevOps approach. In this sense, it can be considered simply as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of machine learning models. MLOps incorporates the principles of collaboration and automation inherent in DevOps but also considers all aspects related to data and machine learning models.
 
-% TODO : image infinity mlops
+% TODO : image infinity mlops ou lui : https://ensae-reproductibilite.github.io/slides/#/conclusion
 
 MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the machine learning model.
 
@@ -124,7 +124,7 @@ Tackling these challenges and effectively managing the lifecycle of a ML project
 
 During this project, we heavily relied on \href{https://github.com/MLflow/MLflow}{MLflow}, a platform designed to streamline the lifecycle of machine learning models. It allows for detailed tracking of various experiments, packaging of code to ensure reproducibility, and serving models to end-users. MLflow also features an API that is compatible with most machine learning libraries such as PyTorch, Scikit-learn, XGBoost, and supports multiple programming languages including Python, R, and Java. It incorporates various functionalities that facilitate the adoption of the MLOps approach.
 
-There are numerous tools available for orchestrating tasks and data pipelines. Among the most popular (based on their GitHub stars) are \href{https://github.com/apache/airflow}{Airflow}, \href{https://github.com/spotify/luigi}{Luigi}, \href{https://github.com/argoproj/argo-workflows}{Argo Workflow}, \href{https://github.com/PrefectHQ/prefect}{Prefect}, \href{https://github.com/kubeflow/kubeflow}{Kubeflow} and \href{https://github.com/bentoml/BentoML}{BentoML}. It's difficult to assert whether one is better to another; in reality, your choice largely depends on your IT infrastructure and project requirements. In our case, we opted to use MLflow for its ease of use and suitability for machine learning projects. Additionally, it is available in the SSP Cloud catalog, simplifying its installation process.
+There are numerous tools available for orchestrating tasks and data pipelines. Among the most popular (based on their GitHub stars) are \href{https://github.com/apache/airflow}{Airflow}, \href{https://github.com/spotify/luigi}{Luigi}, \href{https://github.com/argoproj/argo-workflows}{Argo Workflows}, \href{https://github.com/PrefectHQ/prefect}{Prefect}, \href{https://github.com/kubeflow/kubeflow}{Kubeflow} and \href{https://github.com/bentoml/BentoML}{BentoML}. It's difficult to assert whether one is better to another; in reality, your choice largely depends on your IT infrastructure and project requirements. In our case, we opted to use MLflow for its ease of use and suitability for machine learning projects. Additionally, it is available in the SSP Cloud catalog, simplifying its installation process and its connection with our MinIO storage where all the artifacts are automatically stored.
 
 \subsubsection{MLflow Projects}
 
@@ -160,7 +160,7 @@ MLflow provides a tracking server that includes both an ergonomic graphical inte
 
 \subsubsection{Model Registry}
 
-Once different experiments have been conducted and models that satisfy us have been selected, it is time to move on to the next step in the model lifecycle. Indeed, the chosen model must then be able to move into a production or pre-production environment. However, knowing the state of a model in its lifecycle requires very rigorous organization and is not so straightforward. MLflow has developed a feature that simplifies this version management of models through its \href{https://MLflow.org/docs/latest/model-registry.html}{Model Registry}. This repository allows you to add tags and aliases to your models to define their position in their lifecycle and thus be able to retrieve them efficiently.
+Once different experiments have been conducted and models that satisfy us have been selected, it is time to move on to the next step in the model lifecycle. Indeed, the chosen model must then be able to move into a production or pre-production environment. However, knowing the state of a model in its lifecycle requires very rigorous organization and is not so straightforward. MLflow has developed a feature that simplifies this version management of models through its \href{https://MLflow.org/docs/latest/model-registry.html}{Model Registry}. This registry allows you to add tags and aliases to your models to define their position in their lifecycle and thus be able to retrieve them efficiently.
 
 In general, a machine learning model goes through 4 stages that need to be known at all times:
 
@@ -189,23 +189,33 @@ MLflow is an open-source project that provides a platform for tracking the lifec
 
 % TODO : schema de MLflow
 
-\subsection{Embracing the power of Onyxia from training to deployment}
+\subsection{Embracing the potential of Onyxia from training to deployment}
 
+To adhere closely to the MLOps approach, we strived to automate as much as possible the various stages of the machine learning model lifecycle. In the "automation" section of the SSP Cloud \href{https://datalab.sspcloud.fr/catalog/automation}{catalog}, several services are available in addition to MLflow, including Argo CD and Argo Workflows, which we use daily for various applications.
 
+Argo Workflows is an open-source container-native workflow engine designed for orchestrating parallel jobs on Kubernetes. It allows users to define complex multi-step workflows as code using YAML or JSON, simplifying the automation and management of tasks in a Kubernetes environment. The idea is to define workflows where each step of the process is a completely isolated container to ensure reproducibility. This allows for easy parallel execution of compute-intensive tasks for model training or data processing. In our case, we use it during the model training phase, particularly to optimize the various hyperparameters of our models. Instead of performing a grid search that would test all possible combinations in a single container, Argo Workflows creates as many containers as there are model combinations to train, with each container handling the training of a single model. Kubernetes optimizes resources within the cluster, and since we have configured MLflow in our code, all models and their metrics appear on the Tracking Server. It then becomes straightforward to compare the different trained models and select the best one using the comparison and visualization tools available on the UI. It is worth noting that it is relatively simple to make all these applications (Argo Workflows, MLflow, MinIO) communicate with each other with just a few configuration files because everything was well set up initially thanks to the Onyxia software. Without Onyxia, even the installation of these softwares can be challenging.
+
+The use of tools like Argo Workflows is highly recommended for ML projects, firstly because they rely on technologies that promote reproducibility (containers), but also because they encourage viewing projects as a series of independent steps ranging from data retrieval to result dissemination via modeling. Adopting a pipeline-based approach to your machine learning or statistics projects is the first step toward greater reproducibility.
+
+% \subsubsection{Making your model accessible with SSP Cloud}
+
+Once you have optimized, evaluated, and selected your best-performing model, it's crucial to make it available to other users. Unfortunately, this aspect is often overlooked by data scientists. A trivial way to share the model would be to provide your code and all necessary information to a third party to retrain your model on their own. Obviously, this approach is not optimal as it assumes that all users have the resources, infrastructure, and knowledge required for training. The goal is therefore to make your model available in a simple and efficient manner. The use of the SSP Cloud platform greatly simplifies this process and has also allowed us, as data scientists, to take control of our model until its deployment without relying on the IT team. Indeed, on the platform, it is possible to open services with Kubernetes administrator rights, enabling the deployment of applications. For making our machine learning model available, we opted to use a REST API. This seems to be the most suitable method in the vast majority of cases, as it meets several criteria:
 
 \begin{itemize}
-    \item Distributing trainings with Argo workflows
-    \item Deployment on the kubernetes cluster (freed from DSI) with fastAPI  $\rightarrow$ conteneurisation Docker
-    \item Automatiser les déploiements avec argoCD
+    \item \textbf{Simplicity}: REST APIs provide an entry point that can hide the underlying complexity of the model, making its availability easier.
+    \item \textbf{Standardization}: One of the main advantages of REST APIs is that they are based on the HTTP standard. This means they are language-agnostic, and requests can be made in XML, JSON, HTML, etc.
+    \item \textbf{Modularity}: The client and server are independent. In other words, data storage, user interface, or model management are completely separated from the server.
+    \item \textbf{Scalability}: The separation between the server and client allows REST APIs to be highly flexible and facilitate scalability. They can adapt to the load of concurrent requests.
 \end{itemize}
 
-Environnement dev et production très proche $\rightarrow$ passage en prod facilité
-\begin{itemize}
-    \item Transmission d'une image
-    \item Transmission d'une API
-\end{itemize}
+To develop our API, we used the popular Python library FastAPI, which is relatively easy to use and comes with exhaustive \href{https://fastapi.tiangolo.com/}{documentation}. The idea is to encapsulate all the API code and required software dependencies into a Docker image so that it can be deployed in a container on the Kubernetes cluster. Upon startup, the API will automatically retrieve the correct model from the MLflow model registry, which is located in a MinIO bucket. Using a MLflow model allows automatic integration of preprocessing before each prediction, regardless of the model framework used, greatly simplifying inference and ensuring streamlined code in the API. The model deployment process is summarized in Figure ??.
 
-schema api deployment
+% TODO :  https://ensae-reproductibilite.github.io/slides/#/servir-le-mod%C3%A8le-avec-mlflow pour la partie déploiement avec mlflow et fastapi
+
+At this stage, we are already adhering to several MLOps principles in terms of reproducibility through containers and model versioning with MLflow. However, when it comes to automation, there is room for further improvement. Imagine you have deployed an API, and in the meantime, you have developed a new feature for it. For this new feature to be effectively integrated into your API, it is necessary to redeploy the new version of your API and remove the currently deployed one. The idea is to automate the creation of a new Docker image as soon as your API code is updated, and a container based on this latest image automatically deploys the new version of your API. To achieve this on the SSP Cloud, there is the ArgoCD service - CD for Continuous Deployment. ArgoCD continuously scans your Github repository, and as soon as it detects a change in the API code or in the version of the model to be used, it automatically deploys your API by communicating with the Kubernetes cluster. In reality, this process is a bit more nuanced. ArgoCD does not scan your entire codebase but only a few configuration files that indicate the versions of the Docker image to use and the model to deploy. To create a new version of the Docker image as soon as the API code is modified, we use the GitHub Actions feature of Github\footnote{An equivalent feature also exists under Gitlab, called Gitlab CI.}. This deployment automation pipeline is depicted in Figure \ref{todo}.
+% TODO : mettre ce schéma https://ensae-reproductibilite.github.io/slides/#/cicd-impl%C3%A9mentation-sur-kubernetes pour la partie CI/CD
+
+The autonomy of the data scientist up to the deployment of the model is particularly effective in terms of organization. Indeed, thanks to the deployment of an API or the transmission of a Docker image, transitioning the model to production is facilitated. On the IT side, querying an API is a common task, and no knowledge of machine learning is required to perform it.
 
 \subsection{Monitoring of the model}
 
