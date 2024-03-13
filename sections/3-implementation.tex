@@ -42,11 +42,17 @@ In developing the Onyxia platform, our intention was to provide statisticians wi
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{sections/img/onyxia-catalog.png}}
-    \caption{Onyxia's default catalog aims at covering the entire lifecycle of data science projects}
+    \caption{Onyxia's catalog aims at covering the entire lifecycle of data science projects}
     \label{fig:onyxia-catalog}
 \end{figure}
 
 The primary usage of the platform is the deployment of interactive development environments (IDE), such as RStudio, Jupyter, or VSCode. These IDEs come equipped with the latest kernels of major open-source programming languages commonly employed by public statisticians (R, Python, Julia), as well as an extensive collection of packages commonly used in data science for each language. In order to ensure that services remain up-to-date and consistent between them, we maintain our own stack of underlying Docker images and rebuilt it weekly. The stack of image is fully open-source and can thus be reused outside of Onyxia\footnote{\url{https://github.com/InseeFrLab/images-datascience}}.
+
+As discussed in previous sections, the persistence layer of these interactive environments is mainly carried out by MinIO, Onyxia's default object storage solution. As it is based on a standardized REST API, files can be easily queried directly from R or Python using high-level packages. This in itself is an important step of ensuring reproducibility: the input files of a project are not mounted manually and then specified via paths adherent to a specific infrastructure and filesystem. Rather, files are specified as HTTP queries, making the overall structure of projects much more extendable. In our experience, the object-storage paradigm covers very well the needs of most statistical projects we accompany. However, additional database services such as PostgreSQL and MongoDB are available for applications with specific needs, such as those requiring online transaction processing (OLTP) capabilities or document-oriented storage.
+
+As Onyxia was developed to allow experimentation with big data sources and machine learning methods, we also provide services optimized for scalability. For instance, frameworks like Spark and Trino that enable to perform distributed computations within Kubernetes. These services come pre-configured to integrate seamlessly with S3 storage, thus facilitating building integrated and efficient data pipelines.
+
+Beyond mere experimentation, our goal is to empower statisticians to transition from trial phases to production-ready stages, deploying prototypes of their solutions as proofs of concept.  This transition is supported by tools for continuous integration and deployment (CI/CD) such as ArgoCD, workflow development like Argo Workflows, and API management with Gravitee for model serving. Section~\ref{sec:mlops} will delve into how these tools, particularly MLFlow, have been instrumental in operationalizing INSEE's inaugural machine learning model in accordance with MLOps principles.
 
 
 
