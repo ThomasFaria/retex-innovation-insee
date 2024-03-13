@@ -21,6 +21,7 @@ To bridge this gap, we developed Onyxia, an application that essentially acts as
 % TODO: figure : from launching a service to its deployment on Kube + S3, Vault ?
 
 \subsection{Architectural choices aimed at fostering autonomy}
+\label{ssec:principles}
 
 The Onyxia project is based on a few structuring principles, with a central theme : fostering autonomy. First, at the level of the organization by preventing vendor lock-in. In order to get a competitive edge, many commercial cloud providers develop applications and protocols that customers need to use to access cloud resources but that are not interoperable, greatly complexifying potential migrations to another cloud platform \cite{opara2016critical}. Recognizing these challenges, there is a trend towards endorsing cloud-neutral strategies \cite{opara2017holistic} in order to reduce reliance on a single vendor’s specific solutions. In contrast, the use of Onyxia is inherently not restrictive: when an organization chooses to use it, it chooses the underlying technologies - containerization and object storage - but not the solution. The platform can be deployed on any Kubernetes cluster, either on-premise or in public clouds. Similarly, although Onyxia was designed to be used with MinIO because it is an open-source object-storage solution, but is also compatible with objects storage solutions from various cloud providers (AWS, GCP).
 
@@ -34,8 +35,8 @@ Besides autonomy and scalability, the architectural choices of Onyxia also foste
 
 % TODO: figure separation processes + DAG
 
-\label{ssec:catalog}
 \subsection{An extensive catalogue of services to cover the entire lifecycle of data science projects}
+\label{ssec:catalog}
 
 In developing the Onyxia platform, our intention was to provide statisticians with a comprehensive environment designed to support the prototyping of their data science projects from start to finish. As depicted in Figure~\ref{fig:onyxia-catalog}, the platform offers a vast array of services that span the complete lifecycle of a data science project.
 
@@ -52,9 +53,9 @@ As discussed in previous sections, the persistence layer of these interactive en
 
 As Onyxia was developed to allow experimentation with big data sources and machine learning methods, we also provide services optimized for scalability. For instance, frameworks like Spark and Trino that enable to perform distributed computations within Kubernetes. These services come pre-configured to integrate seamlessly with S3 storage, thus facilitating building integrated and efficient data pipelines.
 
-Beyond mere experimentation, our goal is to empower statisticians to transition from trial phases to production-ready stages, deploying prototypes of their solutions as proofs of concept.  This transition is supported by tools for continuous integration and deployment (CI/CD) such as ArgoCD, workflow development like Argo Workflows, and API management with Gravitee for model serving. Section~\ref{sec:mlops} will delve into how these tools, particularly MLFlow, have been instrumental in operationalizing INSEE's inaugural machine learning model in accordance with MLOps principles.
+Beyond mere experimentation, our goal is to empower statisticians to transition from trial phases to production-ready projects. In lines with principles from the DevOps approach, this involves facilitating the deployment of prototypes and their continuous improvement over time. To this end, we provide a set of open-source tools aimed at automatizing and industrializing the process of deploying data-intensive applications (ArgoCD, Argo-Workflows, MLFlow). For projects leveraging machine-learning models, statisticians can serve their models through APIs, deploy them using the aforementioned tools, and and manage their lifecycle using an API manager such as Gravitee. Section~\ref{sec:mlops} will delve into how these tools, particularly MLFlow, have been instrumental in putting machine learning models in production at Insee, in accordance with MLOps principles.
 
-
+In section~\ref{ssec:principles}, we stressed that one of Onyxia's fundamental design principle was to avoid vendor lock-in. In line with this idea, organizations that implement Onyxia are at liberty to customize catalogs to suit their specific requirements, or even opt to construct their own catalogs independent of Onyxia's default offerings. This flexibility ensures that organizations are not confined to a single solution or provider, and can adapt the platform to their evolving needs.
 
 \subsection{Building commons : an open-source project and an open-innovation platform}
 
