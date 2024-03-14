@@ -84,13 +84,13 @@ In the landscape of machine learning projects, there are new considerations and 
     
     \item \textbf{Model Versioning}: ML models are highly iterative. Therefore, effective version control mechanisms are essential to track changes, compare performance across different model versions, and roll back to previous versions if necessary. While model versioning may also be relevant for traditional statistical models, it is infrequently practiced. In ML projects, however, it is considered mandatory due to the iterative nature of model development and the dynamic nature of data and algorithms.
     
-    \item \textbf{Model Deployment}: Deploying ML models into production environments presents unique challenges due to their complexity and resource requirements. Ensuring seamless deployment involves considerations such as containerization, scalability, latency, and integration with existing systems.
+    \item \textbf{Model Deployment}: Deploying ML models into production environments presents unique challenges due to their complexity and resource requirements. Ensuring seamless deployment involves considerations such as containerization, scalability, latency, and harmonization with preexisting systems.
     
     \item \textbf{Model Monitoring}: Once deployed, ML models need to be continuously monitored to detect performance degradation, concept drift, or other anomalies. Unlike traditional statistical models, ML models can exhibit unexpected behavior over time due to changes in data distribution or underlying patterns. Implementing robust monitoring solutions involves tracking model performance metrics and data quality to ensure ongoing reliability, effectiveness and to trigger model retraining.
 
-    \item \textbf{Model Retraining}: Regular retraining of ML models is essential to maintain their effectiveness over time. Changes in data distribution, data quality, or business objectives may necessitate updates to the model. Retraining ensures that the model remains accurate and relevant in evolving environments.
+    \item \textbf{Model Retraining}: Regular retraining of ML models stands as an imperative to maintain their effectiveness over time. Shifts in data distribution, variations in data quality, or evolving business imperatives may necessitate the recalibration of models to preserve accuracy and relevance. 
 
-    \item \textbf{Data annotation}: 
+    \item \textbf{Data Annotation}: The process of data annotation assumes paramount importance in the context of machine learning, where labeled datasets serve as the foundation for model training and validation. Data annotation involves the manual or automated labeling of raw data with descriptive metadata, facilitating the development of supervised learning models. Data annotation directly influences the performance and generalizability of ML models.
 
     \item \textbf{Explainability}: The interpretability of ML models is important for building trust and understanding their predictions.
 \end{enumerate}
@@ -278,11 +278,3 @@ To carry out these annotation campaigns, we used the \href{https://labelstud.io/
 \subsection{What next ?}
 
 We have demonstrated that an appropriate working infrastructure allows for the adoption of an MLOps approach for an entire ML project and the automation of as many steps as possible. The SSP Cloud is one of them. What is important to remember about the MLOps approach is that it is iterative: not everything can be implemented from the beginning, and time constraints can be limiting. Thus, it is advisable to start by implementing good development practices, and then to enrich your project according to its needs with increasingly more automation. On our part, we have identified several areas for improvement that we plan to implement soon. Firstly, we want to automate model retraining, for this we still need to improve our monitoring pipeline. Indeed, although the business teams have a dashboard allowing them to easily visualize the model's performance quasi-real-time (the dashboard is updated every night), there is not yet a system of alerts signaling when retraining is necessary and, more ambitiously, automatically triggering this retraining. Additionally, we plan to test other methodologies for our model, especially Transformer-type models, which could soon be usable on our production servers. Finally, although this does not directly optimize our pipeline in terms of MLOps, working on the revision of NACE will be an interesting challenge and will allow us to assess the relevance of the MLOps approach we have adopted since the beginning of the project.
-
-\subsection{Gouvernance d'un projet de ML/ challenges}
-
-On mets ça dans discussion ?
-ici dire tous les problèmes qu'on a eu (double preprocessing...)
-parler de limportance de la communication avec les gestionnaire pour la confiance
-dire que pour contrecarrer probleme de langage on a recruté un data scientist + les informaticien doivent se mettre à python
-
