@@ -237,8 +237,8 @@ Sometimes, data scientists are integrated into business teams and data engineers
 The concept of monitoring can take on different meanings depending on the context of the involved team. For IT teams, it primarily involves verifying the technical validity of the application, including aspects such as latency, memory consumption, or disk usage. Conversely, for data scientists or business teams, the focus is more on methodological monitoring of the model. However, real-time tracking of the performance of a machine learning model is often a complex task, given that ground truth is usually not known at the time of prediction. Therefore, it is common to use proxies to detect any signs of performance degradation. Two main types of degradation of a machine learning model are generally distinguished: data drift and concept drift.
 
 \begin{itemize}
-    \item \textbf{Data drift}: Data drift occurs when the data used during inference in production exhibits significant differences compared to the data used during training, that is,  $P_{train}(X) \neq P_{inference}(X)$.
-    \item \textbf{Concept drift}: Concept drift is evoked when a change in the statistical relationship between the features ($X$) and the target variable ($Y$) is observed over time, that is, $P_{train}(Y|X) \neq P_{inference}(Y|X)$ and $P_{train}(X) = P_{inference}(X)$.
+    \item \textbf{Data drift}: Data drift occurs when the data used during inference in production exhibits significant differences compared to the data used during training, that is,  $\mathds{P}_{train}(X) \neq \mathds{P}_{inference}(X)$.
+    \item \textbf{Concept drift}: Concept drift is evoked when a change in the statistical relationship between the features ($X$) and the target variable ($Y$) is observed over time, that is, $\mathds{P}_{train}(Y|X) \neq \mathds{P}_{inference}(Y|X)$ and $\mathds{P}_{train}(X) = \mathds{P}_{inference}(X)$.
 \end{itemize}
 
 
