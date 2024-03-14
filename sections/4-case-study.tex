@@ -34,7 +34,7 @@ The project we aim to implement is a standard natural language classification pr
 
 With the establishment of the one-stop shop, business owners can now freely draft their activity descriptions. As a result, the labels received by INSEE are very different from the harmonized labels that were previously received. Therefore, it was decided to work with machine learning models that have proven their effectiveness in the literature. This represents a significant paradigm shift from INSEE's perspective, as no machine learning model has ever been deployed into production. In fact, the initial years of the INSEE Lab were characterized by a multitude of experiments on various subjects without ever transitioning to production. Nevertheless, all these experiments were valuable and accelerated the project through the gained experience. This project thus marked the first instance where the challenges of production deployment were considered from the outset, guiding numerous methodological and technical choices. As such, several points had to be agreed upon to facilitate coordination among the various stakeholders, and several strategic choices had to be made from the outset, including the working infrastructure, work methods, and the type of model to be used for such a project. The goal was to accommodate the constraints of each team and reconcile their needs.
 
-\subsubsection{Infrastructure de travail}
+\subsubsection{Working infrastructure}
 
 In a machine learning project, the choice of development infrastructure is central. Working on a modular infrastructure is crucial in machine learning projects due to the diversity of tasks to be performed, such as data collection, preprocessing, modeling, evaluation, inference, monitoring, among others. This allows for easy replacement or updating of components without disrupting the entire workflow pipeline. As elucidated in the preceding chapter, traditional Big Data infrastructures often prove too rigid and specialized, failing to adequately cater to the diverse demands of various projects. Therefore, we decided to use a more modular infrastructure that better addresses the needs of machine learning projects by leveraging the most appropriate technologies for each stage of our pipeline. This primarily allows us to take advantage of the latest technological advancements without being limited by a predefined architecture, as innovations in machine learning progress rapidly. We exclusively utilized open-source cloud technologies available in the SSP Cloud catalog, an instance of the Onyxia software developed by INSEE. This platform, based on Kubernetes, offers flexible and scalable container management, enabling easy scaling of services as needed. As we will see in the following sections of this chapter, we used various tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio, Vscode, etc. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at INSEE. This initiative is poised to streamline the connection between production and development environments in the long run.
 
@@ -42,7 +42,7 @@ While the utilization of SSP Cloud has proven to be the right solution for us, i
 
 As for data privacy, while SSP Cloud is secure, it doesn't guarantee complete confidentiality. However, since we solely deal with open data, this hasn't posed any issues for us. At the time, the internal Onyxia instance at INSEE was not available yet.
 
-\subsubsection{Méthodes de travail}
+\subsubsection{Working methods and good practices}
 
 As mentioned earlier, our working infrastructure essentially required us to use Git to version our code. However, regardless of your setup, knowledge and usage of Git are essential prerequisites for any machine learning project. Another significant choice was made at the project's outset: the programming language to use. Currently, INSEE is undertaking a large-scale project to migrate all SAS code to the open-source R language. While we could have followed suit to align our projects with other INSEE initiatives, we opted for Python. Without getting into the futile debate over the superiority between R and Python, it's generally accepted that the majority of the machine learning ecosystem leans towards Python. That's why we chose this language. However, this decision wasn't made lightly, as it means our three stakeholders primarily work with three different programming languages: Java for IT teams, R for business teams, and Python for innovation teams. This diversity can pose a significant challenge to collaboration among the three teams, and we'll explain how we've attempted to overcome this hurdle.
 
@@ -60,7 +60,7 @@ In this project, we deliberately favored the use of scripts over notebooks, even
 Moreover, by open-sourcing all our code, we've committed to following community standards by documenting our code and using formatters such as \href{https://github.com/astral-sh/ruff}{Ruff}.
 
 
-\subsubsection{Méthodologie retenue}
+\subsubsection{Methodology used}
 
 When it came to selecting the methodology to adopt, we had to navigate through various constraints, with the most significant being the need for deployment on our production servers. Our model had to be lightweight enough to run efficiently on these servers, while also minimizing the computational resource overhead to ensure swift inference. Additionally, the model had to be compatible with a different language than the one it was trained, namely Java, utilized on our production servers. This proved particularly challenging throughout our project, as it influenced our data preprocessing choices, necessitating simplicity wherever possible. We had to meticulously replicate the data processing performed in Python during training, thereby limiting the use of certain packages. Ultimately, each decision made had to ensure the model's compatibility and efficiency within a production environment while minimizing compromises on inference quality.
 
@@ -237,8 +237,8 @@ Sometimes, data scientists are integrated into business teams and data engineers
 The concept of monitoring can take on different meanings depending on the context of the involved team. For IT teams, it primarily involves verifying the technical validity of the application, including aspects such as latency, memory consumption, or disk usage. Conversely, for data scientists or business teams, the focus is more on methodological monitoring of the model. However, real-time tracking of the performance of a machine learning model is often a complex task, given that ground truth is usually not known at the time of prediction. Therefore, it is common to use proxies to detect any signs of performance degradation. Two main types of degradation of a machine learning model are generally distinguished: data drift and concept drift.
 
 \begin{itemize}
-    \item \textbf{Data drift}: Data drift occurs when the data used during inference in production exhibits significant differences compared to the data used during training, that is,  $P_{train}(X) \neq P_{inference}(X)$.
-    \item \textbf{Concept drift}: Concept drift is evoked when a change in the statistical relationship between the features ($X$) and the target variable ($Y$) is observed over time, that is, $P_{train}(Y|X) \neq P_{inference}(Y|X)$ and $P_{train}(X) = P_{inference}(X)$.
+    \item \textbf{Data drift}: Data drift occurs when the data used during inference in production exhibits significant differences compared to the data used during training, that is,  $\mathds{P}_{train}(X) \neq \mathds{P}_{inference}(X)$.
+    \item \textbf{Concept drift}: Concept drift is evoked when a change in the statistical relationship between the features ($X$) and the target variable ($Y$) is observed over time, that is, $\mathds{P}_{train}(Y|X) \neq \mathds{P}_{inference}(Y|X)$ and $\mathds{P}_{train}(X) = \mathds{P}_{inference}(X)$.
 \end{itemize}
 
 
@@ -266,25 +266,18 @@ In summary, our monitoring pipeline consists of:
 
 
 % TODO: rajouter au schéma de l'API une parti qui explique le monitoring avec dashboard
+\subsection{Continuous Annotation}
 
-\subsection{Annotation en continue}
+In all machine learning projects, it is well-established that data is key, and in supervised machine learning problems, annotations play a crucial role in model performance. From the outset of our project, we were time-constrained and had to obtain results quickly, without having the time to set up an exhaustive annotation campaign. Consequently, we never had access to a truly annotated gold-standard test sample on which we could rely 100\%. To evaluate the performance of our model, we relied on a subset of our training dataset (test/train split), knowing that its labeling was not perfect. After several months of model deployment, it became imperative to build such a gold-standard test sample. Firstly, this sample allows us to have an unbiased view of the model's performance in production on real data, particularly on data that has been automatically coded. Additionally, this sample enabled us to identify and correct inconsistencies present in our initial training dataset. Explaining the importance of annotation to the business teams was not an easy task, as they were reluctant to reallocate new human resources, requiring some expertise and potentially being tedious. The increase in automatic coding thanks to the model allowed for the reallocation of teams to annotation tasks.
 
-\begin{itemize}
-    \item Evaluer la performance en créant un fichier test golden standard -> intégré au dashboard
-    \item Amélioration du jeu d'entrainement en corrigeant les erreurs
-    \item passage en NAF2025 très bientôt gros enjeu
-    \item tout ca réalisé sur le datalab avec LabelStudio
-    \item Rappeler les problèmes rencontrés (faire comprendre aux équipes métiers que c'est ultra important pour améliorer la performance, nécessite ressources humaines importantes..)
-\end{itemize}
+Another reason that motivated the implementation of annotation campaigns is the redesign of the NACE nomenclature in 2025. From 2025 onwards, European statistical institutes will be required to use the latest version of NACE, namely NACE Rev. 2.1. This revision brings substantial changes that will require retraining a new model. For this, a new training dataset with the correct annotations is indispensable. A back-propagation work on the old training dataset is also considered to increase the size of the dataset. Thus, a dual annotation campaign was initiated in early 2024 on the SSP Cloud platform.
+
+To carry out these annotation campaigns, we used the \href{https://labelstud.io/}{Label Studio} service, available on the SSP Cloud. Label Studio is an open-source platform designed to facilitate data annotation. The first annotation campaign aims to create a test dataset allowing continuous evaluation of our model and improvement of the training dataset if necessary. To do this, we create a pool of text descriptions randomly sampled from the data passed through the API over the past three months. This sample is then sent to annotation by NACE experts using the UI of Label Studio. The annotation results are automatically saved on MinIO, transformed into parquet format, and then integrated into the monitoring dashboard to compute and observe various model performance metrics. The second annotation campaign is dedicated to the transition to the new version of NACE. The objective is to allocate certain experts to annotation in the new version of NACE to create a training dataset for the future model. In this revision, some codes are univocal, meaning for example that code 0112Z will become 0112Y, while others are multivocal, such as 0119Z, which can become either 0113Y or 0119Y. The challenge lies primarily with the latter, which is why, to streamline this annotation process, only the textual descriptions of multivocal codes are sent for annotation on Label Studio.
+
 
 \subsection{What next ?}
 
-\begin{itemize}
-    \item automate retraining link with monitoring trigger retraining...
-    \item use BERT models
-    \item NACE2025
-    \item prod server on kubernetes
-\end{itemize}
+We have demonstrated that an appropriate working infrastructure allows for the adoption of an MLOps approach for an entire ML project and the automation of as many steps as possible. The SSP Cloud is one of them. What is important to remember about the MLOps approach is that it is iterative: not everything can be implemented from the beginning, and time constraints can be limiting. Thus, it is advisable to start by implementing good development practices, and then to enrich your project according to its needs with increasingly more automation. On our part, we have identified several areas for improvement that we plan to implement soon. Firstly, we want to automate model retraining, for this we still need to improve our monitoring pipeline. Indeed, although the business teams have a dashboard allowing them to easily visualize the model's performance quasi-real-time (the dashboard is updated every night), there is not yet a system of alerts signaling when retraining is necessary and, more ambitiously, automatically triggering this retraining. Additionally, we plan to test other methodologies for our model, especially Transformer-type models, which could soon be usable on our production servers. Finally, although this does not directly optimize our pipeline in terms of MLOps, working on the revision of NACE will be an interesting challenge and will allow us to assess the relevance of the MLOps approach we have adopted since the beginning of the project.
 
 \subsection{Gouvernance d'un projet de ML/ challenges}
 
