@@ -27,6 +27,18 @@ Ouafa Bentaleb, Adam~SZ Belloum, Abderrazak Sebaa, and Aouaouche El-Maouhab.
   challenges.
 \newblock {\em The Journal of Supercomputing}, 78(1):1144--1181, 2022.
 
+\bibitem{chesbrough2003open}
+Henry~William Chesbrough.
+\newblock {\em Open innovation: The new imperative for creating and profiting
+  from technology}.
+\newblock Harvard Business Press, 2003.
+
+\bibitem{comte2022sspcloud}
+Fr{\'e}d{\'e}ric Comte, Arnaud Degorre, and Romain Lesur.
+\newblock Le sspcloud: une fabrique cr{\'e}ative pour accompagner les
+  exp{\'e}rimentations des statisticiens publics.
+\newblock {\em Courrier des Statistiques, INSEE}, 7:68--85, 2022.
+
 \bibitem{davenport2012data}
 Thomas~H Davenport and DJ~Patil.
 \newblock Data scientist.
@@ -205,6 +217,12 @@ S~Samundiswary and Nilma~M Dongre.
 \newblock Object storage architecture in cloud for unstructured data.
 \newblock In {\em 2017 International Conference on Inventive Systems and
   Control (ICISC)}, pages 1--6. IEEE, 2017.
+
+\bibitem{schweik2006free}
+Charles~M Schweik.
+\newblock Free/open-source software as a framework for establishing commons in
+  science.
+\newblock 2006.
 
 \bibitem{vale2015international}
 Steven Vale.
