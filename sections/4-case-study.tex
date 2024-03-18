@@ -66,9 +66,14 @@ When it came to selecting the methodology to adopt, we had to navigate through v
 
 These constraints led us away from the most powerful language models at the start of the project, such as Transformer models, and instead directed us towards simpler natural language models, specifically, we opted for the fastText model \cite{joulin2016bag}. This choice was driven by its ability to address all previously mentioned constraints. The fastText model is incredibly fast to train, even from scratch, and inference doesn't require a GPU to be extremely rapid. Moreover, there exists a wrapper that enables reading fastText models in Java, which could be utilized by the IT teams on their machines, greatly facilitating the deployment of our models. Unfortunately, this wrapper, available on \href{https://github.com/vinhkhuc/JFastText}{GitHub}, is no longer maintained, posing serious security concerns, and thus became a temporary default choice for us. In addition to these technical arguments, the decision to use the fastText model was justified from a methodological standpoint. Firstly, the INSEE Lab teams had already completed several projects using the fastText model, leveraging the acquired knowledge to achieve initial results very quickly. While it may not have been a state-of-the-art language model, for our use case, the model yielded excellent performance results which, considering the time and human resource constraints, were more than sufficient to enhance the existing process. Finally, the model is inherently simple methodologically speaking, greatly simplifying communication and adoption within the various INSEE teams. 
 
-The supervised classification model fastText relies on both a bag-of-words model to obtain embeddings and a classifier based on logistic regression. The bag-of-words approach involves representing a text as the set of vector representations of each of its constituent words. Thus, the embedding of a sentence depends on the embeddings of its words, for example, their sum or their average. In the case of supervised text classification, the embedding matrix and the classifier's coefficient matrix are learned simultaneously during training by gradient descent, minimizing an usual cross-entropy loss function. The specificity of the fastText model lies in embeddings being performed not only on words but also on word n-grams and character n-grams, providing more context and reducing biases due to spelling mistakes. The fastText model can be summarized by the following diagram:
+The supervised classification model fastText relies on both a bag-of-words model to obtain embeddings and a classifier based on logistic regression. The bag-of-words approach involves representing a text as the set of vector representations of each of its constituent words. Thus, the embedding of a sentence depends on the embeddings of its words, for example, their sum or their average. In the case of supervised text classification, the embedding matrix and the classifier's coefficient matrix are learned simultaneously during training by gradient descent, minimizing an usual cross-entropy loss function. The specificity of the fastText model lies in embeddings being performed not only on words but also on word n-grams and character n-grams, providing more context and reducing biases due to spelling mistakes. The fastText model can be summarized by the Figure \ref{fig:fasttext}
 
-% TODO: diagram fasttext
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{sections/img/fasttext.png}}
+    \caption{TODO}
+    \label{fig:fasttext}
+\end{figure}
 
 \subsection{What is MLOps?}
 
@@ -100,7 +105,13 @@ In the landscape of machine learning projects, there are new considerations and 
 
 The MLOps approach is built upon the foundations of the DevOps approach. In this sense, it can be considered simply as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of machine learning models. MLOps incorporates the principles of collaboration and automation inherent in DevOps but also considers all aspects related to data and machine learning models.
 
-% TODO : image infinity mlops ou lui : https://ensae-reproductibilite.github.io/slides/#/conclusion
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlops-cycle.png}}
+    \caption{Machine Learning lifecycle. Credits: Satish Chandra Gupta}
+    \label{fig:mlops-cycle}
+\end{figure}
+
 
 MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the machine learning model.
 
@@ -151,13 +162,23 @@ MLflow offers a format for packaging data science projects to promote code reuse
 
 In addition to packaging a project, MLflow also allows you to package your model, regardless of the underlying machine learning library used\footnote{You also have the capability to package our own custom model. This is precisely what we do to integrate our fastText model into MLflow.}  (among those \href{https://MLflow.org/docs/latest/models.html#built-in-model-flavors}{compatible with MLflow}, i.e., all the libraries you use!). Thus, two models trained with different libraries, say PyTorch and Keras, can be deployed and queried in the same way thanks to this layer added by MLflow. This harmonization becomes particularly valuable as you begin to accumulate various types of models, as it eliminates the need to modify your inference pipeline every time you introduce a new model type.
 
-% TODO : schema de MLflow Models
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-models.png}}
+    \caption{TODO}
+    \label{fig:mlflow-models}
+\end{figure}
 
 \subsubsection{Tracking Server}
 
 MLflow provides a tracking server that includes both an ergonomic graphical interface and an API for logging various parameters, metrics, files, etc. during the training of your machine learning model. The tracking server is very useful for comparing the different experiments you have performed, storing them, and also being able to reproduce them. Indeed, each run stores the source of the utilized data along with the corresponding commit. When combined with MLflow Project, this capability enables the reproduction of every conducted run.
 
-% TODO : schema de Tracking Server
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-tracking.png}}
+    \caption{TODO}
+    \label{fig:mlflow-tracking}
+\end{figure}
 
 \subsubsection{Model Registry}
 
@@ -172,7 +193,12 @@ In general, a machine learning model goes through 4 stages that need to be known
     \item \textbf{Archived}
 \end{enumerate}
 
-% TODO : schema de model registry
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-model-registry.png}}
+    \caption{TODO}
+    \label{fig:mlflow-registry}
+\end{figure}
 
 \subsubsection{MLflow in short}
 
@@ -188,7 +214,12 @@ MLflow is an open-source project that provides a platform for tracking the lifec
 \end{itemize}
 
 
-% TODO : schema de MLflow
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-overview.png}}
+    \caption{Overview of MLFlow. Source: https://dzlab.github.io}
+    \label{fig:mlflow-overview}
+\end{figure}
 
 \subsection{Embracing the potential of Onyxia from training to deployment}
 
@@ -209,12 +240,24 @@ Once you have optimized, evaluated, and selected your best-performing model, it'
     \item \textbf{Scalability}: The separation between the server and client allows REST APIs to be highly flexible and facilitate scalability. They can adapt to the load of concurrent requests.
 \end{itemize}
 
-To develop our API, we used the popular Python library FastAPI, which is relatively easy to use and comes with exhaustive \href{https://fastapi.tiangolo.com/}{documentation}. The idea is to encapsulate all the API code and required software dependencies into a Docker image so that it can be deployed in a container on the Kubernetes cluster. Upon startup, the API will automatically retrieve the correct model from the MLflow model registry, which is located in a MinIO bucket. Using a MLflow model allows automatic integration of preprocessing before each prediction, regardless of the model framework used, greatly simplifying inference and ensuring streamlined code in the API. The model deployment process is summarized in Figure ??.
+To develop our API, we used the popular Python library FastAPI, which is relatively easy to use and comes with exhaustive \href{https://fastapi.tiangolo.com/}{documentation}. The idea is to encapsulate all the API code and required software dependencies into a Docker image so that it can be deployed in a container on the Kubernetes cluster. Upon startup, the API will automatically retrieve the correct model from the MLflow model registry, which is located in a MinIO bucket. Using a MLflow model allows automatic integration of preprocessing before each prediction, regardless of the model framework used, greatly simplifying inference and ensuring streamlined code in the API. The model deployment process is summarized in Figure \ref{fig:api-with-mlflow}.
 
-% TODO :  https://ensae-reproductibilite.github.io/slides/#/servir-le-mod%C3%A8le-avec-mlflow pour la partie déploiement avec mlflow et fastapi
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/api-with-mlflow.png}}
+    \caption{Deploy a ML model via an API}
+    \label{fig:api-with-mlflow}
+\end{figure}
 
-At this stage, we are already adhering to several MLOps principles in terms of reproducibility through containers and model versioning with MLflow. However, when it comes to automation, there is room for further improvement. Imagine you have deployed an API, and in the meantime, you have developed a new feature for it. For this new feature to be effectively integrated into your API, it is necessary to redeploy the new version of your API and remove the currently deployed one. The idea is to automate the creation of a new Docker image as soon as your API code is updated, and a container based on this latest image automatically deploys the new version of your API. To achieve this on the SSP Cloud, there is the ArgoCD service - CD for Continuous Deployment. ArgoCD continuously scans your Github repository, and as soon as it detects a change in the API code or in the version of the model to be used, it automatically deploys your API by communicating with the Kubernetes cluster. In reality, this process is a bit more nuanced. ArgoCD does not scan your entire codebase but only a few configuration files that indicate the versions of the Docker image to use and the model to deploy. To create a new version of the Docker image as soon as the API code is modified, we use the GitHub Actions feature of Github\footnote{An equivalent feature also exists under Gitlab, called Gitlab CI.}. This deployment automation pipeline is depicted in Figure ??.
-% TODO : mettre ce schéma https://ensae-reproductibilite.github.io/slides/#/cicd-impl%C3%A9mentation-sur-kubernetes pour la partie CI/CD
+
+At this stage, we are already adhering to several MLOps principles in terms of reproducibility through containers and model versioning with MLflow. However, when it comes to automation, there is room for further improvement. Imagine you have deployed an API, and in the meantime, you have developed a new feature for it. For this new feature to be effectively integrated into your API, it is necessary to redeploy the new version of your API and remove the currently deployed one. The idea is to automate the creation of a new Docker image as soon as your API code is updated, and a container based on this latest image automatically deploys the new version of your API. To achieve this on the SSP Cloud, there is the ArgoCD service - CD for Continuous Deployment. ArgoCD continuously scans your Github repository, and as soon as it detects a change in the API code or in the version of the model to be used, it automatically deploys your API by communicating with the Kubernetes cluster. In reality, this process is a bit more nuanced. ArgoCD does not scan your entire codebase but only a few configuration files that indicate the versions of the Docker image to use and the model to deploy. To create a new version of the Docker image as soon as the API code is modified, we use the GitHub Actions feature of Github\footnote{An equivalent feature also exists under Gitlab, called Gitlab CI.}. This deployment automation pipeline is depicted in Figure \ref{fig:ci-cd}.
+
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/ci-cd.png}}
+    \caption{Implementation of CI/CD with Kubernetes}
+    \label{fig:ci-cd}
+\end{figure}
 
 The autonomy of the data scientist up to the deployment of the model is particularly effective in terms of organization. Indeed, thanks to the deployment of an API or the transmission of a Docker image, transitioning the model to production is facilitated. On the IT side, querying an API is a common task, and no knowledge of machine learning is required to perform it.
 
@@ -260,12 +303,19 @@ In summary, our monitoring pipeline consists of:
 
 \begin{enumerate}
     \item Writing "business logs" in the API for each request
-    \item With Argo Workflows, specifying a Cronjob that executes an ETL every night and produces a partitioned parquet file that it saves on MinIO
+    \item With ArgoCD, specifying a Cronjob that executes an ETL every night and produces a partitioned parquet file that it saves on MinIO
     \item Continuously deployed with ArgoCD, the dashboard directly queries the parquet file using DuckDB, calculates the metrics, and displays them interactively
 \end{enumerate}
 
 
-% TODO: rajouter au schéma de l'API une parti qui explique le monitoring avec dashboard
+\begin{figure}[htbp]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/api-monitoring.png}}
+    \caption{TODO}
+    \label{fig:api-monitoring}
+\end{figure}
+
+
 \subsection{Continuous Annotation}
 
 In all machine learning projects, it is well-established that data is key, and in supervised machine learning problems, annotations play a crucial role in model performance. From the outset of our project, we were time-constrained and had to obtain results quickly, without having the time to set up an exhaustive annotation campaign. Consequently, we never had access to a truly annotated gold-standard test sample on which we could rely 100\%. To evaluate the performance of our model, we relied on a subset of our training dataset (test/train split), knowing that its labeling was not perfect. After several months of model deployment, it became imperative to build such a gold-standard test sample. Firstly, this sample allows us to have an unbiased view of the model's performance in production on real data, particularly on data that has been automatically coded. Additionally, this sample enabled us to identify and correct inconsistencies present in our initial training dataset. Explaining the importance of annotation to the business teams was not an easy task, as they were reluctant to reallocate new human resources, requiring some expertise and potentially being tedious. The increase in automatic coding thanks to the model allowed for the reallocation of teams to annotation tasks.
