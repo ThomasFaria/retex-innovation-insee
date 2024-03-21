@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.21)  21 MAR 2024 09:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.21)  21 MAR 2024 09:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,12 +943,13 @@ Package hyperref Warning: bookmark level for unknown author defaults to 0.
 
 (./sections/0-abstract.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 2.
-) (./sections/1-introduction.tex [1
+(Font)              scaled to size 10.0pt on input line 3.
+) [1
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./sections/1-introduction
+.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -994,7 +995,7 @@ File: sections/img/onyxia-instances.png Graphic file (type png)
 Package pdftex.def Info: sections/img/onyxia-instances.png  used on input line 
 67.
 (pdftex.def)             Requested size: 432.76741pt x 139.08862pt.
- [14])
+) [14]
 (./sections/4-case-study.tex [15 <./sections/img/onyxia-instances.png>]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.0pt on input line 14.
@@ -1009,7 +1010,7 @@ File: sections/img/fasttext.png Graphic file (type png)
 Package pdftex.def Info: sections/img/fasttext.png  used on input line 73.
 (pdftex.def)             Requested size: 499.34584pt x 143.48366pt.
  [20] [21 <./sections/img/fasttext.png>]
-<sections/img/mlops-cycle.png, id=376, 1445.4pt x 813.0375pt>
+<sections/img/mlops-cycle.png, id=377, 1445.4pt x 813.0375pt>
 File: sections/img/mlops-cycle.png Graphic file (type png)
 <use sections/img/mlops-cycle.png>
 Package pdftex.def Info: sections/img/mlops-cycle.png  used on input line 110.
@@ -1023,41 +1024,41 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 123.
 [23]
-<sections/img/mlflow-models.png, id=405, 1204.5pt x 636.87938pt>
+<sections/img/mlflow-models.png, id=406, 1204.5pt x 636.87938pt>
 File: sections/img/mlflow-models.png Graphic file (type png)
 <use sections/img/mlflow-models.png>
 Package pdftex.def Info: sections/img/mlflow-models.png  used on input line 167
 .
 (pdftex.def)             Requested size: 332.89723pt x 176.02185pt.
  [24]
-<sections/img/mlflow-tracking.png, id=415, 1430.34375pt x 804.75656pt>
+<sections/img/mlflow-tracking.png, id=416, 1430.34375pt x 804.75656pt>
 File: sections/img/mlflow-tracking.png Graphic file (type png)
 <use sections/img/mlflow-tracking.png>
 Package pdftex.def Info: sections/img/mlflow-tracking.png  used on input line 1
 78.
 (pdftex.def)             Requested size: 332.89723pt x 187.30043pt.
- [25 <./sections/img/mlflow-models.png>]
-<sections/img/mlflow-model-registry.png, id=429, 977.6525pt x 432.61626pt>
+ [25 <./sections/img/mlflow-models.png> <./sections/img/mlflow-tracking.png>]
+<sections/img/mlflow-model-registry.png, id=427, 977.6525pt x 432.61626pt>
 File: sections/img/mlflow-model-registry.png Graphic file (type png)
 <use sections/img/mlflow-model-registry.png>
 Package pdftex.def Info: sections/img/mlflow-model-registry.png  used on input 
 line 198.
 (pdftex.def)             Requested size: 332.89723pt x 147.31201pt.
- [26 <./sections/img/mlflow-tracking.png> <./sections/img/mlflow-model-registry
-.png>]
+ [26 <./sections/img/mlflow-model-registry.png>]
 <sections/img/mlflow-overview.png, id=441, 777.90625pt x 323.2075pt>
 File: sections/img/mlflow-overview.png Graphic file (type png)
 <use sections/img/mlflow-overview.png>
 Package pdftex.def Info: sections/img/mlflow-overview.png  used on input line 2
 19.
 (pdftex.def)             Requested size: 332.89723pt x 138.31566pt.
- [27 <./sections/img/mlflow-overview.png>] [28]
-<sections/img/api-with-mlflow.png, id=455, 2080.77374pt x 1297.84875pt>
+ [27 <./sections/img/mlflow-overview.png>]
+<sections/img/api-with-mlflow.png, id=451, 2080.77374pt x 1297.84875pt>
 File: sections/img/api-with-mlflow.png Graphic file (type png)
 <use sections/img/api-with-mlflow.png>
 Package pdftex.def Info: sections/img/api-with-mlflow.png  used on input line 2
 47.
 (pdftex.def)             Requested size: 332.89723pt x 207.64024pt.
+ [28]
 <sections/img/ci-cd.png, id=458, 3676.73625pt x 755.82375pt>
 File: sections/img/ci-cd.png Graphic file (type png)
 <use sections/img/ci-cd.png>
@@ -1069,26 +1070,26 @@ LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [31] [32]
-<sections/img/api-monitoring.png, id=501, 3345.49875pt x 2442.12375pt>
+) [31]
+<sections/img/api-monitoring.png, id=495, 3345.49875pt x 2442.12375pt>
 File: sections/img/api-monitoring.png Graphic file (type png)
 <use sections/img/api-monitoring.png>
 Package pdftex.def Info: sections/img/api-monitoring.png  used on input line 31
 3.
 (pdftex.def)             Requested size: 332.89723pt x 242.99698pt.
-
-[33 <./sections/img/api-monitoring.png>]) [34] (./sections/5-discussion.tex
-Overfull \hbox (36.78217pt too wide) in paragraph at lines 15--16
+ [32]
+[33 <./sections/img/api-monitoring.png>]) (./sections/5-discussion.tex [34]
+Overfull \hbox (31.78217pt too wide) in paragraph at lines 15--16
 []\T1/ntxtlf/m/n/10 Cout d'entrée im-por-tant pour l'organisation : stock-age o
 b-jet, clus-ter kube/conteneurisation 
  []
 
-[35] [36]) (./public/authorsample.bbl
+[35]) (./public/authorsample.bbl
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
-
+ [36]
 Underfull \hbox (badness 6608) in paragraph at lines 58--63
 []\T1/ntxtlf/m/n/8.5 DGINS.  Bucharest mem-o-ran-dum on of-fi-cial statis-tics 
 in a datafied so-ci-
@@ -1112,7 +1113,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--76
  eurostat / cros / system /
  []
 
-[37] [38]) [39] (./public/authorsample.aux)
+[37]) [38] (./public/authorsample.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1120,13 +1121,13 @@ Package rerunfilecheck Info: File `authorsample.out' has not changed.
 (rerunfilecheck)             Checksum: 7D59D36A533041FCC88C5E1021CFE7D6;7514.
  ) 
 Here is how much of TeX's memory you used:
- 17489 strings out of 480247
- 278183 string characters out of 5896151
- 593168 words of memory out of 5000000
- 34884 multiletter control sequences out of 15000+600000
+ 17487 strings out of 480247
+ 278171 string characters out of 5896151
+ 594168 words of memory out of 5000000
+ 34883 multiletter control sequences out of 15000+600000
  538238 words of font info for 114 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 94i,8n,92p,2280b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,8n,92p,2280b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/share/texlive/texm
 f-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}{/usr/share/texlive/texmf-dist/fon
 ts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvip
@@ -1141,10 +1142,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (39 pages, 2830695 bytes).
+Output written on ./public/authorsample.pdf (38 pages, 2829266 bytes).
 PDF statistics:
- 647 PDF objects out of 1000 (max. 8388607)
- 551 compressed objects within 6 object streams
- 173 named destinations out of 1000 (max. 500000)
+ 643 PDF objects out of 1000 (max. 8388607)
+ 548 compressed objects within 6 object streams
+ 172 named destinations out of 1000 (max. 500000)
  297 words of extra memory for PDF output out of 10000 (max. 10000000)
 
