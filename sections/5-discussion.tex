@@ -1,23 +1,12 @@
 \section{Discussion}
 
-\subsection{Future}
+Initially developed as an internal project, Onyxia has gained recognition beyond the realm of Insee or the French administration. Aware of the necessity to foster autonomy in order to leverage the full potential of data science, several organizations now have a production instance of Onyxa running, and multiple others are in the process of either testing or implementing one. Besides, the choice of Onyxia as the reference data science platform in the context of the One-Stop-Shop for Artificial Intelligence/Machine Learning for Official Statistics (AIML4OS) will further facilitate its adoption within the ESS. This trend is naturally very beneficial to the Onyxia project, as it moves from a project developed in open-source - but mainly at Insee - to a full open-souce project with a growing base of contributors. This in turn facilitates its adoption by other organizations, since it gives more guarantees on its sustainability independently from Insee's strategy. The governance of the project is currently evolving to reflect this trend, for instance with the organization of monthly community calls and the creation of a public channel and roadmap for the project\footnote{All information are available on the GitHub depository of the project : \url{https://github.com/InseeFrLab/onyxia}}.
+
+Despite this success, we observe several limitations to the widespread adoption of the projects in organizations. Again, we want to point out that the fundamental choice made by organizations that adopt Onyxia is not the software itself, but the underlying technologies: containerization (through Kubernetes) and object storage. These technologies can represent substantial entry costs for organizations, as they demand a significant commitment to developing and maintaining competencies which are not readily found in NSOs, and also require changes to the organizational structures. Yet, the general trend towards cloud-native solutions among data-centric organizations suggests a favorable shift that could mitigate these challenges over time.
+
+For statisticians, the transition to cloud-native development environments introduces its own set of challenges. such as adapting to non-persistent environments and working within containers, which may initially disorient those accustomed to more traditional setups. However, targeted training and support, such as the Insee training schools and mentorship programs, aim to bridge these gaps by promoting best practices and easing the transition to modern, reproducible, and collaborative workflows.
 
 \begin{itemize}
-    \item Onyxia, un bien commun opensource largement réutilisé (Insee, SSB) $\rightarrow$ faciliter les contributions pour la postérité du projet open-source, qui dépasse l'Insee
-    \item One-stop-shop : SSP Cloud comme plateforme de référence pour les projets de ML $\rightarrow$ croissance de l'offre de formation (+ traduction)
-    \item Accompagner les réinstanciations (datafid, POCs dans le secteur privé)
-    \item Multiplication des projets qui passent en prod (applications de dataviz, modèles de ML avec MLOps, webscraping : Jocas/WINs)
-\end{itemize}
-
-\subsection{Discussion}
-
-\begin{itemize}
-    \item Cout d'entrée important pour l'organisation : stockage objet, cluster kube/conteneurisation
-    \begin{itemize}
-        \item Choix fondamental d'archi $\rightarrow$ limite à la diffusion d'onyxia
-        \item Assumer le choix : compétences, organisation~...
-        \item Mais globalement : tendance favorable car beaucoup d'orga et INS font ce choix
-    \end{itemize}
     \item Cout d'entrée important pour le statisticien :
     \begin{itemize}
         \item Non-persistence de l'environnement $\rightarrow$ git + stockage objet
