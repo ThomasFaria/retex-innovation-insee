@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.5)  5 APR 2024 14:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.8)  8 APR 2024 15:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1026,74 +1026,74 @@ Package pdftex.def Info: sections/img/onyxia-instances.png  used on input line
 (pdftex.def)             Requested size: 432.76741pt x 139.08862pt.
 ) [17 <./sections/img/onyxia-instances.png>] (./sections/4-case-study.tex [18]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 14.
- [19] [20] [21]
-<sections/img/fasttext.png, id=376, 4956.5175pt x 1424.32124pt>
+(Font)              scaled to size 10.0pt on input line 12.
+ [19]
+<sections/img/fasttext.png, id=355, 4956.5175pt x 1424.32124pt>
 File: sections/img/fasttext.png Graphic file (type png)
 <use sections/img/fasttext.png>
-Package pdftex.def Info: sections/img/fasttext.png  used on input line 68.
+Package pdftex.def Info: sections/img/fasttext.png  used on input line 44.
 (pdftex.def)             Requested size: 499.34584pt x 143.48366pt.
- [22] [23 <./sections/img/fasttext.png>]
-<sections/img/mlops-cycle.png, id=395, 1445.4pt x 813.0375pt>
+ [20] [21 <./sections/img/fasttext.png>] [22]
+<sections/img/mlops-cycle.png, id=385, 1445.4pt x 813.0375pt>
 File: sections/img/mlops-cycle.png Graphic file (type png)
 <use sections/img/mlops-cycle.png>
-Package pdftex.def Info: sections/img/mlops-cycle.png  used on input line 105.
+Package pdftex.def Info: sections/img/mlops-cycle.png  used on input line 91.
 (pdftex.def)             Requested size: 332.89723pt x 187.25522pt.
- [24 <./sections/img/mlops-cycle.png>]
+ [23 <./sections/img/mlops-cycle.png>]
 LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input lin
-e 118.
+e 104.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 118.
- [25]
+(Font)              scaled to size 10.0pt on input line 104.
+ [24]
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 153.
- [26]
-<sections/img/mlflow-model-registry.png, id=434, 977.6525pt x 432.61626pt>
+(Font)              scaled to size 10.0pt on input line 139.
+ [25]
+<sections/img/mlflow-model-registry.png, id=424, 977.6525pt x 432.61626pt>
 File: sections/img/mlflow-model-registry.png Graphic file (type png)
 <use sections/img/mlflow-model-registry.png>
 Package pdftex.def Info: sections/img/mlflow-model-registry.png  used on input 
-line 193.
+line 179.
 (pdftex.def)             Requested size: 332.89723pt x 147.31201pt.
- [27]
-[28 <./sections/img/mlflow-model-registry.png>]
-<sections/img/api-datalab.png, id=455, 2140.99875pt x 2409.0pt>
+ [26]
+[27 <./sections/img/mlflow-model-registry.png>]
+<sections/img/api-datalab.png, id=445, 2140.99875pt x 2409.0pt>
 File: sections/img/api-datalab.png Graphic file (type png)
 <use sections/img/api-datalab.png>
-Package pdftex.def Info: sections/img/api-datalab.png  used on input line 224.
+Package pdftex.def Info: sections/img/api-datalab.png  used on input line 210.
 (pdftex.def)             Requested size: 249.67291pt x 280.90718pt.
- [29]
-<sections/img/ci-cd.png, id=463, 3676.73625pt x 755.82375pt>
+ [28]
+<sections/img/ci-cd.png, id=453, 3676.73625pt x 755.82375pt>
 File: sections/img/ci-cd.png Graphic file (type png)
 <use sections/img/ci-cd.png>
-Package pdftex.def Info: sections/img/ci-cd.png  used on input line 234.
+Package pdftex.def Info: sections/img/ci-cd.png  used on input line 220.
 (pdftex.def)             Requested size: 332.89723pt x 68.42485pt.
- [30 <./sections/img/api-datalab.png>] [31 <./sections/img/ci-cd.png>]
+ [29 <./sections/img/api-datalab.png>] [30 <./sections/img/ci-cd.png>]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
-62.
+48.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [32]
-<sections/img/monitoring-datalab.png, id=500, 3345.49875pt x 2442.12375pt>
+) [31]
+<sections/img/monitoring-datalab.png, id=490, 3345.49875pt x 2442.12375pt>
 File: sections/img/monitoring-datalab.png Graphic file (type png)
 <use sections/img/monitoring-datalab.png>
 Package pdftex.def Info: sections/img/monitoring-datalab.png  used on input lin
-e 294.
+e 280.
 (pdftex.def)             Requested size: 499.34584pt x 364.47684pt.
- [33]
-[34 <./sections/img/monitoring-datalab.png>]
-<sections/img/annotation-datalab.png, id=517, 3935.70375pt x 2469.225pt>
+ [32]
+[33 <./sections/img/monitoring-datalab.png>]
+<sections/img/annotation-datalab.png, id=507, 3935.70375pt x 2469.225pt>
 File: sections/img/annotation-datalab.png Graphic file (type png)
 <use sections/img/annotation-datalab.png>
 Package pdftex.def Info: sections/img/annotation-datalab.png  used on input lin
-e 315.
+e 301.
 (pdftex.def)             Requested size: 499.34584pt x 313.249pt.
- [35]) (./sections/5-discussion.tex [36 <./sections/img/annotation-datalab.png>
-] [37] [38])
+ [34]) (./sections/5-discussion.tex [35 <./sections/img/annotation-datalab.png>
+] [36] [37])
 (./public/authorsample.bbl
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
@@ -1115,19 +1115,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--63
 tics + FINAL . pdf /
  []
 
-[39]
+[38]
 Underfull \hbox (badness 10000) in paragraph at lines 71--76
 \T1/ntxtt/m/n/8.5 org / 12090 / 20221110013641 / https : / / ec . europa . eu /
  eurostat / cros / system /
  []
 
-[40]) [41] (./public/authorsample.aux)
+[39]) [40] (./public/authorsample.aux)
 Package rerunfilecheck Info: File `authorsample.out' has not changed.
 (rerunfilecheck)             Checksum: D6228E41B4BF1DDE88FFDDA3268033F9;7181.
  ) 
 Here is how much of TeX's memory you used:
- 17508 strings out of 480247
- 278842 string characters out of 5896152
+ 17501 strings out of 480247
+ 278793 string characters out of 5896152
  596471 words of memory out of 5000000
  34896 multiletter control sequences out of 15000+600000
  538238 words of font info for 114 fonts, out of 8000000 for 9000
@@ -1147,10 +1147,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (41 pages, 2945118 bytes).
+Output written on ./public/authorsample.pdf (40 pages, 2941693 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 565 compressed objects within 6 object streams
- 178 named destinations out of 1000 (max. 500000)
+ 656 PDF objects out of 1000 (max. 8388607)
+ 555 compressed objects within 6 object streams
+ 171 named destinations out of 1000 (max. 500000)
  291 words of extra memory for PDF output out of 10000 (max. 10000000)
 
