@@ -133,6 +133,13 @@ Leonardo Leite, Carla Rocha, Fabio Kon, Dejan Milojicic, and Paulo Meirelles.
 \newblock A survey of devops concepts and challenges.
 \newblock {\em ACM Computing Surveys (CSUR)}, 52(6):1--35, 2019.
 
+\bibitem{li2022survey}
+Qian Li, Hao Peng, Jianxin Li, Congying Xia, Renyu Yang, Lichao Sun, Philip~S
+  Yu, and Lifang He.
+\newblock A survey on text classification: From traditional to deep learning.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
+  13(2):1--41, 2022.
+
 \bibitem{li2020big}
 Yun Li, Manzhu Yu, Mengchao Xu, Jingchao Yang, Dexuan Sha, Qian Liu, and
   Chaowei Yang.

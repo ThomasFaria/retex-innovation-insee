@@ -4,45 +4,45 @@ The top-level auxiliary file: public/authorsample.aux
 The style file: plain.bst
 Database file #1: refs.bib
 Warning--empty journal in schweik2006free
-You've used 40 entries,
+You've used 41 entries,
             2118 wiz_defined-function locations,
-            726 strings with 11786 characters,
-and the built_in function-call counts, 13963 in all, are:
-= -- 1366
-> -- 725
+            733 strings with 12068 characters,
+and the built_in function-call counts, 14457 in all, are:
+= -- 1410
+> -- 768
 < -- 7
-+ -- 292
-- -- 246
-* -- 990
-:= -- 2335
-add.period$ -- 124
-call.type$ -- 40
-change.case$ -- 239
++ -- 310
+- -- 262
+* -- 1038
+:= -- 2423
+add.period$ -- 127
+call.type$ -- 41
+change.case$ -- 250
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 501
-empty$ -- 1056
-format.name$ -- 246
-if$ -- 2890
+cite$ -- 42
+duplicate$ -- 512
+empty$ -- 1080
+format.name$ -- 262
+if$ -- 2982
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 37
-newline$ -- 203
-num.names$ -- 80
-pop$ -- 250
+int.to.str$ -- 41
+missing$ -- 38
+newline$ -- 208
+num.names$ -- 82
+pop$ -- 259
 preamble$ -- 1
-purify$ -- 200
+purify$ -- 210
 quote$ -- 0
-skip$ -- 362
+skip$ -- 369
 stack$ -- 0
-substring$ -- 811
-swap$ -- 103
+substring$ -- 833
+swap$ -- 104
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 158
+type$ -- 162
 warning$ -- 1
-while$ -- 137
-width$ -- 42
-write$ -- 433
+while$ -- 141
+width$ -- 43
+write$ -- 444
 (There was 1 warning)
