@@ -1,9 +1,16 @@
-\section{Case-study : deploying a machine learning model in production following MLOps principles}
+\section{Case-study : using MLOps to improve NACE classification}
 \label{sec:mlops}
 
 This chapter aims, through a concrete example, to illustrate how Insee managed to deploy its first machine learning (ML) model into production. It will provide an in-depth description of the MLOps approach that this project strived to adhere to, focusing on the various technologies that were employed. In particular, we will highlight how cloud technologies were instrumental in building a solution iteratively and how Onyxia greatly facilitated this process by providing flexible development environments as well as tools to deploy and monitor models, promoting a continuous improvement loop. The entire project is available in open source\footnote{\url{https://github.com/orgs/InseeFrLab/teams/codification-ape/repositories}} and remains under active development.
 
-\subsection{Motivation}
+
+
+
+
+
+\subsection{Improving the NACE classification process using ML methods}
+
+\subsubsection{Motivation}
 
 Coding tasks are common operations for NSOs and can sometimes be challenging due to the size of nomenclatures. At Insee, a sophisticated coding tool called Sicore was developed in the 1990s to perform various classification tasks. It consists in a coding engine containing a large number of deterministic rules which identify ground-truth labels. Each input label goes through these rules and when a ground-truth label is recognized, the associated code is assigned. When the label is not recognized, it must be manually classified by an Insee agent. 
 
@@ -11,7 +18,7 @@ Two main reasons drove the experimentation of new coding methods. Firstly, there
 
 Three stakeholders were involved in this project: the \textit{business team}\footnote{We refer to the business team, the team that has business knowledge i.e. who knows the NACE perfectly.} responsible for managing the Sirene registry, the \textit{IT team} developing software related to the registry's operation, and the \textit{innovation team} responsible for implementing the new coding tool. The latter team is the Insee Lab, which was created in 2017 with the objective of providing support to other teams on innovation topics to streamline their various projects.
 
-\subsection{Project details}
+\subsubsection{Classification task}
 
 The project we are describing consists in a standard NLP classification problem. Starting from a textual description of the activity, we want to predict the associated class in the NACE Rev. 2 nomenclature. This nomenclature has the particularity of being hierarchical and contains 5 different levels\footnote{Actually, there are 5 different levels in France but only 4 at the European level.}: section, division, group, class, and subclass. In total, 732 subclasses are included in the nomenclature, which is the level at which we aim to perform the classification. Table \ref{tab:nace-nomenclature} provides an example of this hierarchical structure.
 
@@ -29,13 +36,13 @@ The project we are describing consists in a standard NLP classification problem.
     \label{tab:nace-nomenclature}
     \end{table}
 
-With the establishment of the one-stop shop, business owners now describe their activity description with a free-text field. As a result, the new labels are very different from the harmonized labels that were previously received. Therefore, it was decided to work with ML models, that are known to be effective on text classification tasks \cite{li2022survey}. This represents a significant paradigm shift from Insee's perspective, as ML was not traditionally used in the actual production of official statistics. Besides, the perspective of putting the new model in production was considered from the outset, guiding numerous methodological and technical choices. As such, several strategic choices had to be made from the outset, including the methodology, the choice of a development environment consistent with the target production environment, and the adoption of collaborative work methods.
+With the establishment of the one-stop shop, business owners now describe their activity description with a free-text field. As a result, the new labels are very different from the harmonized labels that were previously received. Therefore, it was decided to work with ML models, that are known to be effective on supervised text classification tasks \cite{li2022survey}. This represents a significant paradigm shift from Insee's perspective, as ML was not traditionally used in the actual production of official statistics. Besides, the perspective of putting the new model in production was considered from the outset, guiding numerous methodological and technical choices. As such, several strategic choices had to be made from the outset, including the methodology, the choice of a development environment consistent with the target production environment, and the adoption of collaborative work methods.
 
 \subsubsection{Methodology}
 
-Text classification from the free-text field provided by business owners is a complex task: the activity descriptions are relatively short and thus contain limited statistical information, can contain spelling mistakes, and often require domain knowledge to be properly classified. On such task, traditional text analysis methods such as count vectorization or TF-IDF often fall short whereas neural-network-based embedding methods tend to perform better \cite{li2022survey}. However, such architectures impose greater demands on the production setting, as they are much larger and often require specific hardware such as GPUs to be fine-tuned and perform inference with acceptable latency. These constraints led us away from the most powerful language models, such as Transformer models, and instead directed us towards the fastText model \cite{joulin2016bag}, a simpler embedding-based classifier. The fastText model is extremely fast to train, even from scratch, and inference doesn't require a GPU to achieve low latency time. Besides, the model yielded excellent performance results for our use-case which, considering the time and human resource constraints, were more than sufficient to enhance the existing process. Finally, the model is relatively simple methodologically speaking, greatly simplifying communication and adoption within the various Insee teams. 
+Text classification from the free-text field provided by business owners is a complex task: the activity descriptions are relatively short and thus contain limited statistical information, can contain spelling mistakes, and often require domain knowledge to be properly classified. On such task, traditional text analysis methods such as count vectorization or TF-IDF often fall short whereas neural-network-based embedding methods tend to perform better \cite{li2022survey}. However, such architectures impose greater demands on the production setting, as they are much larger and often require specific hardware such as GPUs to be fine-tuned and perform inference with acceptable latency. These constraints led us away from the most powerful language models, such as Transformer models, and instead directed us towards the fastText model \cite{joulin2016bag}, a simpler embedding-based classifier. The fastText model is extremely fast to train, even from scratch, and inference doesn't require a GPU to achieve low latency time. Besides, the model yielded excellent performance results for our use-case which, considering the time and human resource constraints, were more than sufficient to enhance the existing process. Finally, the model's architecture is relatively simple, which simplified communication and adoption within the various Insee teams.
 
-The supervised classification model fastText relies on both a bag-of-words model to obtain embeddings and a classifier based on logistic regression. The bag-of-words approach involves representing a text as the set of vector representations of each of its constituent words. Thus, the embedding of a sentence depends on the embeddings of its words, for example, their sum or their average. In the case of supervised text classification, the embedding matrix and the classifier's coefficient matrix are learned simultaneously during training by gradient descent, minimizing an usual cross-entropy loss function. The specificity of the fastText model lies in embeddings being performed not only on words but also on word n-grams and character n-grams, providing more context and reducing biases due to spelling mistakes. The fastText model can be summarized by the Figure \ref{fig:fasttext}
+The fastText model relies on a bag-of-words model to obtain embeddings and a classification layer based on logistic regression. The bag-of-words approach involves representing a text as the set of vector representations of each of its constituent tokens. With FastText, the embedding of a sentence is computed as a function of the individual embeddings, typically the average. In the case of supervised text classification, the embedding matrix and the classifier's parameters are learned simultaneously during training by gradient descent, minimizing the cross-entropy loss function. The specificity of the fastText model compared to other embeddings-based approaches is that embeddings are not only computed on words but also on word n-grams and character n-grams, providing more context and reducing biases due to spelling mistakes. Figure \ref{fig:fasttext} represents the full pipeline of operations performed by fastText on an example text input.
 
 \begin{figure}[htbp]
     \centering
@@ -44,20 +51,30 @@ The supervised classification model fastText relies on both a bag-of-words model
     \label{fig:fasttext}
 \end{figure}
 
-\subsubsection{Development environment}
-
-In a ML project, the choice of a flexible development infrastructure is paramount. First, due to the diversity of tasks to be performed — data collection, preprocessing, modeling, evaluation, inference, monitoring, etc. Second, because machine learning is a fast-evolving field. It is thus preferable to build a ML app as a collection of modular components so as to be able to update components without disrupting the entire pipeline. In order to leverage the flexibility of cloud technologies, the Onyxia project — and in particular its open-innovation instance, the SSP Cloud — was chosen as the main development environment. This projects also illustrates the richness of Onyxia's catalog of services, as we used a variety of tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at Insee. This initiative is poised to streamline the connection between production and development environments in the long run. Finally, this project relied exclusively on open-data and thus complied with the open policy of the SSP Cloud.
-
-\subsubsection{Enforcing best development practices}
-
-From the very onset of this project, the target was to go beyond mere experimentation and put the model in production as soon as possible. Consequently, we strove to enforce best development practices from the very beginning of the project. All the development was versioned with Git and put in open-source on GitHub\footnote{\url{https://github.com/orgs/InseeFrLab/teams/codification-ape/repositories}}. In terms of code quality, we tried to comply to community standards, e.g. using formatters such as \href{https://github.com/astral-sh/ruff}{Ruff}. Scripts were favored over notebooks in order to favor a modular package-like structure for the project which is much better suited to the integration into automated data transformation and ML pipelines. Finally, as the goal with this pilot project was also to build a template for future ML-based projects at Insee, we strove to make it comply with the principles of MLOps, which are presented in detail in the next section.
 
 
 
-\subsection{What is MLOps?}
 
 
-\subsubsection{Specificities of ML projects}
+\subsection{A production-first approach with MLOps}
+
+From the very onset of this project, the target was to go beyond mere experimentation and put the model in production. Besides, the goal with this pilot project was also to build a template for future ML projects at Insee. We thus strove to enforce best development practices from the very beginning of the project: following community standards for code quality, using scripts-based development over notebooks, building a modular package-like structure, etc. However, compared to traditional development projects, machine learning projects have specific features that make it necessary to apply a complementary set of best practices, gathered under the name of MLOps.
+
+\subsubsection{From DevOps to MLOps}
+
+DevOps is a set of practices designed to foster collaboration between development (Dev) and operations (Ops) teams. The fundamental idea is to integrate the full lifecycle of a project in a single automated continuum. An important tool to achieve this continuity is CI/CD pipelines. With continuous integration (CI), each commit of new source code will trigger a pipeline of standardized operations, such as building the application, testing it and making it available as a release. Then, continuous deployment (CD) consists in tools to automate the deployment of the new code and limit manual intervention, while ensuring proper monitoring to guarantee process stability and security. This approach promotes a more rapid, continual release of necessary feature changes or additions. Furthermore, by encouraging a collaborative and communicative workplace environment, DevOps also promotes a quicker cycle of innovation, allowing teams to address issues as they arise and incorporate feedback effectively throughout the project lifecycle.
+
+The MLOps approach can be seen as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. As such, it also emphasize the necessity of close collaboration whithin the organisation: between business units and IT teams on one hand, and data science teams on the other. But it also considers the additional challenges related to integrating data pipelines and ML models to the process.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{sections/img/mlops-cycle.png}
+    \caption{The MLOps approach promotes a continuous management of ML projects lifecycle}
+    \label{fig:mlops-cycle}
+\end{figure}
+
+
+MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the ML model.
 
 In the landscape of ML projects, there are new considerations and challenges compared to traditional statistical projects. These new challenges stem from the complex nature of ML models, their iterative development process, and the need for automation and scalability. Among others, here are some key aspects in ML projects:
 
@@ -79,22 +96,7 @@ In the landscape of ML projects, there are new considerations and challenges com
     \item \textbf{Explainability}: The interpretability of ML models is important for building trust and understanding their predictions.
 \end{enumerate}
 
-
-\subsubsection{From DevOps to MLOps}
-
-The MLOps approach is built upon the foundations of the DevOps approach. In this sense, it can be considered simply as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. MLOps incorporates the principles of collaboration and automation inherent in DevOps but also considers all aspects related to data and ML models.
-
-\begin{figure}[htbp]
-    \centering
-    \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlops-cycle.png}}
-    \caption{Machine Learning lifecycle. Credits: Satish Chandra Gupta}
-    \label{fig:mlops-cycle}
-\end{figure}
-
-
-MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the ML model.
-
-\subsubsection{MLOps Principles}
+\subsubsection{Principles of MLOps}
 
 The pillars of MLOps\cite{kreuzberger2023machine} are generally defined as :
 
@@ -111,7 +113,7 @@ The pillars of MLOps\cite{kreuzberger2023machine} are generally defined as :
 
 Tackling these challenges and effectively managing the lifecycle of a ML project necessitates specialized tools, many of which are accessible as open-source solutions. Throughout our project, we aimed to embrace the MLOps approach by utilizing software applications grounded in cloud-native technologies and available in the SSP Cloud catalog. This enables data scientists to be autonomous from model training to deployment.
 
-\subsection{MLflow as the cornerstone of the project}
+\subsection{Implementation with MLFlow}
 
 During this project, we heavily relied on \href{https://github.com/MLflow/MLflow}{MLflow}, a platform designed to streamline the lifecycle of ML models. It allows for detailed tracking of various experiments, packaging of code to ensure reproducibility, and serving models to end-users. MLflow also features an API that is compatible with most ML libraries such as PyTorch, Scikit-learn, XGBoost, and supports multiple programming languages including Python, R, and Java. It incorporates various functionalities that facilitate the adoption of the MLOps approach.
 
@@ -180,7 +182,15 @@ MLflow is an open-source project that provides a platform for tracking the lifec
 \end{figure}
 
 
+
+
+
+
 \subsection{Embracing the potential of Onyxia from training to deployment}
+
+\subsubsection{Development environment}
+
+In a ML project, the choice of a flexible development infrastructure is paramount. First, due to the diversity of tasks to be performed — data collection, preprocessing, modeling, evaluation, inference, monitoring, etc. Second, because machine learning is a fast-evolving field. It is thus preferable to build a ML app as a collection of modular components so as to be able to update components without disrupting the entire pipeline. In order to leverage the flexibility of cloud technologies, the Onyxia project — and in particular its open-innovation instance, the SSP Cloud — was chosen as the main development environment. This projects also illustrates the richness of Onyxia's catalog of services, as we used a variety of tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at Insee. This initiative is poised to streamline the connection between production and development environments in the long run. Finally, this project relied exclusively on open-data and thus complied with the open policy of the SSP Cloud.
 
 To adhere closely to the MLOps approach, we strived to automate as much as possible the various stages of the ML model lifecycle. In the "automation" section of the SSP Cloud \href{https://datalab.sspcloud.fr/catalog/automation}{catalog}, several services are available in addition to MLflow, including Argo CD and Argo Workflows, which we use in a daily basis for various applications.
 
@@ -276,7 +286,7 @@ In summary, our monitoring pipeline consists of:
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{sections/img/monitoring-datalab.png}}
-    \caption{TODO}
+    \caption{In-house implementation of a monitoring system}
     \label{fig:monitoring-datalab}
 \end{figure}
 
@@ -297,7 +307,7 @@ Once again, the presence of a cloud-native technology on the platform, such as L
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=1.5\textwidth]{sections/img/annotation-datalab.png}}
-    \caption{TODO}
+    \caption{Implementation of data quality control using Label Studio}
     \label{fig:annotation-datalab}
 \end{figure}
 
@@ -307,6 +317,5 @@ We believe that a well-designed infrastructure facilitates the adoption of MLOps
 An important aspect of MLOps is its iterative nature: not all components can be fully integrated from the outset, and time limitations can be constraining. There are several maturity level of MLOps. Therefore, it's advisable to begin by establishing robust development practices and gradually enriching the project with increased automation as requirements evolve. An effective initial step is to leverage tools like MLflow, which facilitate adherence to the MLOps framework.
 
 We've identified various areas where we can improve our processes, which we plan to address in the near term. Our primary focus will be on automating model retraining, although this will require enhancements to our monitoring pipeline. Despite the availability of a dashboard for business teams to visualize the model's performance almost in real-time (updated nightly), we currently lack an alert system to signal when retraining is required, and there's an even more ambitious goal of automating this retraining process.
-
 
 Additionally, we plan to test other methodologies for our model, especially Transformer-type models, which could soon be usable on our production servers. Finally, although this does not directly optimize our pipeline in terms of MLOps, working on the revision of NACE will be an interesting challenge and will allow us to assess the relevance of the MLOps approach we have adopted since the beginning of the project.
