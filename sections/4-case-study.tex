@@ -62,9 +62,9 @@ From the very onset of this project, the target was to go beyond mere experiment
 
 \subsubsection{From DevOps to MLOps}
 
-DevOps is a set of practices designed to foster collaboration between development (Dev) and operations (Ops) teams. The fundamental idea is to integrate the full lifecycle of a project in a single automated continuum. An important tool to achieve this continuity is CI/CD pipelines. With continuous integration (CI), each commit of new source code will trigger a pipeline of standardized operations, such as building the application, testing it and making it available as a release. Then, continuous deployment (CD) consists in tools to automate the deployment of the new code and limit manual intervention, while ensuring proper monitoring to guarantee process stability and security. This approach promotes a more rapid, continual release of necessary feature changes or additions. Furthermore, by encouraging a collaborative and communicative workplace environment, DevOps also promotes a quicker cycle of innovation, allowing teams to address issues as they arise and incorporate feedback effectively throughout the project lifecycle.
+DevOps is a set of practices designed to foster collaboration between development (Dev) and operations (Ops) teams. The fundamental idea is to integrate the full lifecycle of a project in a single automated continuum. An important tool to achieve this continuity is CI/CD pipelines. With continuous integration (CI), each commit of new source code will trigger a pipeline of standardized operations, such as building the application, testing it and making it available as a release. Then, continuous deployment (CD) consists in tools to automate the deployment of the new code and limit manual intervention, while ensuring proper monitoring to guarantee process stability and security. This approach promotes a more rapid, continual release of necessary feature changes or additions. Furthermore, by encouraging collaboration between teams, DevOps also promotes a quicker cycle of innovation, allowing teams to address issues as they arise and incorporate feedback effectively throughout the project lifecycle.
 
-The MLOps approach can be seen as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. As such, it also emphasize the necessity of close collaboration whithin the organisation: between business units and IT teams on one hand, and data science teams on the other. But it also considers the additional challenges related to integrating data pipelines and ML models to the process.
+The MLOps approach can be seen as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. Fundamentally, both DevOps and MLOps aim at building software in a more automated and robust manner. The main difference is that in MLOps, this software also has a machine learning component. Consequently, the lifecycle of the project gets more complex. The underlying ML model needs to be trained, often periodically in order to prevent potential performance losses over time. Data ingestion must also be included in the pipeline, as new data may be used to improve performance. Figure~\ref{fig:mlops-cycle} describes the crucial steps of a ML project using the continuous representation traditionally seen in DevOps.
 
 \begin{figure}[htbp]
     \centering
@@ -73,45 +73,15 @@ The MLOps approach can be seen as an extension of DevOps, developed to address t
     \label{fig:mlops-cycle}
 \end{figure}
 
-
-MLOps involves the automation of tasks such as data management, tracking model versions, their deployments, as well as the continuous evaluation of model performance in production. Similar to DevOps, MLOps emphasizes close collaboration between business units and IT teams on one hand, and data science teams on the other. This collaboration is key to ensuring effective communication throughout the lifecycle of the ML model.
-
-In the landscape of ML projects, there are new considerations and challenges compared to traditional statistical projects. These new challenges stem from the complex nature of ML models, their iterative development process, and the need for automation and scalability. Among others, here are some key aspects in ML projects:
-
-\begin{enumerate}
-    \item \textbf{Logging Parameters}: ML models often have numerous hyperparameters and configurations that significantly impact their performance. It's crucial to log these parameters along with model training and evaluation metrics to ensure reproducibility and traceability. This logging allows for better understanding of model behavior and facilitates debugging and optimization efforts.
-    
-    \item \textbf{Optimizing Hyperparameters}: Tuning hyperparameters is a critical step in optimizing the performance of ML models. Unlike traditional statistical models where parameters are often predefined, ML models typically have a larger number of hyperparameters that need to be optimized. This process requires sophisticated techniques such as grid search, random search, or Bayesian optimization, which can be computationally intensive and time-consuming.
-    
-    \item \textbf{Model Versioning}: ML models are highly iterative. Therefore, effective version control mechanisms are essential to track changes, compare performance across different model versions, and roll back to previous versions if necessary. While model versioning may also be relevant for traditional statistical models, it is infrequently practiced. In ML projects, however, it is considered mandatory due to the iterative nature of model development and the dynamic nature of data and algorithms.
-    
-    \item \textbf{Model Deployment}: Deploying ML models into production environments presents unique challenges due to their complexity and resource requirements. Ensuring seamless deployment involves considerations such as containerization, scalability, latency, and harmonization with preexisting systems.
-    
-    \item \textbf{Model Monitoring}: Once deployed, ML models need to be continuously monitored to detect performance degradation, concept drift, or other anomalies. Unlike traditional statistical models, ML models can exhibit unexpected behavior over time due to changes in data distribution or underlying patterns. Implementing robust monitoring solutions involves tracking model performance metrics and data quality to ensure ongoing reliability, effectiveness and to trigger model retraining.
-
-    \item \textbf{Model Retraining}: Regular retraining of ML models stands as an imperative to maintain their effectiveness over time. Shifts in data distribution, variations in data quality, or evolving business imperatives may necessitate the recalibration of models to preserve accuracy and relevance. 
-
-    \item \textbf{Data Annotation}: The process of data annotation assumes paramount importance in the context of ML, where labeled datasets serve as the foundation for model training and validation. Data annotation involves the manual or automated labeling of raw data with descriptive metadata, facilitating the development of supervised learning models. Data annotation directly influences the performance and generalizability of ML models.
-
-    \item \textbf{Explainability}: The interpretability of ML models is important for building trust and understanding their predictions.
-\end{enumerate}
-
 \subsubsection{Principles of MLOps}
 
-The pillars of MLOps\cite{kreuzberger2023machine} are generally defined as :
+MLOps is defined by a few core principles that are crucial for building production-ready and scalable ML applications. These principles are designed to address the specific challenges associated with ML workflows. Numerous tools have been developed to implement the MLOps approach in actual projects, and all of them, in some form, aim at enforcing these core principles.
 
-\begin{itemize}
-    \item \textbf{Reproducibility}: The results of every experiment, successful or unsuccessful, should be reproducible at no cost. This implies first and foremost a certain rigor in managing packages, environments, system libraries, code version control, etc. Additionally, the various variables influencing model training (training data, hyperparameters, etc.) must be versioned with the model.
-    
-    \item \textbf{Automation}: To foster feedback loops of continuous improvement, the model lifecycle (testing, building, validation, deployment) must be automated to the fullest extent possible. Tools derived from the DevOps approach, especially continuous integration and continuous deployment (CI/CD), should be leveraged.
-    
-    \item \textbf{Collaboration}: MLOps values a culture of collaborative work around ML projects, where communication within teams should reduce siloed work. On a technical level, MLOps tools used should facilitate collaborative work on data, model, and code used by the project.
-    
-    \item \textbf{Continuous Improvement}: Once deployed, it is essential to ensure that the model performs as expected by evaluating its performance on real data using continuous monitoring tools. In case of performance degradation over time, periodic retraining or continuous training of the model should be considered.
-\end{itemize}
+The most fundamental principle of MLOps is continuous improvement, in order to reflect the iterative nature of ML projects. In the experimentation phase, the model is developed using a training dataset, which will generally differ somewhat from the target data. When a model is deployed in production, the new data that the model needs to perform prediction one can reveal insights about the model's performance and potential shortcomings. These insights necessitate a return to the experimentation phase, where data scientists adjust or redesign their models to address any discovered issues or to improve accuracy. This principle thus emphasizes the importance of building a feedback loop that enables ongoing enhancements throughout the lifecycle of a model. Automation, particularly through the use of CI/CD pipelines, plays a crucial role in this process by making the transition between experimentation and production phases more continuous. Monitoring is also an essential part of this process: a model deployed in production needs to be continuously assessed so as to detect data or concept drifts that may reduce the predictive performance of the model and thus necessitate further adjustments, such as re-training  or fine-tuning the model.
 
+Another major goal of MLOps is to promote reproducibility, which ensures that any ML experiment can be reliably repeated and will produce the same results. MLOps tools thus facilitate thorough logging of ML experiments, including data pre-processing steps, model hyper-parameters, and training algorithms. Data, models, and code are versioned, enabling teams to revert to previous versions if an update does not perform as expected. Finally, these tools help producing detailed specifications of the computing environment used to produce these experiments — such as versions of libraries — and often rely on containers to help replicate the same conditions in which the original model was developed.
 
-Tackling these challenges and effectively managing the lifecycle of a ML project necessitates specialized tools, many of which are accessible as open-source solutions. Throughout our project, we aimed to embrace the MLOps approach by utilizing software applications grounded in cloud-native technologies and available in the SSP Cloud catalog. This enables data scientists to be autonomous from model training to deployment.
+Finally, MLOps aims at fostering collaborative work. ML-based projects generally involve a wider range of profiles: business units and data science teams on the one hand, developers and operations teams on the other. Like DevOps, MLOps thus emphasizes the need for a collaborative culture and to avoid working in silos. MLOps tools generally include collaborative features, such as centralized stores for ML models or ML features which facilitate the sharing of components between team members and limit redundancy.
 
 \subsection{Implementation with MLFlow}
 
@@ -177,7 +147,7 @@ MLflow is an open-source project that provides a platform for tracking the lifec
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-model-registry.png}}
-    \caption{TODO}
+    \caption{The two key functionalities of Mlflow: a tracking server for the experimentation phase and a model registry tailored for the production phase}
     \label{fig:mlflow-registry}
 \end{figure}
 
