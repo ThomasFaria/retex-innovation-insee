@@ -64,7 +64,7 @@ From the very onset of this project, the target was to go beyond mere experiment
 
 DevOps is a set of practices designed to foster collaboration between development (Dev) and operations (Ops) teams. The fundamental idea is to integrate the full lifecycle of a project in a single automated continuum. An important tool to achieve this continuity is CI/CD pipelines. With continuous integration (CI), each commit of new source code will trigger a pipeline of standardized operations, such as building the application, testing it and making it available as a release. Then, continuous deployment (CD) consists in tools to automate the deployment of the new code and limit manual intervention, while ensuring proper monitoring to guarantee process stability and security. This approach promotes a more rapid, continual release of necessary feature changes or additions. Furthermore, by encouraging collaboration between teams, DevOps also promotes a quicker cycle of innovation, allowing teams to address issues as they arise and incorporate feedback effectively throughout the project lifecycle.
 
-The MLOps approach can be seen as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. Fundamentally, both DevOps and MLOps aim at building software in a more automated and robust manner. The main difference is that in MLOps, this software also has a machine learning component. Consequently, the lifecycle of the project gets more complex. The underlying ML model needs to be trained, often periodically in order to prevent potential performance losses over time. Data ingestion must also be included in the pipeline, as new data may be used to improve performance. Figure~\ref{fig:mlops-cycle} describes the crucial steps of a ML project using the continuous representation traditionally seen in DevOps.
+The MLOps approach can be seen as an extension of DevOps, developed to address the specific challenges related to managing the lifecycle of ML models. Fundamentally, both DevOps and MLOps aim at building software in a more automated and robust manner. The main difference is that in MLOps, this software also has a machine learning component. Consequently, the lifecycle of the project gets more complex. The underlying ML model needs to be trained, often periodically in order to prevent potential performance losses over time. Data ingestion must also be included in the pipeline, as new data may be used to improve performance. Figure~\ref{fig:mlops-cycle} presents the steps of a ML project using the continuous representation traditionally seen in DevOps. This illustrates a fundamental principle of MLOps, the need for continuous improvement, described in more details in section~\ref{sec:principles-mlops}.
 
 \begin{figure}[htbp]
     \centering
@@ -74,8 +74,9 @@ The MLOps approach can be seen as an extension of DevOps, developed to address t
 \end{figure}
 
 \subsubsection{Principles of MLOps}
+\label{sec:principles-mlops}
 
-MLOps is defined by a few core principles that are crucial for building production-ready and scalable ML applications. These principles are designed to address the specific challenges associated with ML workflows. Numerous tools have been developed to implement the MLOps approach in actual projects, and all of them, in some form, aim at enforcing these core principles.
+MLOps is defined by a few core principles that are crucial for building production-ready and scalable ML applications. These principles are designed to address the specific challenges associated with ML workflows.
 
 The most fundamental principle of MLOps is continuous improvement, in order to reflect the iterative nature of ML projects. In the experimentation phase, the model is developed using a training dataset, which will generally differ somewhat from the target data. When a model is deployed in production, the new data that the model needs to perform prediction one can reveal insights about the model's performance and potential shortcomings. These insights necessitate a return to the experimentation phase, where data scientists adjust or redesign their models to address any discovered issues or to improve accuracy. This principle thus emphasizes the importance of building a feedback loop that enables ongoing enhancements throughout the lifecycle of a model. Automation, particularly through the use of CI/CD pipelines, plays a crucial role in this process by making the transition between experimentation and production phases more continuous. Monitoring is also an essential part of this process: a model deployed in production needs to be continuously assessed so as to detect data or concept drifts that may reduce the predictive performance of the model and thus necessitate further adjustments, such as re-training  or fine-tuning the model.
 
@@ -83,72 +84,17 @@ Another major goal of MLOps is to promote reproducibility, which ensures that an
 
 Finally, MLOps aims at fostering collaborative work. ML-based projects generally involve a wider range of profiles: business units and data science teams on the one hand, developers and operations teams on the other. Like DevOps, MLOps thus emphasizes the need for a collaborative culture and to avoid working in silos. MLOps tools generally include collaborative features, such as centralized stores for ML models or ML features which facilitate the sharing of components between team members and limit redundancy.
 
-\subsection{Implementation with MLFlow}
+\subsubsection{Implementation with MLFlow}
 
-During this project, we heavily relied on \href{https://github.com/MLflow/MLflow}{MLflow}, a platform designed to streamline the lifecycle of ML models. It allows for detailed tracking of various experiments, packaging of code to ensure reproducibility, and serving models to end-users. MLflow also features an API that is compatible with most ML libraries such as PyTorch, Scikit-learn, XGBoost, and supports multiple programming languages including Python, R, and Java. It incorporates various functionalities that facilitate the adoption of the MLOps approach.
+Numerous tools have been developed to implement the MLOps approach in actual projects. All of these frameworks aim at enforcing, in some form, the core principles described above. In this project, we chose to rely on a popular open-source framework named MLFlow\footnote{\url{https://github.com/MLflow/MLflow}}. This choice doesn't indicate any inherent superiority of MLFlow over alternative software, but reflects a set of good properties associated with MLFlow that made it a very relevant solution for our application. First, it is Kubernetes-native, reflecting our choice of the underlying infrastructure for the project. Second, it aims at covering the entire lifecycle of ML projects, while other tools may be more specialised in some parts of it. Third, it exhibits great interoperability as it is well-interfaced with with popular ML libraries — such as PyTorch, Scikit-learn, XGBoost, etc. — and supports multiple programming languages — including Python, R, and Java, thus covering the spectrum of programming languages copmmonly used at Insee. Finally, it proved to be very user-friendly and thus encouraged adoption among the project members and facilitated continuous collaboration between them.
 
-There are numerous tools available for orchestrating tasks and data pipelines. Among the most popular (based on their GitHub stars) are \href{https://github.com/apache/airflow}{Airflow}, \href{https://github.com/spotify/luigi}{Luigi}, \href{https://github.com/argoproj/argo-workflows}{Argo Workflows}, \href{https://github.com/PrefectHQ/prefect}{Prefect}, \href{https://github.com/kubeflow/kubeflow}{Kubeflow} and \href{https://github.com/bentoml/BentoML}{BentoML}. It's difficult to assert whether one is better to another; in reality, your choice largely depends on your IT infrastructure and project requirements. In our case, we opted to use MLflow for its ease of use and suitability for ML projects. Additionally, it is available in the SSP Cloud catalog, simplifying its installation process and its connection with our MinIO storage where all the artifacts are automatically stored.
-
-\subsubsection{MLflow Projects}
-
-MLflow offers a format for packaging data science projects to promote code reuse and reproducibility. This format is simply called \href{https://MLflow.org/docs/latest/projects.html}{MLflow Project}. Essentially, an MLflow project is nothing more than a directory containing the code and necessary resources (data, configuration files, etc.) for executing your project. It is summarized by an `MLproject` file listing the various commands to execute a pipeline as well as the necessary dependencies. In general, an MLflow project has the following structure:
-
-\dirtree{%
-.1 Project\_ML/.
-.2 artifacts/.
-.3 model.bin.
-.3 train\_text.txt.
-.2 code/.
-.3 main.py.
-.3 preprocessing.py.
-.2 MLmodel.
-.2 conda.yaml.
-.2 python\_env.yaml.
-.2 python\_model.pkl.
-.2 requirements.txt.
-}
-
-
-\subsubsection{MLflow Models}
-
-In addition to packaging a project, MLflow also allows you to package your model, regardless of the underlying ML library used\footnote{You also have the capability to package our own custom model. This is precisely what we do to integrate our fastText model into MLflow.}  (among those \href{https://MLflow.org/docs/latest/models.html#built-in-model-flavors}{compatible with MLflow}, i.e., all the libraries you use!). Thus, two models trained with different libraries, say PyTorch and Keras, can be deployed and queried in the same way thanks to this layer added by MLflow. This harmonization becomes particularly valuable as you begin to accumulate various types of models, as it eliminates the need to modify your inference pipeline every time you introduce a new model type.
-
-\subsubsection{Tracking Server}
-
-MLflow provides a tracking server that includes both an ergonomic graphical interface and an API for logging various parameters, metrics, files, etc. during the training of your ML model. The tracking server is very useful for comparing the different experiments you have performed, storing them, and also being able to reproduce them. Indeed, each run stores the source of the utilized data along with the corresponding commit. When combined with MLflow Project, this capability enables the reproduction of every conducted run.
-
-\subsubsection{Model Registry}
-
-Once different experiments have been conducted and models that satisfy us have been selected, it is time to move on to the next step in the model lifecycle. Indeed, the chosen model must then be able to move into a production or pre-production environment. However, knowing the state of a model in its lifecycle requires very rigorous organization and is not so straightforward. MLflow has developed a feature that simplifies this version management of models through its \href{https://MLflow.org/docs/latest/model-registry.html}{Model Registry}. This registry allows you to add tags and aliases to your models to define their position in their lifecycle and thus be able to retrieve them efficiently.
-
-In general, a ML model goes through 4 stages that need to be known at all times:
-
-\begin{enumerate}
-    \item \textbf{Experimental}
-    \item \textbf{Staging}
-    \item \textbf{Production}
-    \item \textbf{Archived}
-\end{enumerate}
-
-
-\subsubsection{MLflow in short}
-
-MLflow is an open-source project that provides a platform for tracking the lifecycle of a ML model from start to finish. It is not the only available tool, and it may not be the most suitable for some of your specific projects. However, we believe it offers several advantages, primarily its ease of use and its ability to meet the needs of the MLOps approach. It is important to keep in mind that this environment is still very new, and new open-source projects emerge every day, so it is necessary to stay up to date on the latest developments. In summary, MLflow allows you to:
-
-\begin{itemize}
-    \item Simplify tracking the training of ML models through its API and tracking server.
-    \item Integrate the main ML frameworks easily.
-    \item Integrate your own framework if needed.
-    \item Standardize your training script, enabling industrialization, for example, fine-tuning hyperparameters.
-    \item Package your models for easy and harmonized querying across different frameworks.
-    \item Store your models efficiently by assigning tags and facilitating lifecycle tracking.
-\end{itemize}
+MLFlow provides a cohesive framework to operationalize MLOps principles effectively within ML projects. Data scientists can encapsulate their work in MLFlow Projects, which package ML code and its dependencies, ensuring that each project is reproducible and can be consistently re-executed. A project relies on an MLFlow Model, a standard format that is compatible with most ML libraries and offers a normalized way of serving the model, e.g. via an API. This interoperability and standardization are instrumental in supporting continuous improvement of the project, as models trained with a variety of packages can be readily compared or switched by one another without breaking any code. As experiments with various models progress, the Tracking Server logs detailed information about each run — hyper-parameters, metrics, and outputs artifacts and metrics — which there again promotes reproducibility but also facilitates the model selection phase through a user-friendly interface. After this experimentation phase, selected models are integrated into the Model Registry, where they are versioned and staged for deployment. This registry serves as a centralized model store that enables the different project members or teams to collaboratively manage the lifecycle of the project. Figure~\ref{fig:mlflow-components} shows the core components of MLFlow and how they facilitate a more continuous and collaborative workflow inside a ML project.
 
 \begin{figure}[htbp]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=\textwidth]{sections/img/mlflow-model-registry.png}}
-    \caption{The two key functionalities of Mlflow: a tracking server for the experimentation phase and a model registry tailored for the production phase}
-    \label{fig:mlflow-registry}
+    \caption{Core components of MLFlow. Source: Databricks.}
+    \label{fig:mlflow-components}
 \end{figure}
 
 
@@ -156,9 +102,11 @@ MLflow is an open-source project that provides a platform for tracking the lifec
 
 
 
-\subsection{Embracing the potential of Onyxia from training to deployment}
+\subsection{Leveraging cloud technologies to foster iterative development}
 
-\subsubsection{Development environment}
+While continuous improvement is a fundamental principle of MLOps, it is also a very demanding one. In particular, it requires to design and build our project as an integrated pipeline whose various stages are mainly automated, from data ingestion to monitoring the model in production. In this context, iterative development is essential in order to build a minimum viable product that is then refined over time. This section aims to show how cloud-native technologies, through the Onyxia project, were instrumental in building the project from the start as a collection of modular connected components, thus greatly enhancing the capacity for continuous refinement over time.
+
+\subsubsection{A flexible development environment}
 
 In a ML project, the choice of a flexible development infrastructure is paramount. First, due to the diversity of tasks to be performed — data collection, preprocessing, modeling, evaluation, inference, monitoring, etc. Second, because machine learning is a fast-evolving field. It is thus preferable to build a ML app as a collection of modular components so as to be able to update components without disrupting the entire pipeline. In order to leverage the flexibility of cloud technologies, the Onyxia project — and in particular its open-innovation instance, the SSP Cloud — was chosen as the main development environment. This projects also illustrates the richness of Onyxia's catalog of services, as we used a variety of tools for each stage of our pipeline: MinIO, Vault, MLflow, ArgoCD, Argo Workflows, Label Studio. The decision to opt for the SSP Cloud was also motivated by the ongoing implementation of a private instance of Onyxia on the production servers at Insee. This initiative is poised to streamline the connection between production and development environments in the long run. Finally, this project relied exclusively on open-data and thus complied with the open policy of the SSP Cloud.
 
@@ -170,7 +118,7 @@ It is worth noting that it is relatively simple to make all these applications (
 
 The use of tools like Argo Workflows is highly recommended for ML projects, firstly because they rely on technologies that promote reproducibility (containers), but also because they encourage viewing projects as a series of independent steps ranging from data retrieval to result dissemination via modeling. Adopting a pipeline-based approach to your ML or statistics projects is the first step toward greater reproducibility.
 
-% \subsubsection{Making your model accessible with SSP Cloud}
+\subsubsection{Deploying a model}
 
 Once you have optimized, evaluated, and selected your best-performing model, it's crucial to make it available to other users. Unfortunately, this aspect is often overlooked by data scientists. A trivial way to share the model would be to provide your code and all necessary information to a third party to retrain your model on their own. Obviously, this approach is not optimal as it assumes that all users have the resources, infrastructure, and knowledge required for training. The goal is therefore to make your model available in a simple and efficient manner. The use of the SSP Cloud platform greatly simplifies this process and has also allowed us, as data scientists, to take control of our model until its deployment without relying on the IT team. Indeed, on the platform, it is possible to open services with Kubernetes administrator rights, enabling the deployment of applications. For making our ML model available, we opted to use a REST API. This seems to be the most suitable method in the vast majority of cases, as it meets several criteria:
 
@@ -204,9 +152,9 @@ The autonomy of the data scientist up to the deployment of the model is particul
 
 Our MLOps architecture on the SSP Cloud platform was developed incrementally, capitalizing on the platform's modularity. Following the initial deployment of our model, we sought to introduce various enhancements to our architecture, each of which could be integrated independently. This allowed us considerable freedom in selecting our technological solutions. As a result, questions about monitoring the model in its production environment emerged in a subsequent phase.
 
-\subsection{Monitoring of the model}
+\subsubsection{Monitoring a model in production}
 
-\subsubsection{The importance monitoring}
+% \subsubsection{The importance monitoring}
 
 Once the modeling phase has been completed, along with training, optimization, and deployment of the model to be accessible to users, it's crucial to understand that the data scientist's responsibilities extend further. Traditionally, the responsibility of the data scientist is often limited to selecting the model to deploy, with the deployment task then delegated to data engineers. However, once in production, the model has not yet reached the end of its lifecycle, and it must be continuously monitored to prevent undesirable performance degradation.
 
@@ -228,7 +176,7 @@ The concept of monitoring can take on different meanings depending on the contex
 \end{itemize}
 
 
-\subsubsection{What do we monitor ?}
+% \subsubsection{What do we monitor ?}
 
 In our use case, our objective is to achieve the highest number of correctly classified textual description while minimizing the number of textual description requiring manual intervention. Thus, our goal is to distinguish correct predictions from incorrect ones without prior access to ground truth. To accomplish this, we have developed a confidence index, which represents the difference between the two highest scores. Therefore, for a given textual description, if the confidence index exceeds a determined threshold, the textual description is automatically coded. Otherwise, the textual description is manually coded by an Insee's agent who has access to the five most probable codes according to the model to optimize manual intervention. Defining the threshold for automatic coding of textual descriptions is crucial in production deployment. It involves making trade-offs between achieving a high automatic coding rate and preserving model performance, and vice versa.
 
@@ -236,7 +184,7 @@ To monitor the behavior of our model in production, we have developed an interac
 
 Confidence indices can be analyzed at finer levels of granularity based on the aggregation level of the nomenclature, to determine which classes are most difficult to predict and which have more or less occurrences. Another part of the dashboard focuses more on the input data of the model and details, for example, the average number of words per textual description, the average number of sentences per textual description, as well as the most frequent words, etc.
 
-\subsubsection{How to implement a monitoring system in the SSP Cloud?}
+% \subsubsection{How to implement a monitoring system in the SSP Cloud?}
 
 Although there are several solutions for monitoring ML models such as \href{https://www.evidentlyai.com/}{Evidently} or \href{https://www.siffletdata.com/}{Sifflet}, we preferred to implement our own solution. Indeed, at the time of our trials, none of the open-source solutions available on the market seemed optimal to us. However, the field of monitoring ML models is still emerging and actively developing, so the statements made today may no longer be true at the time of reading these lines. Before opting, as we did, for an internal solution, we recommend exploring the available tools first.
 
@@ -261,7 +209,7 @@ In summary, our monitoring pipeline consists of:
 \end{figure}
 
 
-\subsection{Continuous Annotation}
+\subsection{Promoting continuous improvement}
 
 In all ML projects, it is well-established that data is key, and in supervised ML problems, annotations play a crucial role in model performance. At the project's onset, time constraints compelled us to swiftly achieve results, precluding the luxury of conducting a comprehensive annotation campaign. Consequently, we never had access to a truly annotated gold-standard test sample on which we could rely 100\%. To evaluate the performance of our model, we relied on a subset of our training dataset (test/train split), knowing that its labeling was not perfect. After several months of model deployment, it became imperative to build such a gold-standard test sample. Firstly, this sample allows us to have an unbiased view of the model's performance in production on real data, particularly on data that has been automatically coded. Additionally, this sample enabled us to identify and correct inconsistencies present in our initial training dataset. 
 
@@ -280,12 +228,3 @@ Once again, the presence of a cloud-native technology on the platform, such as L
     \caption{Implementation of data quality control using Label Studio}
     \label{fig:annotation-datalab}
 \end{figure}
-
-\subsection{What next ?}
-
-We believe that a well-designed infrastructure facilitates the adoption of MLOps principles across all stages of an ML project, automating a multitude of tasks. The SSP Cloud stands out as a fitting illustration of this concept.
-An important aspect of MLOps is its iterative nature: not all components can be fully integrated from the outset, and time limitations can be constraining. There are several maturity level of MLOps. Therefore, it's advisable to begin by establishing robust development practices and gradually enriching the project with increased automation as requirements evolve. An effective initial step is to leverage tools like MLflow, which facilitate adherence to the MLOps framework.
-
-We've identified various areas where we can improve our processes, which we plan to address in the near term. Our primary focus will be on automating model retraining, although this will require enhancements to our monitoring pipeline. Despite the availability of a dashboard for business teams to visualize the model's performance almost in real-time (updated nightly), we currently lack an alert system to signal when retraining is required, and there's an even more ambitious goal of automating this retraining process.
-
-Additionally, we plan to test other methodologies for our model, especially Transformer-type models, which could soon be usable on our production servers. Finally, although this does not directly optimize our pipeline in terms of MLOps, working on the revision of NACE will be an interesting challenge and will allow us to assess the relevance of the MLOps approach we have adopted since the beginning of the project.
