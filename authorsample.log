@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.17)  17 APR 2024 15:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.18)  18 APR 2024 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -971,7 +971,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 11.0pt on input line 6.
  [5]
-<sections/img/columnar-storage.png, id=163, 2219.29124pt x 605.26125pt>
+<sections/img/columnar-storage.png, id=159, 2219.29124pt x 605.26125pt>
 File: sections/img/columnar-storage.png Graphic file (type png)
 <use sections/img/columnar-storage.png>
 Package pdftex.def Info: sections/img/columnar-storage.png  used on input line 
@@ -980,7 +980,7 @@ Package pdftex.def Info: sections/img/columnar-storage.png  used on input line
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 8.5pt on input line 16.
  [6 <./sections/img/columnar-storage.png>]
-<sections/img/containers.png, id=183, 1734.48pt x 1580.90625pt>
+<sections/img/containers.png, id=179, 1734.48pt x 1580.90625pt>
 File: sections/img/containers.png Graphic file (type png)
 <use sections/img/containers.png>
 Package pdftex.def Info: sections/img/containers.png  used on input line 31.
@@ -989,7 +989,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.0pt on input line 39.
 
 [7] [8 <./sections/img/containers.png>] [9]
-<sections/img/containers-portability.png, id=211, 2002.48125pt x 728.7225pt>
+<sections/img/containers-portability.png, id=207, 2002.48125pt x 728.7225pt>
 File: sections/img/containers-portability.png Graphic file (type png)
 <use sections/img/containers-portability.png>
 Package pdftex.def Info: sections/img/containers-portability.png  used on input
@@ -1008,28 +1008,28 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 10.
  [11]
-<sections/img/onyxia-components.png, id=233, 1294.8375pt x 822.07124pt>
+<sections/img/onyxia-components.png, id=229, 1294.8375pt x 822.07124pt>
 File: sections/img/onyxia-components.png Graphic file (type png)
 <use sections/img/onyxia-components.png>
 Package pdftex.def Info: sections/img/onyxia-components.png  used on input line
  14.
 (pdftex.def)             Requested size: 332.89723pt x 211.35016pt.
  [12 <./sections/img/onyxia-components.png>]
-<sections/img/service-configuration.png, id=256, 560.0925pt x 176.45924pt>
+<sections/img/service-configuration.png, id=252, 560.0925pt x 176.45924pt>
 File: sections/img/service-configuration.png Graphic file (type png)
 <use sections/img/service-configuration.png>
 Package pdftex.def Info: sections/img/service-configuration.png  used on input 
 line 29.
 (pdftex.def)             Requested size: 332.89723pt x 104.8855pt.
  [13] [14 <./sections/img/service-configuration.png>]
-<sections/img/onyxia-catalog.png, id=273, 1606.0pt x 865.2325pt>
+<sections/img/onyxia-catalog.png, id=269, 1606.0pt x 865.2325pt>
 File: sections/img/onyxia-catalog.png Graphic file (type png)
 <use sections/img/onyxia-catalog.png>
 Package pdftex.def Info: sections/img/onyxia-catalog.png  used on input line 47
 .
 (pdftex.def)             Requested size: 399.47566pt x 215.21179pt.
  [15 <./sections/img/onyxia-catalog.png>] [16]
-<sections/img/onyxia-instances.png, id=298, 1848.9075pt x 594.22pt>
+<sections/img/onyxia-instances.png, id=294, 1848.9075pt x 594.22pt>
 File: sections/img/onyxia-instances.png Graphic file (type png)
 <use sections/img/onyxia-instances.png>
 Package pdftex.def Info: sections/img/onyxia-instances.png  used on input line 
@@ -1037,62 +1037,62 @@ Package pdftex.def Info: sections/img/onyxia-instances.png  used on input line
 (pdftex.def)             Requested size: 432.76741pt x 139.08862pt.
 ) [17 <./sections/img/onyxia-instances.png>] (./sections/4-case-study.tex [18] 
 [19]
-<sections/img/fasttext.png, id=340, 4956.5175pt x 1424.32124pt>
+<sections/img/fasttext.png, id=336, 4956.5175pt x 1424.32124pt>
 File: sections/img/fasttext.png Graphic file (type png)
 <use sections/img/fasttext.png>
 Package pdftex.def Info: sections/img/fasttext.png  used on input line 49.
 (pdftex.def)             Requested size: 499.34584pt x 143.48366pt.
  [20 <./sections/img/fasttext.png>]
-<sections/img/mlops-cycle.png, id=351, 2652.91125pt x 1213.53375pt>
+<sections/img/mlops-cycle.png, id=347, 2652.91125pt x 1213.53375pt>
 File: sections/img/mlops-cycle.png Graphic file (type png)
 <use sections/img/mlops-cycle.png>
-Package pdftex.def Info: sections/img/mlops-cycle.png  used on input line 71.
+Package pdftex.def Info: sections/img/mlops-cycle.png  used on input line 72.
 (pdftex.def)             Requested size: 332.89723pt x 152.26537pt.
  [21] [22 <./sections/img/mlops-cycle.png>]
-<sections/img/mlflow-model-registry.png, id=367, 977.6525pt x 432.61626pt>
+<sections/img/mlflow-model-registry.png, id=363, 977.6525pt x 432.61626pt>
 File: sections/img/mlflow-model-registry.png Graphic file (type png)
 <use sections/img/mlflow-model-registry.png>
 Package pdftex.def Info: sections/img/mlflow-model-registry.png  used on input 
-line 95.
+line 96.
 (pdftex.def)             Requested size: 332.89723pt x 147.31201pt.
  [23] [24 <./sections/img/mlflow-model-registry.png>] [25]
-<sections/img/api-datalab.png, id=391, 2140.99875pt x 2409.0pt>
+<sections/img/api-datalab.png, id=388, 2140.99875pt x 2409.0pt>
 File: sections/img/api-datalab.png Graphic file (type png)
 <use sections/img/api-datalab.png>
-Package pdftex.def Info: sections/img/api-datalab.png  used on input line 134.
+Package pdftex.def Info: sections/img/api-datalab.png  used on input line 130.
 (pdftex.def)             Requested size: 249.67291pt x 280.90718pt.
  [26 <./sections/img/api-datalab.png>]
-<sections/img/ci-cd.png, id=400, 3676.73625pt x 755.82375pt>
+<sections/img/ci-cd.png, id=400, 2785.40625pt x 849.1725pt>
 File: sections/img/ci-cd.png Graphic file (type png)
 <use sections/img/ci-cd.png>
-Package pdftex.def Info: sections/img/ci-cd.png  used on input line 144.
-(pdftex.def)             Requested size: 332.89723pt x 68.42485pt.
- [27 <./sections/img/ci-cd.png>]
+Package pdftex.def Info: sections/img/ci-cd.png  used on input line 145.
+(pdftex.def)             Requested size: 332.89723pt x 101.48166pt.
+ [27]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-72.
+68.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [28] [29]
-<sections/img/monitoring-datalab.png, id=434, 3345.49875pt x 2442.12375pt>
+) [28 <./sections/img/ci-cd.png>] [29]
+<sections/img/monitoring-datalab.png, id=435, 3345.49875pt x 2442.12375pt>
 File: sections/img/monitoring-datalab.png Graphic file (type png)
 <use sections/img/monitoring-datalab.png>
 Package pdftex.def Info: sections/img/monitoring-datalab.png  used on input lin
-e 204.
+e 197.
 (pdftex.def)             Requested size: 499.34584pt x 364.47684pt.
-
-[30 <./sections/img/monitoring-datalab.png>]
-<sections/img/annotation-datalab.png, id=446, 3935.70375pt x 2469.225pt>
+ [30] [31 <./sections/img/monitoring-datalab.png>]
+<sections/img/annotation-datalab.png, id=453, 3935.70375pt x 2469.225pt>
 File: sections/img/annotation-datalab.png Graphic file (type png)
 <use sections/img/annotation-datalab.png>
 Package pdftex.def Info: sections/img/annotation-datalab.png  used on input lin
-e 225.
+e 219.
 (pdftex.def)             Requested size: 499.34584pt x 313.249pt.
- [31]) (./sections/5-discussion.tex [32 <./sections/img/annotation-datalab.png>
-] [33]) (./public/authorsample.bbl
+)
+(./sections/5-discussion.tex [32] [33 <./sections/img/annotation-datalab.png>])
+(./public/authorsample.bbl
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/it' will be
 (Font)              scaled to size 8.5pt on input line 8.
-
+ [34]
 Underfull \hbox (badness 6608) in paragraph at lines 58--63
 []\T1/ntxtlf/m/n/8.5 DGINS.  Bucharest mem-o-ran-dum on of-fi-cial statis-tics 
 in a datafied so-ci-
@@ -1116,15 +1116,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--82
  eurostat / cros / system /
  []
 
-[34] [35]) [36] (./public/authorsample.aux)
+[35]) [36] (./public/authorsample.aux)
 Package rerunfilecheck Info: File `authorsample.out' has not changed.
-(rerunfilecheck)             Checksum: 5C0ADC6A1017C2C70C2AA2405F5D9C04;6524.
+(rerunfilecheck)             Checksum: 4CBE80ECCA30D911EFEC07304DEB0BF1;6296.
  ) 
 Here is how much of TeX's memory you used:
- 17434 strings out of 480247
- 278028 string characters out of 5896151
- 594769 words of memory out of 5000000
- 34857 multiletter control sequences out of 15000+600000
+ 17437 strings out of 480247
+ 278104 string characters out of 5896151
+ 597032 words of memory out of 5000000
+ 34859 multiletter control sequences out of 15000+600000
  537916 words of font info for 113 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  94i,8n,92p,2583b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1142,10 +1142,10 @@ pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/txsys.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/newtx/ztmri.pfb>
-Output written on ./public/authorsample.pdf (36 pages, 2981592 bytes).
+Output written on ./public/authorsample.pdf (36 pages, 2972783 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 483 compressed objects within 5 object streams
- 143 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 484 compressed objects within 5 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
