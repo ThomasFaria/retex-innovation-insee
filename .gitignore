@@ -1,9 +1,9 @@
 *.aux
-*.idx
-*.log
-*.pdf
-*.fls
-*.fdb_latexmk
 *.bbl
 *.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.log
 *.out
+*.pdf
