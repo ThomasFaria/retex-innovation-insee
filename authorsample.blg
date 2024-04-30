@@ -2,11 +2,11 @@ This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: public/authorsample.aux
 The style file: plain.bst
-Database file #1: refs.bib
+Database file #1: references.bib
 Warning--empty journal in schweik2006free
 You've used 41 entries,
             2118 wiz_defined-function locations,
-            733 strings with 12072 characters,
+            733 strings with 12078 characters,
 and the built_in function-call counts, 14390 in all, are:
 = -- 1404
 > -- 757
