@@ -168,6 +168,13 @@ Mike Mesnier, Gregory~R Ganger, and Erik Riedel.
 \newblock Object-based storage.
 \newblock {\em IEEE Communications Magazine}, 41(8):84--90, 2003.
 
+\bibitem{meyer_sicore_1997}
+Eric Meyer and Pascal Rivière.
+\newblock {SICORE}, un outil et une méthode pour le chiffrement automatique à
+  {I}'{INSEE}.
+\newblock In {\em Actes de la 4ème {Conférence} {Internationale} des
+  {Utilisateurs} de {Blaise}}, pages 280--293, Paris, France, May 1997.
+
 \bibitem{moreau2023containers}
 David Moreau, Kristina Wiebels, and Carl Boettiger.
 \newblock Containers for computational reproducibility.
