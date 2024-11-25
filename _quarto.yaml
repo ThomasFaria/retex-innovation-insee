@@ -4,7 +4,13 @@ project:
     port: 5000
     host: 0.0.0.0
   render:
-    - "*.qmd"
+    - "src/introduction/index.qmd"
+    - "src/principles/index.qmd"
+    - "src/implementation/index.qmd"
+    - "src/mlops/index.qmd"
+    - "src/discussion/index.qmd"
+    - "src/pdf/index.qmd"
+
 
 
 website: 
@@ -35,7 +41,7 @@ website:
     align: center
     tools: 
       - icon: file-pdf-fill
-        href: src/index.pdf
+        href: src/pdf/index.pdf
         text: "PDF"
 
 format:

@@ -1,9 +1,6 @@
 ---
 title: "A cloud-native data science platform to build production-grade machine learning systems"
-author: |
-    [Romain Avouac](https://github.com/avouacr)
-    [Thomas Faria](https://github.com/thomasfaria)
-    [Frédéric Comte](https://github.com/fcomte)
+
 ---
 
 
