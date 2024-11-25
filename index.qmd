@@ -1,0 +1,12 @@
+---
+title: "A cloud-native data science platform to build production-grade machine learning systems"
+
+---
+
+
+::: {.content-visible when-format="html"}
+
+La version pdf de ce document est disponible [ici](https://thomasfaria.github.io/retex-innovation-insee/authorsample.pdf).
+
+:::
+

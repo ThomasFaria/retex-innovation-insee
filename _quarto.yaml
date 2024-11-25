@@ -1,0 +1,57 @@
+project:
+  type: website
+  preview:
+    port: 5000
+    host: 0.0.0.0
+  render:
+    - "src/introduction/index.qmd"
+    - "src/principles/index.qmd"
+    - "src/implementation/index.qmd"
+    - "src/mlops/index.qmd"
+    - "src/discussion/index.qmd"
+    - "src/pdf/index.qmd"
+
+
+
+website: 
+  page-navigation: true
+  site-url: "https://thomasfaria.github.io/retex-innovation-insee" 
+  repo-url: "https://github.com/ThomasFaria/retex-innovation-insee"
+  # repo-actions: [edit, source, issue]
+  favicon: images/favicon.ico
+  
+  
+  sidebar:
+    style: "docked"
+    contents:
+      - text: "1 - Introduction"
+        href: src/introduction/index.qmd
+      - text: "2 - Principes"
+        href: src/principles/index.qmd
+      - text: "3 - Implémentations"
+        href: src/implementation/index.qmd
+      - text: "4 - MLOps"
+        href: src/mlops/index.qmd
+      - text: "5 - Discussion"
+        href: src/discussion/index.qmd
+
+    background: "#D9E3E4"
+    favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      - icon: file-pdf-fill
+        href: src/pdf/index.pdf
+        text: "PDF"
+
+format:
+  html:
+    theme: cosmo
+    css: styles/styles.css
+    toc: true
+    code-annotations: hover
+    code-link: true
+    reference-location: margin
+    number-sections: true
+
+bibliography: src/references.bib 
