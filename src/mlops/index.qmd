@@ -1,3 +1,7 @@
+---
+number-offset: 3
+---
+
 # Case-study: using MLOps to improve NACE classification {#sec-mlops}
 
 This chapter aims, through a concrete example, to illustrate how Insee managed to deploy its first machine learning (ML) model into production. It provides an in-depth description of the MLOps approach that this project strived to adhere to, focusing on the various technologies that were employed. In particular, we highlight how cloud technologies were instrumental in building a solution iteratively and how Onyxia greatly facilitated this process by providing flexible development environments as well as tools to deploy and monitor models, promoting a continuous improvement loop. The entire project is available in open source[^codif-team] and remains under active development.

@@ -18,15 +18,15 @@ website:
   sidebar:
     style: "docked"
     contents:
-      - text: "Introduction"
+      - text: "1 - Introduction"
         href: src/introduction/index.qmd
-      - text: "Principes"
+      - text: "2 - Principes"
         href: src/principles/index.qmd
-      - text: "Implémentations"
+      - text: "3 - Implémentations"
         href: src/implementation/index.qmd
-      - text: "MLOps"
+      - text: "4 - MLOps"
         href: src/mlops/index.qmd
-      - text: "Discussion"
+      - text: "5 - Discussion"
         href: src/discussion/index.qmd
 
     background: "#D9E3E4"
@@ -45,5 +45,7 @@ format:
     toc: true
     code-annotations: hover
     code-link: true
+    reference-location: margin
+    number-sections: true
 
 bibliography: src/references.bib 
