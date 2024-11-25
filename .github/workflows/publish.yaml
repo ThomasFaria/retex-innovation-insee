@@ -1,31 +1,24 @@
-name: Publish PDF
+name: Publish website and pdf
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Install TexLive
-      run: |
-        sudo apt update 
-        sudo apt-get install -y texlive texlive-fonts-extra
+    # Step 2: Set up Quarto
+    - name: Set up quarto
+      uses: quarto-dev/quarto-actions/setup@v2
 
-    - name: Compile LaTeX file (three times + bib)
-      run: |
-        pdflatex -output-directory=./public ./authorsample.tex
-        bibtex public/authorsample.aux
-        pdflatex -output-directory=./public ./authorsample.tex
-        pdflatex -output-directory=./public ./authorsample.tex
-
-    - name: Publish PDF to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    # Step 3: Compile document
+    - name: Publish to GitHub Pages (and render)
+      uses: quarto-dev/quarto-actions/publish@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        target: gh-pages
