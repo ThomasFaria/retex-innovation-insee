@@ -2,6 +2,8 @@
 number-offset: 3
 ---
 
+::: {.content-visible when-profile="en"}
+
 # Case-study: using MLOps to improve NACE classification {#sec-mlops}
 
 This chapter aims, through a concrete example, to illustrate how Insee managed to deploy its first machine learning (ML) model into production. It provides an in-depth description of the MLOps approach that this project strived to adhere to, focusing on the various technologies that were employed. In particular, we highlight how cloud technologies were instrumental in building a solution iteratively and how Onyxia greatly facilitated this process by providing flexible development environments as well as tools to deploy and monitor models, promoting a continuous improvement loop. The entire project is available in open source[^codif-team] and remains under active development.
@@ -150,3 +152,18 @@ Several months after the first version of the model was deployed in production, 
 
 Against that background, an annotation campaign has been initiated in early 2024 to continuously build a gold-standard dataset. The annotation campaign is carried out on the SSP Cloud using Label Studio, an open-source annotation tool that provides a user-friendly interface and is available in Onyxia's catalog. @fig-full-architecture illustrates how the labelling component (fourth box of the bottom row) could be readily integrated in the project architecture thanks to its modular nature. In practice, we create a pool of text descriptions randomly sampled from the data passed through the API over the past three months. This sample is then sent to annotation by NACE experts using the UI of Label Studio. The annotation results are automatically saved on MinIO, transformed into Parquet format. Then, these gold-standard data are directly integrated into the monitoring dashboard to compute and observe various model performance metrics. These metrics give us a much clearer picture on the actual performance of the model on production data, and in particular on its shortcomings. In parallel, we will launch an annotation campaign in the upcoming months to construct a new training set tailored to the recently updated NACE statistical classification. Leveraging both the updated training data and performance metrics derived from the gold-standard sample, we aim to iteratively enhance the model's accuracy through periodical and targeted re-training in the near future.
 
+
+:::
+
+
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+
+
+
+::: {.content-visible when-profile="fr"}
+
+TOTO
+
+::: 

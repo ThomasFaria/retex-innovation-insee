@@ -2,6 +2,7 @@
 number-offset: 2
 ---
 
+::: {.content-visible when-profile="en"}
 
 # Onyxia: an open source project to build cloud-native data science platforms {#sec-implementation}
 
@@ -77,3 +78,19 @@ Another major way in which we try to build commons is by developing and maintain
 Beyond its technical capabilities, the SSP Cloud is an endeavour at embodying the principles of open-innovation @chesbrough2003open. Deployed on internet[^datalab], it is open not only to Insee employees, but also more broadly to French governmental agencies, French Universities and other European NSIs, and is dedicated to experimenting with data science methods using open data. Thus, the projects carried out on this platform showcase the growing abundance of datasets published openly by organizations. The fundamentally collaborative nature of the SSP Cloud has proven especially beneficial for organizing innovative events such as hackathons — both at the national and international levels — and in the academic sphere. It has become an integral resource for several universities and Grandes Ecoles in France, fostering the use of cloud-native and reproducible environments, and preventing vendor lock-in effect due to the over-reliance of educational organizations on proprietary cloud solutions. As a result, the platform is now widely used in the French National Statistical System and beyond, with about 800 unique users per month in 2024. These users form a dynamic community thanks to a centralized discussion canal; they help improve the user experience by reporting bugs, suggesting new features, and thus contribute directly to the project.
 
 [^datalab]: [https://datalab.sspcloud.fr/]()
+
+
+:::
+
+
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+
+
+
+::: {.content-visible when-profile="fr"}
+
+TOTO
+
+::: 

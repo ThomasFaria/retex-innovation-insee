@@ -2,6 +2,8 @@
 number-offset: 1
 ---
 
+::: {.content-visible when-profile="en"}
+
 # Principles for building a modern and flexible data architecture for official statistics {#sec-principles}
 
 With the emergence of big data sources and new methodologies offering significant promise to improve the production process of official statistics, statisticians trained in data science techniques are eager to innovate. However, their ability to do so is limited by several challenges. Central among these challenges is the need for greater autonomy — be it in scaling resources to match statistical workloads, deploying proofs of concept with agility and in a collaborative manner, etc. Against this background, our aim was to design a data science platform that not only manages big data efficiently but also empowers statisticians by enhancing their autonomy. To achieve this, we looked at the evolution of the data ecosystem to identify significant trends that could help overcome the above-mentioned limitations[^limitations]. Our findings indicate that leveraging cloud-native technologies, particularly containers and object storage, is key to building infrastructures capable of handling large and varied datasets in a flexible and cost-effective manner. Furthermore, these technologies significantly enhance autonomy, facilitating innovation and promoting reproducibility in the production of official statistics.
@@ -52,4 +54,18 @@ Note: In a containerized environment, applications are created through script sp
 
 Besides scalability and autonomy, these architectural choices also foster reproducibility of statistical computations. The concept of reproducibility — namely the ability to reproduce the result of an experiment by applying the same methodology to the same data — is a fundamental criterion of scientific validity @mcnutt2014reproducibility. It is also highly relevant in official statistics, as it serves as a foundation for transparency, which in turn is crucial for building and maintaining the public's trust @eurocodepractice2018. Fostering reproducibility in statistical production involves devising processing solutions that can produce reproducible statistics on the one hand, and that can be shared with peers on the other hand @ntts2019reproducibility. Traditional IT infrastructures — either a personal computer or a shared infrastructure with remote desktop access — fall short in this regard, as building a project or just computing a statistical indicator there generally involves a series of manual steps (installing system libraries, the programming language binary, projects packages, dealing with potentially conflicting versions, etc.) that can not be fully reproduced across projects. In comparison, containers are reproducible by design, as their build process involves defining precisely all the needed resources as a set of processing operations in a standardized manner, from the "bare machine" to the running application @moreau2023containers. Furthermore, these reproducible environments can be easily shared to peers as they can be readily published on open registries (for example, a container registry such as DockerHub) along with the source code of the application (for example, on a public software forge like GitHub or GitLab). This approach significantly enhances the re-usability of code projects, fostering a community-driven model of development and innovation.
 
+:::
+
+
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+<!-- ############################################################################################################## -->
+
+
+
+::: {.content-visible when-profile="fr"}
+
+TOTO
+
+::: 
 

@@ -1,9 +1,8 @@
 project:
   type: website
-  preview:
-    port: 5000
-    host: 0.0.0.0
+
   render:
+    - "index.qmd"
     - "src/introduction/index.qmd"
     - "src/principles/index.qmd"
     - "src/implementation/index.qmd"
@@ -14,6 +13,7 @@ project:
 
 
 website: 
+  title: SSP Cloud Datalab
   page-navigation: true
   site-url: "https://thomasfaria.github.io/retex-innovation-insee" 
   repo-url: "https://github.com/ThomasFaria/retex-innovation-insee"
