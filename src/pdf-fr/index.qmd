@@ -42,7 +42,7 @@ title-page: true
 toc: false
 linkcolor: "#000000"
 bibliography: ../references.bib
-language: "fr-FR"
+lang: "fr-FR"
 
 # output-file: "output.pdf"
 # functions:
