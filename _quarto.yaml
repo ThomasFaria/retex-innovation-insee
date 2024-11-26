@@ -22,16 +22,17 @@ website:
 
   sidebar:
     style: "docked"
-    background: "#D9E3E4"
+    background: "light"
+    
     favicon: images/favicon.ico
     pinned: true
     align: center
     tools: 
       - icon: translate
         menu: 
-          - href: ./fr/
+          - href: ../fr/
             text: "Français"
-          - href: ./en/
+          - href: ../en/
             text: "English"
 
 format:
