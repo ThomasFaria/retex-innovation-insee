@@ -8,7 +8,6 @@ website:
   title: SSP Cloud Datalab
   
   sidebar:
-    style: "docked"
     contents:
       - text: "1 - Introduction"
         href: src/introduction/index.qmd
@@ -21,10 +20,6 @@ website:
       - text: "5 - Discussion"
         href: src/discussion/index.qmd
 
-    background: "#D9E3E4"
-    favicon: images/favicon.ico
-    pinned: true
-    align: center
     tools: 
       - icon: file-pdf-fill
         href: src/pdf-en/index.pdf

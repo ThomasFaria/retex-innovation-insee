@@ -19,30 +19,20 @@ website:
   repo-url: "https://github.com/ThomasFaria/retex-innovation-insee"
   # repo-actions: [edit, source, issue]
   favicon: images/favicon.ico
-  
-  
+
   sidebar:
     style: "docked"
-    contents:
-      - text: "1 - Introduction"
-        href: src/introduction/index.qmd
-      - text: "2 - Principes"
-        href: src/principles/index.qmd
-      - text: "3 - Implémentations"
-        href: src/implementation/index.qmd
-      - text: "4 - MLOps"
-        href: src/mlops/index.qmd
-      - text: "5 - Discussion"
-        href: src/discussion/index.qmd
-
     background: "#D9E3E4"
     favicon: images/favicon.ico
     pinned: true
     align: center
     tools: 
-      - icon: file-pdf-fill
-        href: src/pdf/index.pdf
-        text: "PDF"
+      - icon: translate
+        menu: 
+          - href: ./fr/
+            text: "Français"
+          - href: ./en/
+            text: "English"
 
 format:
   html:
