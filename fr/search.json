@@ -1,0 +1,59 @@
+[
+  {
+    "objectID": "src/mlops/index.html",
+    "href": "src/mlops/index.html",
+    "title": "SSP Cloud Datalab",
+    "section": "",
+    "text": "TOTO",
+    "crumbs": [
+      "4 - MLOps"
+    ]
+  },
+  {
+    "objectID": "src/principles/index.html",
+    "href": "src/principles/index.html",
+    "title": "SSP Cloud Datalab",
+    "section": "",
+    "text": "TOTO",
+    "crumbs": [
+      "2 - Principes"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A cloud-native data science platform to build production-grade machine learning systems",
+    "section": "",
+    "text": "La version pdf de ce document est disponible ici."
+  },
+  {
+    "objectID": "src/introduction/index.html",
+    "href": "src/introduction/index.html",
+    "title": "SSP Cloud Datalab",
+    "section": "",
+    "text": "TOTO",
+    "crumbs": [
+      "1 - Introduction"
+    ]
+  },
+  {
+    "objectID": "src/implementation/index.html",
+    "href": "src/implementation/index.html",
+    "title": "SSP Cloud Datalab",
+    "section": "",
+    "text": "TOTO",
+    "crumbs": [
+      "3 - Implémentations"
+    ]
+  },
+  {
+    "objectID": "src/discussion/index.html",
+    "href": "src/discussion/index.html",
+    "title": "SSP Cloud Datalab",
+    "section": "",
+    "text": "TOTO",
+    "crumbs": [
+      "5 - Discussion"
+    ]
+  }
+]
