@@ -13,7 +13,7 @@ website:
         href: src/introduction/index.qmd
       - text: "2 - Principes"
         href: src/principles/index.qmd
-      - text: "3 - Implémentations"
+      - text: "3 - Implémentation"
         href: src/implementation/index.qmd
       - text: "4 - MLOps"
         href: src/mlops/index.qmd

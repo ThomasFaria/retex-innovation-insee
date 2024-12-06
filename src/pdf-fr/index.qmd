@@ -1,5 +1,5 @@
 ---
-title: "Un beau titre en francais"
+title: "Mettre les technologies cloud au service de la production statistique"
 
 # format:
 #   ctk-article-typst:
@@ -15,7 +15,7 @@ author:
   - name: Romain Avouac
     affiliations:
       - name: Insee
-        department: Diit
+        department: DMTR
     email: romain.avouac@insee.fr
   - name: Thomas Faria
     affiliations:
@@ -25,7 +25,7 @@ author:
   - name: Frédéric Comte
     affiliations:
       - name: Insee
-        department: Diit
+        department: DIIT
     email: frederic.comte@insee.fr
 fig-cap-location: top
 date: today
