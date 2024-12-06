@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,10 +56,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-eaae3773edbe84ed77ea85018a3d2c28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-b02c3babb8b8c269817561ecc0d317ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -139,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../src/implementation/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 - Implémentations</span></a>
+ <span class="menu-text">3 - Implémentation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,11 +179,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> Introduction</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -171,11 +197,69 @@ ul.task-list li input[type="checkbox"] {
 <!-- ############################################################################################################## -->
 <!-- ############################################################################################################## -->
 <!-- ############################################################################################################## -->
-<p>TOTO</p>
+<section id="introduction" class="level3 page-columns page-full" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">0.1</span> Introduction</h3>
+<p>L’exploitation de sources de données non traditionnelles afin d’améliorer le processus de production statistique est une orientation majeure du Système Statistique Européen (SSE), résumée à travers le concept de <em>Trusted Smart Statistics</em> (<span class="citation" data-cites="ricciato2019trusted">Ricciato et al. (<a href="#ref-ricciato2019trusted" role="doc-biblioref">2019</a>)</span>). Cette dynamique s’accompagne d’innovations dans les processus statistiques, permettant de tirer parti du potentiel de ces sources — plus grande disponibilité, résolution spatio-temporelle accrue, etc. — tout en faisant face à leur complexité et à leurs limites. Parmi ces innovations figurent les méthodes d’apprentissage automatique et leurs applications prometteuses dans les domaines du codage et de la classification, des redressements et de l’imputation (<span class="citation" data-cites="gjaltema2022high">Gjaltema (<a href="#ref-gjaltema2022high" role="doc-biblioref">2022</a>)</span>). Les multiples défis auxquels font face les instituts statistiques dans ce contexte d’évolution sont abordés dans le <em>Mémorandum de Bucarest sur les statistiques officielles dans une société numérisée</em>, qui prévoit que “la variété des nouvelles sources de données, paradigmes computationnels et outils nécessitera des adaptations de l’architecture métier statistique, des processus, des modèles de production, des infrastructures informatiques, des cadres méthodologiques et de qualité, ainsi que des structures de gouvernance correspondantes”, et invite en conséquence le SSE à évaluer les adaptations requises et à les prioriser (<span class="citation" data-cites="bucharest2018">DGINS (<a href="#ref-bucharest2018" role="doc-biblioref">2018</a>)</span>). L’orientation B (“innover et être en première ligne sur les sources de données”) de la stratégie Insee Horizon 2025 traduit l’opérationnalisation de cette orientation dans le cadre du service statistique public (<span class="citation" data-cites="inseehorizon2025">INSEE (<a href="#ref-inseehorizon2025" role="doc-biblioref">2016</a>)</span>).</p>
+<p>Dans l’optique de ces transformations, de nombreux travaux ont été menés dans le cadre de projets successifs à l’échelle européenne pour opérationnaliser l’utilisation de sources de données non-traditionnelles dans la production de statistiques officielles. Dans le cadre du projet ESSnet Big Data II (2018-2020), les instituts statistiques nationaux (INS) ont travaillé sur une large gamme de thématiques (offres d’emploi en ligne, transactions financières, traces GPS, etc.) afin de constituer les briques nécessaires pour intégrer ces sources dans les processus de production et identifier leurs limites (<span class="citation" data-cites="essnetbigdata2">EUROSTAT (<a href="#ref-essnetbigdata2" role="doc-biblioref">2021</a>)</span>). En France, les travaux sur l’exploitation des données mobiles (<span class="citation" data-cites="sakarovitch2018estimating">Sakarovitch et al. (<a href="#ref-sakarovitch2018estimating" role="doc-biblioref">2018</a>)</span>) ou des données de caisse (<span class="citation" data-cites="leclair2019scanner">Leclair et al. (<a href="#ref-leclair2019scanner" role="doc-biblioref">2019</a>)</span>) ont permis d’illustrer le potentiel de ces sources pour construire de nouveaux indicateurs ou raffiner des indicateurs existants. Néanmoins, si un travail considérable a été consacré au développement de cadres méthodologiques (<span class="citation" data-cites="descy2019towards">Descy et al. (<a href="#ref-descy2019towards" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="salgado2020mobile">Salgado et al. (<a href="#ref-salgado2020mobile" role="doc-biblioref">2020</a>)</span>), de lignes directrices sur la qualité (<span class="citation" data-cites="kowarik2022quality">Kowarik and Six (<a href="#ref-kowarik2022quality" role="doc-biblioref">2022</a>)</span>), ainsi qu’à la conception de processus sécurisant l’acquisition de données auprès de tiers (<span class="citation" data-cites="ricciato2018processing">Ricciato et al. (<a href="#ref-ricciato2018processing" role="doc-biblioref">2018</a>)</span>), les infrastructures informatiques et les compétences nécessaires pour gérer ces nouveaux objets sont restées peu abordées dans la littérature.</p>
+<p>Les caractéristiques de ces nouvelles sources rendent leur traitement particulièrement complexe. On qualifie souvent de <em>big data</em> ces données qui se distinguepar leur volume (souvent de l’ordre de plusieurs centaines de Go voire du To), leur vélocité (vitesse de génération, proche du temps réel) ou de leur variété (données structurées mais aussi non structurées, telles que les textes et les images). Pourtant, les “compétences pour automatiser, analyser et optimiser ces systèmes complexes ne font souvent pas partie des compétences traditionnelles de la plupart des instituts statistiques nationaux” (<span class="citation" data-cites="ashofteh2021data">Ashofteh and Bravo (<a href="#ref-ashofteh2021data" role="doc-biblioref">2021</a>)</span>). Au cours des dernières années, un nombre croissant de statisticiens publics sont formés aux méthodes de <em>data science</em> permettant d’envisager l’intégration de ces sources dans des processus de production statistique. Dans ses multiples acceptions, le terme « data scientist » reflète en effet l’implication croissante des statisticiens dans le développement informatique et l’orchestration de leurs opérations de traitement des données, au-delà des seules phases de conception ou de validation (<span class="citation" data-cites="davenport2012data">Davenport and Patil (<a href="#ref-davenport2012data" role="doc-biblioref">2012</a>)</span>). Toutefois, on observe en pratique, à l’Insee et dans d’autres organisations, que la capacité de ces profiles à tirer parti des sources <em>big data</em> et des méthodes d’apprentissage automatique est limitée par plusieurs défis.</p>
+<p>Un premier défi réside dans l’absence d’infrastructures informatiques adaptées aux nouvelles sources de données auxquelles les INS ont désormais accès, ainsi qu’au besoin croissant de nouvelles méthodes statistiques. Par exemple, les sources <em>big data</em> nécessitent d’énormes capacités de stockage et s’appuient souvent sur des infrastructures et des méthodes de calcul distribué pour être traitées (<span class="citation" data-cites="liu2013computing">Liu (<a href="#ref-liu2013computing" role="doc-biblioref">2013</a>)</span>). De même, l’adoption de nouvelles méthodes statistiques basées sur des algorithmes d’apprentissage automatique requiert des capacités informatiques — en particulier des GPU (unités de traitement graphique) dans le cadre du traitement du texte ou de l’image — pour paralléliser massivement les calculs (<span class="citation" data-cites="saiyeda2017cloud">Saiyeda and Mir (<a href="#ref-saiyeda2017cloud" role="doc-biblioref">2017</a>)</span>). De telles ressources sont rarement disponibles dans les infrastructures informatiques traditionnelles. Lorsque des infrastructures de calcul adaptées sont disponibles, comme les supercalculateurs (HPC) utilisés dans certains domaines de recherche, elles nécessitent des compétences spécifiques — notamment pour leur mise en place et leur maintenance — qui sont rarement disponibles au sein des INS.</p>
+<p>Un autre défi majeur est d’équiper les statisticiens avec des environnements de développement leur permettant d’expérimenter plus librement. L’essence de l’innovation dans les travaux statistiques réside dans la capacité à intégrer rapidement de nouveaux outils et méthodologies. Cette agilité est limitée lorsque les statisticiens dépendent excessivement des départements informatiques pour provisionner des ressources ou installer de nouveaux logiciels. Dans les configurations traditionnelles — ordinateurs personnels ou bureaux virtuels sur des architectures centralisées<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> — les départements informatiques privilégient généralement la sécurité et la stabilité du système au détriment de la fourniture de nouveaux services, ce qui limite le potentiel d’innovation. De plus, ces environnements rigides rendent difficile la mise en œuvre de bonnes pratiques de développement, telles que le travail collaboratif — nécessitant des environnements permettant de partager facilement des expérimentations avec ses pairs — et la reproductibilité.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<code>AUSv3</code> est un exemple d’une telle infrastructure. Le statisticien utilise son poste de travail comme point d’accès à un bureau virtuel qui “reproduit” l’expérience habituelle du poste de travail. Néanmoins, les calculs qui sont lancés — via <code>R</code> ou <code>Python</code> par exemple — sont effectués sur des machines virtuelles (VM) de calcul dédiées, et non sur le poste de travail.</p></div></div><p>Un troisième défi concerne la difficulté de passer des expérimentations innovantes à des solutions en production. Même lorsque les statisticiens ont accès à des environnements leur permettant d’expérimenter aisément, la transition vers le déploiement d’une application ou d’un modèle reste généralement difficile. Les environnements de production diffèrent souvent des environnements de développement, ce qui entraîne des coûts de développement supplémentaires importants pour passer d’une preuve de concept à une solution industrialisée qui rend du service dans la durée. Par exemple, dans le cas des projets d’apprentissage automatique, les modèles déployés nécessitent un suivi rigoureux pour s’assurer qu’ils conservent leur précision et leur utilité au fil du temps, et requièrent généralement des améliorations périodiques ou continues. Ces besoins plaident pour des environnements plus flexibles permettant aux statisticiens de gérer de manière autonome le cycle de vie complet de leurs projets de <em>data science</em>.</p>
+<p>Ces différents défis ont un thème sous-jacent commun : le besoin d’une plus grande autonomie. La capacité des méthodes de <em>data science</em> à améliorer et potentiellement transformer la production des statistiques officielles dépend crucialement de la capacité des statisticiens à mener des expérimentations innovantes plus librement. Pour ce faire, ils doivent avoir accès à des ressources informatiques substantielles et diversifiées leur permettant de gérer le volume et la diversité des sources <em>big data</em> et d’exploiter les méthodes d’apprentissage automatique. Ces projets expérimentaux nécessitent à leur tour des environnements de développement flexibles favorisant le travail collaboratif pour tirer parti de la diversité des profils et compétences des équipes de projet. Enfin, pour tirer pleinement parti de ces expérimentations, les statisticiens ont besoin d’outils pour déployer des applications sous forme de preuves de concept et orchestrer leurs opérations statistiques en toute autonomie.</p>
+<p>Dans ce contexte, l’Insee a développé <code>Onyxia</code> : un projet open source permettant aux organisations de déployer des plateformes de <em>data science</em> favorisant l’innovation en offrant aux statisticiens une plus grande autonomie<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Cet article vise à décrire le processus de réflexion ayant conduit à ce projet et à illustrer comment il autonomise les statisticiens à l’Insee, devenant ainsi un pilier de notre stratégie d’innovation. <a href="../../src/principles/index.html#sec-principles">La section 2</a> offre une analyse approfondie des derniers développements de l’écosystème de la donnée, mettant en lumière les choix technologiques qui ont façonné le développement d’un environnement moderne de <em>data science</em>, adapté aux besoins spécifiques des statisticiens. En particulier, nous montrons comment les technologies <em>cloud</em> — en particulier la conteneurisation et le stockage objet — sont essentielles pour créer des environnements évolutifs et flexibles qui favorisent l’autonomie tout en promouvant la reproductibilité des projets statistiques. Toutefois, malgré leurs atouts pour les applications modernes de <em>data science</em>, la complexité de configuration et d’utilisation des technologies <em>cloud</em> pose souvent des obstacles à leur adoption. Dans <a href="../../src/implementation/index.html#sec-implementation">la section 3</a>, nous détaillons le projet <code>Onyxia</code> vise précisément à rendre les technologies cloud accessibles aux statisticiens grâce à une interface conviviale et un catalogue étendu d’environnements de <em>data science</em> prêts à l’emploi. Enfin, à travers l’étude de cas de la classification des activités des entreprises françaises (APE), <a href="../../src/mlops/index.html#sec-mlops">la section 4</a> illustre comment l’utilisation de ces technologies a considérablement facilité la mise en production de modèles d’apprentissage automatique à l’Insee en permettant d’appliquer les meilleures pratiques issues du <em>MLOps</em>.</p>
 
 
 
-</main> <!-- /main -->
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<a href="https://github.com/InseeFrLab/onyxia">https://github.com/InseeFrLab/onyxia</a></p></div></div></section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ashofteh2021data" class="csl-entry" role="listitem">
+Ashofteh, Afshin, and Jorge M Bravo. 2021. <span>“Data Science Training for Official Statistics: A New Scientific Paradigm of Information and Knowledge Development in National Statistical Systems.”</span> <em>Statistical Journal of the IAOS</em> 37 (3): 771–89.
+</div>
+<div id="ref-davenport2012data" class="csl-entry" role="listitem">
+Davenport, Thomas H, and DJ Patil. 2012. <span>“Data Scientist.”</span> <em>Harvard Business Review</em> 90 (5): 70–76.
+</div>
+<div id="ref-descy2019towards" class="csl-entry" role="listitem">
+Descy, Pascaline, Vladimir Kvetan, Albrecht Wirthmann, and Fernando Reis. 2019. <span>“Towards a Shared Infrastructure for Online Job Advertisement Data.”</span> <em>Statistical Journal of the IAOS</em> 35 (4): 669–75.
+</div>
+<div id="ref-bucharest2018" class="csl-entry" role="listitem">
+DGINS. 2018. <span>“Bucharest Memorandum on Official Statistics in a Datafied Society.”</span> <a href="https://ec.europa.eu/eurostat/documents/13019146/13237859/\\The+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.pdf/7a8f6a8f-9805-e77c-a409-eb55a2b36bce?t=1634144384767" class="uri">https://ec.europa.eu/eurostat/documents/13019146/13237859/\\The+Bucharest+Memorandum+on+Trusted+Smart+Statistics+FINAL.pdf/7a8f6a8f-9805-e77c-a409-eb55a2b36bce?t=1634144384767</a>.
+</div>
+<div id="ref-essnetbigdata2" class="csl-entry" role="listitem">
+EUROSTAT. 2021. <span>“ESSnet Big Data 2 - Final Technical Report.”</span> <a href="https://wayback.archive-it.org/12090/20221110013641/https://ec.europa.eu/eurostat/cros/system/files/\\wpa_deliverable_a5_final_technical_report_2021_06_29.pdf" class="uri">https://wayback.archive-it.org/12090/20221110013641/https://ec.europa.eu/eurostat/cros/system/files/\\wpa_deliverable_a5_final_technical_report_2021_06_29.pdf</a>.
+</div>
+<div id="ref-gjaltema2022high" class="csl-entry" role="listitem">
+Gjaltema, Taeke. 2022. <span>“High-Level Group for the Modernisation of Official Statistics (HLG-MOS) of the United Nations Economic Commission for Europe.”</span> <em>Statistical Journal of the IAOS</em> 38 (3): 917–22.
+</div>
+<div id="ref-inseehorizon2025" class="csl-entry" role="listitem">
+INSEE. 2016. <span>“Horizon 2025.”</span> <a href="https://www.insee.fr/fr/statistiques/fichier/4130132/INSEE-2025.pdf" class="uri">https://www.insee.fr/fr/statistiques/fichier/4130132/INSEE-2025.pdf</a>.
+</div>
+<div id="ref-kowarik2022quality" class="csl-entry" role="listitem">
+Kowarik, Alexander, and Magdalena Six. 2022. <span>“Quality Guidelines for the Acquisition and Usage of Big Data with Additional Insights on Web Data.”</span> In <em>4th International Conference on Advanced Research Methods and Analytics (CARMA 2022)</em>, 269–69. Editorial Universitat Polit<span>è</span>cnica de Val<span>è</span>ncia.
+</div>
+<div id="ref-leclair2019scanner" class="csl-entry" role="listitem">
+Leclair, Marie, Isabelle Léonard, Guillaume Rateau, Patrick Sillard, Gaëtan Varlet, and Pierre Vernédal. 2019. <span>“Scanner Data: Advances in Methodology and New Challenges for Computing Consumer Price Indices.”</span> <em>Economie Et Statistique</em> 509 (1): 13–29.
+</div>
+<div id="ref-liu2013computing" class="csl-entry" role="listitem">
+Liu, Ling. 2013. <span>“Computing Infrastructure for Big Data Processing.”</span> <em>Frontiers of Computer Science</em> 7: 165–70.
+</div>
+<div id="ref-ricciato2018processing" class="csl-entry" role="listitem">
+Ricciato, Fabio, Freddy De Meersman, Albrecht Wirthmann, Gerdy Seynaeve, and Michail Skaliotis. 2018. <span>“Processing of Mobile Network Operator Data for Official Statistics: The Case for Public-Private Partnerships.”</span> In <em>104th DGINS Conference</em>.
+</div>
+<div id="ref-ricciato2019trusted" class="csl-entry" role="listitem">
+Ricciato, Fabio, Albrecht Wirthmann, Konstantinos Giannakouris, Michail Skaliotis, et al. 2019. <span>“Trusted Smart Statistics: Motivations and Principles.”</span> <em>Statistical Journal of the IAOS</em> 35 (4): 589–603.
+</div>
+<div id="ref-saiyeda2017cloud" class="csl-entry" role="listitem">
+Saiyeda, Anam, and Mansoor Ahmad Mir. 2017. <span>“Cloud Computing for Deep Learning Analytics: A Survey of Current Trends and Challenges.”</span> <em>International Journal of Advanced Research in Computer Science</em> 8 (2).
+</div>
+<div id="ref-sakarovitch2018estimating" class="csl-entry" role="listitem">
+Sakarovitch, Benjamin, Marie-Pierre de Bellefon, Pauline Givord, and Maarten Vanhoof. 2018. <span>“Estimating the Residential Population from Mobile Phone Data, an Initial Exploration.”</span> <em>Economie Et Statistique</em> 505 (1): 109–32.
+</div>
+<div id="ref-salgado2020mobile" class="csl-entry" role="listitem">
+Salgado, David, Luis Sanguiao-Sande, Sandra Barragán, Bogdan Oancea, and Milena Suarez-Castillo. 2020. <span>“A Proposed Production Framework with Mobile Network Data.”</span> In <em>ESSnet Big Data II - Workpackage i - Mobile Network Data</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
