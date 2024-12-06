@@ -28,7 +28,7 @@ In recent years, statisticians trained in data science methods have been joining
 :::: {.content-visible when-profile="fr"}
 
 
-# Un beau titre en francais {.unnumbered}
+# Mettre les technologies cloud au service de la production statistique {.unnumbered}
 
 #### Résumé {.unnumbered}
 
