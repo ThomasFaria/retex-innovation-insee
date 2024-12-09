@@ -29,7 +29,7 @@ While Onyxia has significantly democratized access to cloud-native technologies 
 
 ::: {.content-visible when-profile="fr"}
 
-TOTO
+# Discussion
 
 ::: 
 
