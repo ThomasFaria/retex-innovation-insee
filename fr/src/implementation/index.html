@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -73,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles/styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -165,12 +185,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-implementation-fr" id="toc-sec-implementation-fr" class="nav-link active" data-scroll-target="#sec-implementation-fr"><span class="header-section-number">3</span> Onyxia: an open source project to build cloud-native data science platforms</a></li>
+  <li><a href="#sec-implementation-fr" id="toc-sec-implementation-fr" class="nav-link active" data-scroll-target="#sec-implementation-fr"><span class="header-section-number">3</span> Onyxia : un projet open source pour construire des plateformes de datascience sur des technologies cloud</a>
+  <ul class="collapse">
+  <li><a href="#rendre-les-technologies-cloud-accessibles-aux-statisticiens" id="toc-rendre-les-technologies-cloud-accessibles-aux-statisticiens" class="nav-link" data-scroll-target="#rendre-les-technologies-cloud-accessibles-aux-statisticiens"><span class="header-section-number">3.1</span> Rendre les technologies cloud accessibles aux statisticiens</a></li>
+  <li><a href="#sec-principles-autonomy" id="toc-sec-principles-autonomy" class="nav-link" data-scroll-target="#sec-principles-autonomy"><span class="header-section-number">3.2</span> Architectural choices aimed at fostering autonomy</a></li>
+  <li><a href="#sec-catalog" id="toc-sec-catalog" class="nav-link" data-scroll-target="#sec-catalog"><span class="header-section-number">3.3</span> An extensive catalogue of services to cover the entire lifecycle of data science projects</a></li>
+  <li><a href="#building-commons-an-open-source-project-and-an-open-innovation-platform-1" id="toc-building-commons-an-open-source-project-and-an-open-innovation-platform-1" class="nav-link" data-scroll-target="#building-commons-an-open-source-project-and-an-open-innovation-platform-1"><span class="header-section-number">3.4</span> Building commons: an open-source project and an open-innovation platform</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
@@ -178,13 +204,105 @@ ul.task-list li input[type="checkbox"] {
 <!-- ############################################################################################################## -->
 <!-- ############################################################################################################## -->
 <!-- ############################################################################################################## -->
-<section id="sec-implementation-fr" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Onyxia: an open source project to build cloud-native data science platforms</h1>
+<section id="sec-implementation-fr" class="level1 page-columns page-full" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Onyxia : un projet open source pour construire des plateformes de datascience sur des technologies cloud</h1>
+<p>Cette section examine comment Onyxia, un projet open source initié par l’Insee, démocratise l’accès aux technologies <em>cloud</em> pour les statisticiens en fournissant des environnements modernes de <em>datascience</em> favorisant l’autonomie. Nous analysons comment cette initiative s’inscrit dans l’objectif général de création des “connaissances communes” en promouvant et en développant des logiciels facilement réutilisables dans le domaine des statistiques publiques et ailleurs.</p>
+<section id="rendre-les-technologies-cloud-accessibles-aux-statisticiens" class="level2 page-columns page-full" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="rendre-les-technologies-cloud-accessibles-aux-statisticiens"><span class="header-section-number">3.1</span> Rendre les technologies cloud accessibles aux statisticiens</h2>
+<p>Notre veille technologique et notre revue de la littérature ont mis en évidence les technologies <em>cloud</em>, en particulier la conteneurisation et le stockage d’objets, comme des éléments clés pour construire une plateforme de <em>datascience</em> à la fois scalable et flexible. En nous appuyant sur ces enseignements, nous avons mis en place notre premier cluster Kubernetes dans les locaux de l’Insee en 2020, en l’intégrant avec MinIO, un système de stockage d’objets <em>open source</em> conçu pour fonctionner de manière fluide avec Kubernetes. Cependant, nos premières expérimentations ont révélé un obstacle majeur à l’adoption généralisée des technologies <em>cloud</em> : la complexité de leur intégration. C’est une considération importante lorsqu’il s’agit de construire des architectures de données qui privilégient la modularité — une caractéristique essentielle pour atteindre la flexibilité que nous visons<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Toutefois, la modularité des composants architecturaux implique également que toute application de données lancée sur le cluster doit être configurée pour communiquer avec tous les autres composants. Par exemple, dans un environnement <em>big data</em>, la configuration de Spark pour fonctionner sur Kubernetes tout en interagissant avec des ensembles de données stockés dans MinIO nécessite de nombreuses et complexes configurations (définition des points d’entrée, des jetons d’accès, etc.), une compétence qui dépasse généralement l’expertise des statisticiens.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;A telling example of the importance of building a modular architecture is the ability to switch between storage sources (on-premise, public cloud provider, etc.). The storage solution we chose, MinIO, is compatible with Amazon’s S3 API, which has become a de facto standard in the cloud ecosystem due to the success of Amazon’s AWS S3 storage solution. As a result, organizations that choose to use Onyxia are not tied to a specific storage solution: they can choose any solution that complies with the standards defined by the S3 API.</p></div></div><p>For instance, due to MinIO’s compatibility with the Amazon S3 API, the storage source could easily be switched to one managed by another public cloud provider, without requiring substantial modifications.</p>
+<p>This insight is really the base of the Onyxia project: choosing technologies that foster autonomy will not actually foster autonomy if their complexity acts as a barrier from widespread adoption in the organization. In recent years, statisticians at Insee already needed to adapt to a changing environment in terms of their everyday tools: transitioning from proprietary software (SAS®) to open-source ones (R, Python), acculturating to technologies that improve reproducibility (version control with Git), consuming and developing APIs, etc. These changes, making their job more and more akin to the one of software developers, already imply significant training and changes in daily work practices. Against this background, adoption of cloud-technologies was utterly dependent on making them readily accessible.</p>
+<div id="fig-onyxia-components" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-onyxia-components-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../figures/onyxia-components.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-onyxia-components-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Onyxia is the technical binder between cloud-native modular components
+</figcaption>
+</figure>
+</div>
+<p>To bridge this gap, we developed Onyxia, an application that essentially acts as interface between the modular components that compose the architecture (see <a href="#fig-onyxia-components" class="quarto-xref">Figure&nbsp;1</a>). The main entry point of the user is a user-friendly web application<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> that enables users to launch services from a data science catalog (see <a href="#sec-catalog" class="quarto-xref">Section&nbsp;3.3</a>) as running containers on the underlying Kubernetes cluster. The interface between the UI and Kubernetes is done by a lightweight custom API<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, that essentially transforms the application request of the user into a set of manifests to deploy Kubernetes resources. For a given application, these resources are packaged under the form of Helm charts, a popular way of packaging potentially complex applications on Kubernetes <span class="citation" data-cites="gokhale2021creating">(<a href="#ref-gokhale2021creating" role="doc-biblioref">Gokhale et al. 2021</a>)</span>. Although users can configure a service to tailor it to their needs, they will most of the time just launch an out-of-the-box service with default settings and start developing straight away. This point really illustrates the added value of Onyxia in facilitating the adoption of cloud technologies. By injecting authentication information and configuration into the containers at the initialization, we ensure that users can launch and manage data science services in which they can interact seamlessly with the data from their bucket on MinIO, their sensitive information (tokens, passwords) in a secret management tool such as Vault, etc. This automatic injection, coupled with the pre-configuration of data science environments in Onyxia’s catalogs of images<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and associated helm-charts<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, make it possible for users to execute potentially complex workloads — such as running distributed computations with Spark on Kubernetes using data stored in S3, or training deep-learning models using a GPU — without getting bogged down by the technicalities of configuration.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<a href="">https://github.com/InseeFrLab/onyxia-ui</a></p></div><div id="fn3"><p><sup>3</sup>&nbsp;<a href="">https://github.com/InseeFrLab/onyxia-api</a></p></div><div id="fn4"><p><sup>4</sup>&nbsp;<a href="">https://github.com/InseeFrLab/images-datascience</a></p></div><div id="fn5"><p><sup>5</sup>&nbsp;<a href="">https://github.com/InseeFrLab/helm-charts-interactive-services</a></p></div></div></section>
+<section id="sec-principles-autonomy" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-principles-autonomy"><span class="header-section-number">3.2</span> Architectural choices aimed at fostering autonomy</h2>
+<p>The Onyxia project is based on a few structuring principles, with a central theme: fostering autonomy, both at the organizational and individual levels. First, at the level of the organization by preventing vendor lock-in. In order to get a competitive edge, many commercial cloud providers develop applications and protocols that customers need to use to access cloud resources, but that are not interoperable, greatly complexifying potential migrations to another cloud platform <span class="citation" data-cites="opara2016critical">(<a href="#ref-opara2016critical" role="doc-biblioref">Opara-Martins, Sahandi, and Tian 2016</a>)</span>. Recognizing these challenges, there is a trend towards endorsing cloud-neutral strategies <span class="citation" data-cites="opara2017holistic">(<a href="#ref-opara2017holistic" role="doc-biblioref">Opara-Martins, Sahandi, and Tian 2017</a>)</span> in order to reduce reliance on a single vendor’s specific solutions. In contrast, the use of Onyxia is inherently not restrictive: when an organization chooses to use it, it chooses the underlying technologies — containerization and object storage — but not the solution. The platform can be deployed on any Kubernetes cluster, either on-premise or in public clouds. Similarly, Onyxia was designed to be used with MinIO because it is an open-source object-storage solution, but is also compatible with objects storage solutions from various cloud providers (AWS, GCP).</p>
+<p>Onyxia also fosters autonomy at the level of users. Proprietary softwares that have been used intensively in official statistics — such as SAS or STATA — also produce a vendor lock-in phenomenon. The costs of licensing are high and can evolve quickly, and users are tied in certain ways of performing computations, preventing progressive upskilling. On the contrary, Onyxia aspires to be removable; we want to enhance users’ familiarity and comfort with the underlying cloud technologies rather than act as a permanent fixture in their workflow. An illustrative example of this philosophy is the platform’s approach to user actions: for tasks performed through the UI, such as launching a service or managing data, we provide users with the equivalent terminal commands, promoting a deeper understanding of what actually happens on the infrastructure when triggering something. Furthermore, all the services offered through Onyxia’s catalog are open-source.</p>
+<div id="fig-service-configuration" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-service-configuration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../figures/service-configuration.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-service-configuration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Launching a service through Onyxia’s UI.
+</figcaption>
+</figure>
+</div>
+<p>Note: Services from Onyxia’s catalog can either be used vanilla or configured by the users to tailor them to their specific needs. In order to limit the dependence of users on Onyxia, each action performed by the user on the UI is accompanied by the actual command that is executed on the Kubernetes cluster.</p>
+<p>Naturally, the way Onyxia makes statisticians more autonomous in their work depends on their needs and familiarity with IT skills. Statisticians that just want to have access to extensive computational resources to experiment with new data sources or statistical methods will have access in a few clicks to easy-to-use, pre-configured data science environments, so that they can directly start to experiment. However, many users want to go deeper and build actual prototypes of production applications for their projects: configuring initialization scripts to tailor the environments to their needs, deploying an interactive app that delivers data visualization to users of their choice, deploying other services than those available in our catalogs, etc. For these advanced users to continue to push the boundaries of innovation, Onyxia gives them access to the underlying Kubernetes cluster. This means that users can freely open a terminal on an interactive service and interacts with the cluster - within the boundaries of their namespace - in order to apply custom resources and deploy custom applications or services.</p>
+<p>Besides autonomy and scalability, the architectural choices of Onyxia also foster reproducibility of statistical computations. In the paradigm of containers, the user must learn to deal with resources which are by nature ephemeral, since they only exist at the time of their actual mobilization. This fosters the adoption of development best practices, notably the separation of the code — put on an internal or open-source forge such as GitLab or GitHub — the data — stored on a specific storage solution, such as MinIO — and the computing environment. While this requires an entry cost for users, it also helps them to conceive their projects as pipelines, i.e.&nbsp;a series of sequential steps with well-defined inputs and outputs (akin to directed acyclic graph (DAG)). The projects developed in that manner are usually more reproducible and portable — they can work seamlessly on different computing environments — and thus also more readily shareable with peers.</p>
+</section>
+<section id="sec-catalog" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-catalog"><span class="header-section-number">3.3</span> An extensive catalogue of services to cover the entire lifecycle of data science projects</h2>
+<p>In developing the Onyxia platform, our intention was to provide statisticians with a comprehensive environment designed to support end-to-end development of data science projects. As depicted in <a href="#fig-onyxia-catalog" class="quarto-xref">Figure&nbsp;3</a>, the platform offers a vast array of services that span the complete lifecycle of a data science project.</p>
+<div id="fig-onyxia-catalog" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-onyxia-catalog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../figures/onyxia-catalog.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-onyxia-catalog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Onyxia’s catalog aims at covering the entire lifecycle of data science projects
+</figcaption>
+</figure>
+</div>
+<p>The primary usage of the platform is the deployment of interactive development environments (IDE), such as RStudio, Jupyter, or VSCode. These IDEs come equipped with the latest kernels of major open-source programming languages commonly employed by public statisticians (R, Python, Julia), as well as an extensive collection of packages commonly used in data science for each language. In order to ensure that services remain up-to-date and consistent between them, we maintain our own stack of underlying Docker images and rebuild it weekly. The stack of images is fully open-source<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and can thus be reused outside Onyxia.</p>
+<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;<a href="">https://github.com/InseeFrLab/images-datascience</a></p></div></div><p>As discussed in previous sections, the persistence layer of these interactive environments is mainly carried out by MinIO, Onyxia’s default object storage solution. As it is based on a standardized REST API, files can be easily queried directly from R or Python using high-level packages. This in itself is an important step of ensuring reproducibility: the input files of a project are not mounted manually and then specified via paths adherent to a specific infrastructure and filesystem. Rather, files are specified as HTTP queries, making the overall structure of projects much more extendable. In our experience, the object-storage paradigm covers very well the needs of most statistical projects we accompany. However, additional database services such as PostgreSQL and MongoDB are available for applications with specific needs, such as those requiring online transaction processing (OLTP) capabilities or document-oriented storage.</p>
+<p>As Onyxia was developed to allow experimentation with big data sources and machine learning methods, we also provide services optimized for scalability. For instance, frameworks like Spark and Trino that enable to perform distributed computations within Kubernetes. These services come pre-configured to integrate seamlessly with S3 storage, thus facilitating building integrated and efficient data pipelines.</p>
+<p>Beyond mere experimentation, our goal is to empower statisticians to transition from trial phases to production-grade projects. In lines with principles from the DevOps approach, this involves facilitating the deployment of prototypes and their continuous improvement over time. To this end, we provide a set of open-source tools aimed at automatizing and industrializing the process of deploying data-intensive applications (ArgoCD, Argo-Workflows, MLflow). For projects leveraging machine-learning models, statisticians can serve their models through APIs, deploy them using the aforementioned tools, and manage their lifecycle using an API manager (e.g.&nbsp;Gravitee). <a href="../../src/mlops/index.html#sec-mlops">Section 4</a> will illustrate how these tools, particularly MLflow, have been central in putting machine learning models in production at Insee, in accordance with MLOps principles.</p>
+<p>In <a href="#sec-principles-autonomy" class="quarto-xref">Section&nbsp;3.2</a>, we stressed that one of Onyxia’s fundamental design principle was to avoid vendor lock-in. In line with this idea, organizations that implement Onyxia are free to customize catalogs to suit their specific requirements, or even opt to construct their own catalogs independent of Onyxia’s default offerings. This flexibility ensures that organizations are not confined to a single solution or provider, and can adapt the platform to their evolving needs.</p>
+</section>
+<section id="building-commons-an-open-source-project-and-an-open-innovation-platform-1" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="building-commons-an-open-source-project-and-an-open-innovation-platform-1"><span class="header-section-number">3.4</span> Building commons: an open-source project and an open-innovation platform</h2>
+<p>As a fully open-source initiative, the Onyxia project aims at building “knowledge commons” by promoting and building software that can be easily reused in official statistics and beyond <span class="citation" data-cites="schweik2006free">(<a href="#ref-schweik2006free" role="doc-biblioref">Schweik 2006</a>)</span>. This concerns, first of all, the components on which Onyxia are based: both its constitutive technological bricks (Kubernetes, MinIO, Vault) as well as all the services from the catalog are open-source. But more crucially, all the code of the project is available openly on GitHub<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. Alongside an in-depth documentation<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, this greatly facilitates the potential for other organizations to create instances of data science platforms built upon the Onyxia software and tailor it to their respective needs (see <a href="#fig-onyxia-instances" class="quarto-xref">Figure&nbsp;4</a>). This enabled the project to attract a growing community of contributors from official statistics (Statistics Norway), NGOs (Mercator Ocean), research centres and even industry, thus transitioning progressively towards a more decentralized governance of the project. In the next years, the involvement of NSIs from the European Statistical System is expected to increase as Onyxia was chosen as the reference data science platform in the context of the AIML4OS project, a “One-Stop-Shop” for Artificial Intelligence/Machine Learning for Official Statistics in the European Statistical System<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;<a href="">https://github.com/InseeFrLab/onyxia</a></p></div><div id="fn8"><p><sup>8</sup>&nbsp;<a href="">https://docs.onyxia.sh/</a></p></div><div id="fn9"><p><sup>9</sup>&nbsp;More information on this project available at <a href="">https://cros.ec.europa.eu/dashboard/aiml4os</a></p></div></div><div id="fig-onyxia-instances" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-onyxia-instances-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../figures/onyxia-instances.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-onyxia-instances-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: One project, multiple instances: the UI is adaptable to the graphic identity of the organization
+</figcaption>
+</figure>
+</div>
+<p>Another major way in which we try to build commons is by developing and maintaining a showcase instance of the Onyxia project, the SSP Cloud <span class="citation" data-cites="comte2022sspcloud">(<a href="#ref-comte2022sspcloud" role="doc-biblioref">Comte, Degorre, and Lesur 2022</a>)</span>. This platform, equipped with extensive and scalable computational resources<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a>, is designed to be a sandbox for experimenting with cloud technologies and new data science methods. The full catalog of services of Onyxia is available on the platform, enabling motivated users to go beyond mere experimentation by producing “proof of concepts”, with full autonomy regarding the configuration and orchestration of their services.</p>
+<div class="no-row-height column-margin column-container"><div id="fn10"><p><sup>10</sup>&nbsp;On the physical side, the SSP Cloud consists in a Kubernetes cluster of about 20 servers, for a total capacity of 10 TB of RAM, 1100 CPUs, 34 GPUs and 150 TB of storage.</p></div><div id="fn11"><p><sup>11</sup>&nbsp;<a href="">https://datalab.sspcloud.fr/</a></p></div></div><p>Beyond its technical capabilities, the SSP Cloud is an endeavour at embodying the principles of open-innovation <span class="citation" data-cites="chesbrough2003open">(<a href="#ref-chesbrough2003open" role="doc-biblioref">Chesbrough 2003</a>)</span>. Deployed on internet<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>, it is open not only to Insee employees, but also more broadly to French governmental agencies, French Universities and other European NSIs, and is dedicated to experimenting with data science methods using open data. Thus, the projects carried out on this platform showcase the growing abundance of datasets published openly by organizations. The fundamentally collaborative nature of the SSP Cloud has proven especially beneficial for organizing innovative events such as hackathons — both at the national and international levels — and in the academic sphere. It has become an integral resource for several universities and Grandes Ecoles in France, fostering the use of cloud-native and reproducible environments, and preventing vendor lock-in effect due to the over-reliance of educational organizations on proprietary cloud solutions. As a result, the platform is now widely used in the French National Statistical System and beyond, with about 800 unique users per month in 2024. These users form a dynamic community thanks to a centralized discussion canal; they help improve the user experience by reporting bugs, suggesting new features, and thus contribute directly to the project.</p>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-chesbrough2003open" class="csl-entry" role="listitem">
+Chesbrough, Henry William. 2003. <em>Open Innovation: The New Imperative for Creating and Profiting from Technology</em>. Harvard Business Press.
+</div>
+<div id="ref-comte2022sspcloud" class="csl-entry" role="listitem">
+Comte, Frédéric, Arnaud Degorre, and Romain Lesur. 2022. <span>“SSPCloud: A Creative Factory to Support Experimentations in the Field of Official Statistics.”</span> <em>Courrier Des Statistiques, INSEE</em> 7: 68–85.
+</div>
+<div id="ref-gokhale2021creating" class="csl-entry" role="listitem">
+Gokhale, Shivani, Reetika Poosarla, Sanjeevani Tikar, Swapnali Gunjawate, Aparna Hajare, Shilpa Deshpande, Sourabh Gupta, and Kanchan Karve. 2021. <span>“Creating Helm Charts to Ease Deployment of Enterprise Application and Its Related Services in Kubernetes.”</span> In <em>2021 International Conference on Computing, Communication and Green Engineering (CCGE)</em>, 1–5. IEEE.
+</div>
+<div id="ref-opara2017holistic" class="csl-entry" role="listitem">
+Opara-Martins, Justice, M Sahandi, and Feng Tian. 2017. <span>“A Holistic Decision Framework to Avoid Vendor Lock-in for Cloud Saas Migration.”</span> <em>Computer and Information Science</em> 10 (3).
+</div>
+<div id="ref-opara2016critical" class="csl-entry" role="listitem">
+Opara-Martins, Justice, Reza Sahandi, and Feng Tian. 2016. <span>“Critical Analysis of Vendor Lock-in and Its Impact on Cloud Computing Migration: A Business Perspective.”</span> <em>Journal of Cloud Computing</em> 5: 1–18.
+</div>
+<div id="ref-schweik2006free" class="csl-entry" role="listitem">
+Schweik, Charles M. 2006. <span>“Free/Open-Source Software as a Framework for Establishing Commons in Science.”</span> Edited by Elinor Hess Charlotte &amp; Ostrom.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
