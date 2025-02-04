@@ -164,6 +164,26 @@ Against that background, an annotation campaign has been initiated in early 2024
 
 ::: {.content-visible when-profile="fr"}
 
-# Cas d'usage {#sec-mlops-fr}
+# Cas d'usage : adopter les pratiques MLOps pour améliorer la codification de l'APE {#sec-mlops-fr}
+
+
+Ce chapitre vise à illustrer comment l’Insee a réussi à déployer son premier modèle de machine learning (ML) en production. Il propose une description détaillée de l’approche MLOps à laquelle ce projet s’est efforcé d’adhérer, en mettant l’accent sur les différentes technologies employées. En particulier, nous soulignons le rôle crucial des technologies *cloud* qui ont permis la construction du projet de manière itérative, ainsi que la manière dont Onyxia a grandement facilité cette construction en fournissant des environnements de développement flexibles et des outils pour entraîner, déployer et surveiller les modèles des modèles d'apprentissage automatique. De plus, la convergence entamée des environnement de self (^$LS^3$), de développement (KubeDev) et de production (KubeProd) constitue une réelle avancer pour faciliter la mise en production d'autres modèles d'apprentissage automatique (un modèle de codification de la PCS a également été déployé récemment). Le projet présenté est totalement disponible en open source [^codif-team] et reste en cours de développement actif.
+
+[^codif-team]: [https://github.com/orgs/InseeFrLab/teams/codification-ape/repositories]()
+
+
+## Fluidifier la codification de l'APE à l'aide de méthodes d'apprentissage automatique
+
+### Motivation
+
+Les tâches de codification sont des opérations bien connues des instituts statistiques, et peuvent parfois être complexes en raison de la taille des nomenclatures. À l’Insee, un outil sophistiqué appelé Sicore a été développé dans les années 1990 pour effectuer diverses tâches de classification [@meyer_sicore_1997]. Cet outil repose sur un ensemble de règles déterministes permettant d'identifier les codes corrects à partir d'un libellé textuel en se basant sur un fichier de référence comprenant un certain nombre d'exemples. Chaque libellé d'entrée est soumis à ces règles et, lorsqu'un code correct est reconnu, il est attribué au libellé. En revanche, si le libellé n'est pas reconnu, il doit être classer manuellement par un agent de l’Insee.
+
+Deux raisons principales ont motivé l’expérimentation de nouvelles méthodes de codification.
+
+Premièrement, un changement interne est survenu avec la refonte du répertoire statistique des entreprises en France (Sirene), qui liste toutes les entreprises et leur attribue un identifiant unique utilisé par les administrations publiques, le numéro Siren. Les principaux objectifs de cette refonte étaient d’améliorer la gestion quotidienne du répertoire pour les agents de l’Insee et de réduire les délais d’attente pour les entreprises. Par ailleurs, au niveau national, le gouvernement a lancé, dans le cadre de la loi PACTE (n° 2019-486 du 22 mai 2019), un guichet unique pour les formalités des entreprises, offrant aux chefs d'entreprises plus de flexibilité dans la description de leurs activités principales les rendant ainsi plus verbeux que précédemment. Les tests initiaux ont révélé que Sicore n’était plus adapté pour effectuer la codification APE, puisque seulement $30\%$ des liasses d'entreprises étaient automatiquement codées, et donc $70\%$ devait être codés manuellement par des gestionnaires. Les équipes en charge du répertoire Sirene, déjà confrontées à des charges de travail importantes et à de fortes contraintes opérationnelles, ne pouvaient pas voir leur charge augmentée par une re-codification manuelle, une tâche à la fois chronophage et peu stimulante. Ainsi, en mai 2022, la décision a été prise d’expérimenter de nouvelles méthodes pour effectuer cette tâche de codification, avec pour objectif de les utiliser en production dès le 1er janvier 2023, date de lancement du nouveau répertoire Sirene.
+
+Trois parties prenantes étaient donc impliquées dans ce projet : l’équipe métier (division RIAS[^rias]), responsable de la gestion du répertoire statistique des entreprises ; l’équipe informatique, en charge du développement des applications liés au fonctionnement du répertoire ; et l’équipe d’innovation (l'unité SSPlab), responsable de la mise en œuvre du nouvel outil de codification.
+
+[^rias]: Répertoire Interadministratif Sirene
 
 ::: 
