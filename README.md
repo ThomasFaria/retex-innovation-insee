@@ -12,3 +12,5 @@ Source repository of the forthcoming publication :
 	year	= "2025"
 }
 ```
+
+Pre-print version : [https://hal.science/hal-04608636](https://hal.science/hal-04608636)
