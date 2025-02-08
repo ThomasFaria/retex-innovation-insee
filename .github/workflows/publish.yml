@@ -1,0 +1,34 @@
+name: Render and Publish PDF
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  render-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-extra
+
+      - name: Render
+        run: |
+          latexmk -pdf article.tex -interaction=nonstopmode
+
+      - name: Publish
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          
+          git add article.pdf
+          git commit -m "GHA: automatic update"
+          git push
